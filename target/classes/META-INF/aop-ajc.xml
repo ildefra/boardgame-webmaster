@@ -1,0 +1,24 @@
+<aspectj>
+<aspects>
+<aspect name="org.m4.bgw.Country_Roo_Jpa_ActiveRecord"/>
+<aspect name="org.m4.bgw.Boardgame_Roo_Jpa_Entity"/>
+<aspect name="org.m4.bgw.Country_Roo_Jpa_Entity"/>
+<aspect name="org.m4.bgw.Boardgame_Roo_Jpa_ActiveRecord"/>
+<aspect name="org.m4.bgw.Country_Roo_DbManaged"/>
+<aspect name="org.m4.bgw.Country_Roo_ToString"/>
+<aspect name="org.m4.bgw.web.BoardgameController_Roo_Controller"/>
+<aspect name="org.m4.bgw.Boardgame_Roo_Configurable"/>
+<aspect name="org.m4.bgw.Country_Roo_Configurable"/>
+<aspect name="org.m4.bgw.Language_Roo_DbManaged"/>
+<aspect name="org.m4.bgw.web.CountryController_Roo_Controller"/>
+<aspect name="org.m4.bgw.Language_Roo_Configurable"/>
+<aspect name="org.m4.bgw.Boardgame_Roo_DbManaged"/>
+<aspect name="org.m4.bgw.Language_Roo_ToString"/>
+<aspect name="org.m4.bgw.web.LanguageController_Roo_Controller"/>
+<aspect name="org.m4.bgw.Language_Roo_Jpa_Entity"/>
+<aspect name="org.m4.bgw.web.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="org.m4.bgw.Language_Roo_Jpa_ActiveRecord"/>
+<aspect name="org.m4.bgw.Boardgame_Roo_ToString"/>
+</aspects>
+</aspectj>
+
