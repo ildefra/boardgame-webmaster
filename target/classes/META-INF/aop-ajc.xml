@@ -2,6 +2,8 @@
 <aspects>
 <aspect name="org.m4.bgw.domain.GameTag_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.domain.GameTranslationPK_Roo_Json"/>
+<aspect name="org.m4.bgw.domain.LevelTranslationPK_Roo_Equals"/>
+<aspect name="org.m4.bgw.domain.AvgGameLengthPK_Roo_Equals"/>
 <aspect name="org.m4.bgw.web.AchievedController_Roo_Controller"/>
 <aspect name="org.m4.bgw.domain.AchievementTranslation_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.domain.LevelTranslation_Roo_Jpa_Entity"/>
@@ -9,6 +11,7 @@
 <aspect name="org.m4.bgw.domain.ExternalLink_Roo_DbManaged"/>
 <aspect name="org.m4.bgw.domain.TimeLimit_Roo_Configurable"/>
 <aspect name="org.m4.bgw.web.ExternalLinkController_Roo_Controller"/>
+<aspect name="org.m4.bgw.domain.GameTranslationPK_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.TagTranslation_Roo_ToString"/>
 <aspect name="org.m4.bgw.domain.AchievedPK_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.Player_Roo_Jpa_ActiveRecord"/>
@@ -24,9 +27,11 @@
 <aspect name="org.m4.bgw.web.CountryController_Roo_Controller"/>
 <aspect name="org.m4.bgw.domain.Publisher_Roo_DbManaged"/>
 <aspect name="org.m4.bgw.domain.TagTranslationPK_Roo_Identifier"/>
+<aspect name="org.m4.bgw.domain.TagTranslationPK_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.UserLevel_Roo_DbManaged"/>
 <aspect name="org.m4.bgw.domain.Achieved_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.Achieved_Roo_Jpa_Entity"/>
+<aspect name="org.m4.bgw.domain.AchievementTranslation_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.GameTag_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.TagTranslation_Roo_Jpa_ActiveRecord"/>
 <aspect name="org.m4.bgw.domain.LevelTranslation_Roo_ToString"/>
@@ -35,6 +40,7 @@
 <aspect name="org.m4.bgw.domain.LevelTranslationPK_Roo_Identifier"/>
 <aspect name="org.m4.bgw.domain.GameDesigner_Roo_DbManaged"/>
 <aspect name="org.m4.bgw.web.GameTableController_Roo_Controller"/>
+<aspect name="org.m4.bgw.domain.GameTranslation_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.TagTranslation_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.web.UserLevelController_Roo_Controller"/>
 <aspect name="org.m4.bgw.domain.AvgGameLength_Roo_DbManaged"/>
@@ -65,6 +71,7 @@
 <aspect name="org.m4.bgw.domain.PlayedPK_Roo_Json"/>
 <aspect name="org.m4.bgw.Country_Roo_Jpa_ActiveRecord"/>
 <aspect name="org.m4.bgw.domain.AvgGameLengthPK_Roo_Json"/>
+<aspect name="org.m4.bgw.domain.LevelTranslation_Roo_Equals"/>
 <aspect name="org.m4.bgw.web.GameTranslationController_Roo_Controller"/>
 <aspect name="org.m4.bgw.domain.Gender_Roo_Configurable"/>
 <aspect name="org.m4.bgw.Language_Roo_DbManaged"/>
@@ -75,6 +82,7 @@
 <aspect name="org.m4.bgw.domain.AchievementTranslation_Roo_Jpa_ActiveRecord"/>
 <aspect name="org.m4.bgw.Language_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.domain.AchievementTranslationPK_Roo_Serializable"/>
+<aspect name="org.m4.bgw.domain.TagTranslation_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.LevelTranslationPK_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.AvgGameLength_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.domain.GameTranslation_Roo_DbManaged"/>
@@ -97,6 +105,7 @@
 <aspect name="org.m4.bgw.Language_Roo_ToString"/>
 <aspect name="org.m4.bgw.domain.ExternalLink_Roo_ToString"/>
 <aspect name="org.m4.bgw.domain.TagTranslation_Roo_DbManaged"/>
+<aspect name="org.m4.bgw.domain.Played_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.GameTranslationPK_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.Publisher_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.Gender_Roo_Jpa_ActiveRecord"/>
@@ -133,14 +142,18 @@
 <aspect name="org.m4.bgw.domain.LevelTranslation_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.Player_Roo_ToString"/>
 <aspect name="org.m4.bgw.domain.AchievementTranslationPK_Roo_Configurable"/>
+<aspect name="org.m4.bgw.domain.AchievementTranslationPK_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.LevelTranslationPK_Roo_Serializable"/>
+<aspect name="org.m4.bgw.domain.PlayedPK_Roo_Equals"/>
 <aspect name="org.m4.bgw.web.TagTranslationController_Roo_Controller"/>
 <aspect name="org.m4.bgw.domain.TagTranslationPK_Roo_Json"/>
 <aspect name="org.m4.bgw.web.LanguageController_Roo_Controller"/>
 <aspect name="org.m4.bgw.domain.GameTable_Roo_Configurable"/>
+<aspect name="org.m4.bgw.domain.AchievedPK_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.AvgGameLength_Roo_Configurable"/>
 <aspect name="org.m4.bgw.domain.Player_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.domain.Gender_Roo_Jpa_Entity"/>
+<aspect name="org.m4.bgw.domain.AvgGameLength_Roo_Equals"/>
 <aspect name="org.m4.bgw.domain.GameTable_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.Boardgame_Roo_Jpa_Entity"/>
 <aspect name="org.m4.bgw.domain.Played_Roo_DbManaged"/>

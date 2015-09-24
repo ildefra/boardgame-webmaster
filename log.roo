@@ -39,3 +39,15 @@ exit
 // Spring Roo 2.0.0.M1 [rev 33e5d76] log closed at 2015-09-24 16:17:53
 // Spring Roo 2.0.0.M1 [rev 33e5d76] log opened at 2015-09-24 16:21:48
 equals --class ~.domain.Played
+equals --class ~.domain.AchievedPK
+equals --class ~.domain.PlayedPK
+equals --class ~.domain.AvgGameLength
+equals --class ~.domain.AvgGameLengthPK
+equals --class ~.domain.GameTranslation
+equals --class ~.domain.GameTranslationPK
+equals --class ~.domain.LevelTranslation
+equals --class ~.domain.LevelTranslationPK
+equals --class ~.domain.TagTranslation
+equals --class ~.domain.TagTranslationPK
+equals --class ~.domain.AchievementTranslation
+equals --class ~.domain.AchievementTranslationPK
