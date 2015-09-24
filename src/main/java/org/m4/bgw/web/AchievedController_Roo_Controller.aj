@@ -6,10 +6,15 @@ package org.m4.bgw.web;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.m4.bgw.Boardgame;
 import org.m4.bgw.domain.Achieved;
 import org.m4.bgw.domain.AchievedPK;
+import org.m4.bgw.domain.Achievement;
+import org.m4.bgw.domain.Player;
 import org.m4.bgw.web.AchievedController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -49,6 +54,7 @@ privileged aspect AchievedController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String AchievedController.show(@PathVariable("id") AchievedPK id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("achieved", Achieved.findAchieved(id));
         uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
         return "achieveds/show";
@@ -65,6 +71,7 @@ privileged aspect AchievedController_Roo_Controller {
         } else {
             uiModel.addAttribute("achieveds", Achieved.findAllAchieveds(sortFieldName, sortOrder));
         }
+        addDateTimeFormatPatterns(uiModel);
         return "achieveds/list";
     }
     
@@ -95,8 +102,16 @@ privileged aspect AchievedController_Roo_Controller {
         return "redirect:/achieveds";
     }
     
+    void AchievedController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("achieved_ondate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+    }
+    
     void AchievedController.populateEditForm(Model uiModel, Achieved achieved) {
         uiModel.addAttribute("achieved", achieved);
+        addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("boardgames", Boardgame.findAllBoardgames());
+        uiModel.addAttribute("achievements", Achievement.findAllAchievements());
+        uiModel.addAttribute("players", Player.findAllPlayers());
     }
     
     String AchievedController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

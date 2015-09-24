@@ -51,3 +51,5 @@ equals --class ~.domain.TagTranslation
 equals --class ~.domain.TagTranslationPK
 equals --class ~.domain.AchievementTranslation
 equals --class ~.domain.AchievementTranslationPK
+jpa setup --database MYSQL --provider OPENJPA --databaseName boardgames --userName root --password root
+jpa setup --database MYSQL --provider HIBERNATE --databaseName boardgames --userName root --password root
