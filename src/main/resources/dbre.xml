@@ -7,7 +7,7 @@
     <option key="includeNonPortableAttributes" value="false"/>
     <option key="disableVersionFields" value="false"/>
     <option key="disableGeneratedIdentifiers" value="false"/>
-    <option key="testAutomatically" value="false"/>
+    <option key="testAutomatically" value="true"/>
     <table name="boardgame">
         <column name="boardgame_id" primaryKey="true" required="true" scale="0" size="10" type="4,INT UNSIGNED"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="255" type="12,VARCHAR"/>

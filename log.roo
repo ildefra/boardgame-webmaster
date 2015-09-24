@@ -17,3 +17,9 @@ help
 help database
 help database reverse engineer
 database reverse engineer --schema boardgames
+database reverse engineer --schema boardgames --testAutomatically 
+database reverse engineer --schema boardgames --testAutomatically 
+// [failed] perform tests
+web mvc setup
+hint
+web mvc all --package ~.web
