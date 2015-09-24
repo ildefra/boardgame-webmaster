@@ -11,3 +11,9 @@ addon install bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql
 database properties list
 jpa setup --database MYSQL --provider OPENJPA --databaseName boardgames --userName root --password root
 database properties list
+database introspect --schema boardgames
+hint
+help
+help database
+help database reverse engineer
+database reverse engineer --schema boardgames
