@@ -5,6 +5,7 @@
     <form:create id="fc_org_m4_bgw_Country" modelAttribute="country" path="/countrys" render="${empty dependencies}" z="+7WfIMujLXDdKsp2iiank7HT6M8=">
         <field:input field="isoAlpha3" id="c_org_m4_bgw_Country_isoAlpha3" z="pDQbLqIybgzPG6pDYY/iaAkg4Hk="/>
         <field:input field="name" id="c_org_m4_bgw_Country_name" required="true" z="t0ASJbhVq2DYghKydNcuNjU0M6c="/>
+        <field:simple field="players" id="c_org_m4_bgw_Country_players" messageCode="entity_reference_not_managed" messageCodeAttribute="Player" z="LGbYKLLqxlnjRm2Mwou7QTeGrVk="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_m4_bgw_Country" render="${not empty dependencies}" z="r2UsS+3ptJ/J42V8rE/UoWUzZ+I="/>
 </div>

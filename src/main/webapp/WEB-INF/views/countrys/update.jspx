@@ -5,5 +5,6 @@
     <form:update id="fu_org_m4_bgw_Country" idField="isoAlpha2" modelAttribute="country" path="/countrys" versionField="none" z="E6pWkg/bJukO9wXi1wthkjnezEs=">
         <field:input field="isoAlpha3" id="c_org_m4_bgw_Country_isoAlpha3" z="pDQbLqIybgzPG6pDYY/iaAkg4Hk="/>
         <field:input field="name" id="c_org_m4_bgw_Country_name" required="true" z="t0ASJbhVq2DYghKydNcuNjU0M6c="/>
+        <field:simple field="players" id="c_org_m4_bgw_Country_players" messageCode="entity_reference_not_managed" messageCodeAttribute="Player" z="LGbYKLLqxlnjRm2Mwou7QTeGrVk="/>
     </form:update>
 </div>

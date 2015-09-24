@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_m4_bgw_domain_TagTranslation" items="${tagtranslations}" z="moN44uuEdUexHLUvCNKJecwc/Js=">
+        <table:table data="${tagtranslations}" id="l_org_m4_bgw_domain_TagTranslation" path="/tagtranslations" z="yLHJ/C1uxRVg6E4mh5F+MltrqKE=">
+            <table:column id="c_org_m4_bgw_domain_TagTranslation_tagName" property="tagName" z="qPJFqept5yQvyfMvT2ONlIQ501w="/>
+            <table:column id="c_org_m4_bgw_domain_TagTranslation_languageCode" property="languageCode" z="LxXmtL0DAnG57fd7gifCI/zcHNA="/>
+            <table:column id="c_org_m4_bgw_domain_TagTranslation_name" property="name" z="5ShwdC7puYxMk8gCobHnS0KhYkA="/>
+        </table:table>
+    </page:list>
+</div>

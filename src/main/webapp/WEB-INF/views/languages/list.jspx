@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_m4_bgw_Language" items="${languages}" z="+iBh0TcXKp8W9PFm/f7MJyrNKoA=">
         <table:table data="${languages}" id="l_org_m4_bgw_Language" path="/languages" typeIdFieldName="languageCode" z="gHE979Gw1YZwXHEA7YPNc/2MZjk=">
-            <table:column id="c_org_m4_bgw_Language_name" property="name" z="mkpHDNzv4VXC7iWDId3Gm5RFFxw="/>
+            <table:column id="c_org_m4_bgw_Language_players" property="players" z="862FVIt0vS9SAKseriJ6O/y6sgs="/>
         </table:table>
     </page:list>
 </div>

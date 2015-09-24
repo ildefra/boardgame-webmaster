@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_m4_bgw_domain_Achievement" idField="achievementId" modelAttribute="achievement" path="/achievements" versionField="none" z="oUpd/bHoTgMfysW8fY6N0uUeXTs=">
+        <field:simple field="achieveds" id="c_org_m4_bgw_domain_Achievement_achieveds" messageCode="entity_reference_not_managed" messageCodeAttribute="Achieved" z="5o5C52rorLVhL0Uk3srkzrUV1Xs="/>
+        <field:simple field="achievementTranslations" id="c_org_m4_bgw_domain_Achievement_achievementTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Achievement Translation" z="pgFB5JhOoTcegwPE6NaYocavw+A="/>
+        <field:input field="points" id="c_org_m4_bgw_domain_Achievement_points" required="true" validationMessageCode="field_invalid_integer" z="jSPmbPACYcei1l1xCKp5c3JFHpw="/>
+        <field:input field="name" id="c_org_m4_bgw_domain_Achievement_name" required="true" z="rKLEfhaGYtfStZnNzkAU8RkJTvM="/>
+    </form:update>
+</div>

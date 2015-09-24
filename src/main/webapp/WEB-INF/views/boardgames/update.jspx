@@ -3,7 +3,25 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_m4_bgw_Boardgame" idField="boardgameId" modelAttribute="boardgame" path="/boardgames" versionField="none" z="WhsTl0FEgXUPLagmh+HYsl+jVl4=">
-        <field:input field="name" id="c_org_m4_bgw_Boardgame_name" required="true" z="SMt1qmVRYUeZk5NejYdMtyNPqMQ="/>
         <field:input field="publicationYear" id="c_org_m4_bgw_Boardgame_publicationYear" validationMessageCode="field_invalid_integer" z="W0NoAbK+u2+5VfIUOHwu246IZqs="/>
+        <field:select field="gameDesigners" id="c_org_m4_bgw_Boardgame_gameDesigners" itemValue="gameDesignerId" items="${gamedesigners}" multiple="true" path="/gamedesigners" z="tjMLIzyp7hhfQ3lMPrexaSCyRsk="/>
+        <field:select field="gameDesigners1" id="c_org_m4_bgw_Boardgame_gameDesigners1" itemValue="gameDesignerId" items="${gamedesigners}" multiple="true" path="/gamedesigners" z="QmLOP6Uhy36Jw92AgnlbsyZ/D8o="/>
+        <field:select field="gameTags2" id="c_org_m4_bgw_Boardgame_gameTags2" itemValue="name" items="${gametags}" multiple="true" path="/gametags" z="ONqZ3dkw6tDSUECVxawMe5fEaVA="/>
+        <field:simple field="achieveds" id="c_org_m4_bgw_Boardgame_achieveds" messageCode="entity_reference_not_managed" messageCodeAttribute="Achieved" z="4OBevObhvVvhRA3XqmVA1+yL03c="/>
+        <field:simple field="avgGameLengths" id="c_org_m4_bgw_Boardgame_avgGameLengths" messageCode="entity_reference_not_managed" messageCodeAttribute="Avg Game Length" z="xy8GzHM29nBL+HPdI800dIBF5RU="/>
+        <field:simple field="externalLinks" id="c_org_m4_bgw_Boardgame_externalLinks" messageCode="entity_reference_not_managed" messageCodeAttribute="External Link" z="wEo0082ML9lCJebHFL7uahk+U2E="/>
+        <field:simple field="gameTables" id="c_org_m4_bgw_Boardgame_gameTables" messageCode="entity_reference_not_managed" messageCodeAttribute="Game Table" z="J2Jx4zPxZjdECq1AH/2SqrM8iVA="/>
+        <field:simple field="gameTranslations" id="c_org_m4_bgw_Boardgame_gameTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Game Translation" z="QcOsAy0e/HhjXNUCZdP/hgPanGw="/>
+        <field:select field="publisher" id="c_org_m4_bgw_Boardgame_publisher" itemValue="name" items="${publishers}" path="/publishers" z="BAqP5i9wah3nI9UNnU9e3p+E1K0="/>
+        <field:select field="developedBy" id="c_org_m4_bgw_Boardgame_developedBy" itemValue="username" items="${players}" path="/players" z="olhted/1OuNUZGFPWvNMOJt69YE="/>
+        <field:input field="originalName" id="c_org_m4_bgw_Boardgame_originalName" required="true" z="1TElQze8xDe7ZkQCocRibL0fdeI="/>
+        <field:input field="playersMin" id="c_org_m4_bgw_Boardgame_playersMin" required="true" validationMessageCode="field_invalid_integer" z="ZCnk2HpsAHh7eM9lECvAGW06iSc="/>
+        <field:input field="playersMax" id="c_org_m4_bgw_Boardgame_playersMax" required="true" validationMessageCode="field_invalid_integer" z="ctiZJtnrvWfdJ9lIOtXfRCazofU="/>
+        <field:input field="avgLengthMinutes" id="c_org_m4_bgw_Boardgame_avgLengthMinutes" required="true" validationMessageCode="field_invalid_integer" z="hb2FPJ8p33e6LFk2aSnLOy5PlsM="/>
+        <field:input field="complexityScore" id="c_org_m4_bgw_Boardgame_complexityScore" required="true" validationMessageCode="field_invalid_integer" z="AYKgm3pJvnXUxvAQlB4xD+e6ltM="/>
+        <field:input field="strategyScore" id="c_org_m4_bgw_Boardgame_strategyScore" required="true" validationMessageCode="field_invalid_integer" z="UrwBemHqyZEwiHCPkVNCYd35WfQ="/>
+        <field:input field="luckScore" id="c_org_m4_bgw_Boardgame_luckScore" required="true" validationMessageCode="field_invalid_integer" z="4ShQgCL1/J1Na50x6JDZk9arERA="/>
+        <field:input field="interactionScore" id="c_org_m4_bgw_Boardgame_interactionScore" required="true" validationMessageCode="field_invalid_integer" z="r11d1zYqjrn5wVzYwh83l20AcZ0="/>
+        <field:input field="softwareVersion" id="c_org_m4_bgw_Boardgame_softwareVersion" required="true" z="pgQmz9wYWzGA14Z/63aj6dPXWlE="/>
     </form:update>
 </div>

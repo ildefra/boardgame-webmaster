@@ -4,8 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_m4_bgw_Boardgame" items="${boardgames}" z="/lLHdqDmly4LK7eu8zmC1NJhXcM=">
         <table:table data="${boardgames}" id="l_org_m4_bgw_Boardgame" path="/boardgames" typeIdFieldName="boardgameId" z="4+jLqk2H5eDjuTKBqEctNfroYwY=">
-            <table:column id="c_org_m4_bgw_Boardgame_name" property="name" z="5PDP/tX/ZZfqouBAOVIowEhQuIU="/>
-            <table:column id="c_org_m4_bgw_Boardgame_publicationYear" property="publicationYear" z="qHWgtRayDatC5OjlEq0e/BUwZyw="/>
+            <table:column id="c_org_m4_bgw_Boardgame_gameDesigners" property="gameDesigners" z="rmIGfq7z6lHmmSQvj3ZrdU94pxU="/>
+            <table:column id="c_org_m4_bgw_Boardgame_gameDesigners1" property="gameDesigners1" z="BQCDULde6wN0aaXnBMYpX10wGgA="/>
+            <table:column id="c_org_m4_bgw_Boardgame_gameTags2" property="gameTags2" z="i2Dj85+bbHjm/4/b7JNKHU7kSVU="/>
         </table:table>
     </page:list>
 </div>

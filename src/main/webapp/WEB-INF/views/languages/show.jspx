@@ -4,5 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_m4_bgw_Language" object="${language}" path="/languages" z="01zW0Lqx4sYTb4anUO9QvAmRKgY=">
         <field:display field="name" id="s_org_m4_bgw_Language_name" object="${language}" z="BxVCDrWjFQoolIk7BujpBEBgngg="/>
+        <field:display field="players" id="s_org_m4_bgw_Language_players" object="${language}" z="Pnsb5cppW2lFfvynmqIAg4FcDrA="/>
     </page:show>
 </div>

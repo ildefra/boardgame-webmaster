@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_m4_bgw_domain_AchievementTranslation" items="${achievementtranslations}" z="KAI3IhzSRT7v6YChoO9DtCb5dSo=">
+        <table:table data="${achievementtranslations}" id="l_org_m4_bgw_domain_AchievementTranslation" path="/achievementtranslations" z="mGzgNF9YCblGYXQpZ4IHgvu/p30=">
+            <table:column id="c_org_m4_bgw_domain_AchievementTranslation_achievementId" property="achievementId" z="hGX1UyfdzgkabMqkePcmsyYF7XM="/>
+            <table:column id="c_org_m4_bgw_domain_AchievementTranslation_languageCode" property="languageCode" z="CMWZQbORZW+jXKV7eE3l9yZ9tts="/>
+            <table:column id="c_org_m4_bgw_domain_AchievementTranslation_name" property="name" z="Kkg2Kez3h3+OIeUuffhsprXhHpI="/>
+        </table:table>
+    </page:list>
+</div>

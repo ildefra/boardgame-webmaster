@@ -4,5 +4,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_m4_bgw_Language" idField="languageCode" modelAttribute="language" path="/languages" versionField="none" z="OMwUcHg+c2ZiUEhSjxkm6cwYVqM=">
         <field:input field="name" id="c_org_m4_bgw_Language_name" required="true" z="xZbN5ECPfYK+naBVNR1o8VDDC94="/>
+        <field:select field="players" id="c_org_m4_bgw_Language_players" itemValue="username" items="${players}" multiple="true" path="/players" z="6CFZxUPPZuoaqqu9eZcJ2kigcbU="/>
+        <field:simple field="achievementTranslations" id="c_org_m4_bgw_Language_achievementTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Achievement Translation" z="u3F7i1QM8rgW+QE22JLuz3lZv9s="/>
+        <field:simple field="externalLinks" id="c_org_m4_bgw_Language_externalLinks" messageCode="entity_reference_not_managed" messageCodeAttribute="External Link" z="AFWexi5TalMHMx6A8NAhVhz1yPg="/>
+        <field:simple field="gameTranslations" id="c_org_m4_bgw_Language_gameTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Game Translation" z="Hh8CPKU4oXTE5OmqJqlKbPcTdtI="/>
+        <field:simple field="levelTranslations" id="c_org_m4_bgw_Language_levelTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Level Translation" z="99nr8raZsyfQ+uTHkuB4h6KRfJE="/>
+        <field:simple field="tagTranslations" id="c_org_m4_bgw_Language_tagTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Tag Translation" z="8ujIrwCrmNztL9zkPTTtzXbn7CU="/>
     </form:update>
 </div>

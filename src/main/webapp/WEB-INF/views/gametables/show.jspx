@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_m4_bgw_domain_GameTable" object="${gametable}" path="/gametables" z="p53YW1J3Jdb/pUnt+7dl1XKPIZ8=">
+        <field:display field="boardgameId" id="s_org_m4_bgw_domain_GameTable_boardgameId" object="${gametable}" z="SM8Q+mhGN3piyzOg5weFSL0BwGA="/>
+        <field:display field="timeLimitId" id="s_org_m4_bgw_domain_GameTable_timeLimitId" object="${gametable}" z="y3dyI8O/Mq78yYmmsYt3ALaaNes="/>
+        <field:display field="rated" id="s_org_m4_bgw_domain_GameTable_rated" object="${gametable}" z="Q/LFdjpln6jM3/Kf1+uyjU6RIJE="/>
+        <field:display field="videoRecorded" id="s_org_m4_bgw_domain_GameTable_videoRecorded" object="${gametable}" z="yT0P/9GwZ+hl+XodoCVPiEVlTUI="/>
+        <field:display calendar="true" dateTimePattern="${gameTable_createddtm_date_format}" field="createdDtm" id="s_org_m4_bgw_domain_GameTable_createdDtm" object="${gametable}" z="FXFhPB2F1R21vnL0ROhNPLOR1/s="/>
+        <field:display calendar="true" dateTimePattern="${gameTable_gamestarteddtm_date_format}" field="gameStartedDtm" id="s_org_m4_bgw_domain_GameTable_gameStartedDtm" object="${gametable}" z="YokQYJH0yQi1CGBKbsUmOcj+t4g="/>
+        <field:display calendar="true" dateTimePattern="${gameTable_gameendeddtm_date_format}" field="gameEndedDtm" id="s_org_m4_bgw_domain_GameTable_gameEndedDtm" object="${gametable}" z="yGYRO/HIH3d5C9NMGFX5KuU4cCs="/>
+    </page:show>
+</div>
