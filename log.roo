@@ -2,3 +2,12 @@
 project setup --topLevelPackage org.m4.bgw
 hint
 jpa setup --database MYSQL --provider OPENJPA
+// [failed] database introspect --schema boardgames
+addon info bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql-connector-java
+!g obr:deploy org.springframework.roo.wrapping.mysql-connector-java
+!g obr:start org.springframework.roo.wrapping.mysql-connector-java
+addon install bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql-connector-java
+// [failed] database introspect --schema boardgames
+database properties list
+jpa setup --database MYSQL --provider OPENJPA --databaseName boardgames --userName root --password root
+database properties list
