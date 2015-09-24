@@ -54,3 +54,5 @@ equals --class ~.domain.AchievementTranslationPK
 jpa setup --database MYSQL --provider OPENJPA --databaseName boardgames --userName root --password root
 jpa setup --database MYSQL --provider HIBERNATE --databaseName boardgames --userName root --password root
 web mvc all --package ~.web
+database reverse engineer --schema boardgames --package ~.domain --testAutomatically
+web mvc all --package ~.web
