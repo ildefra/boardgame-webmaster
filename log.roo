@@ -37,3 +37,5 @@ help equals
 equals --class ~.domain.Achieved
 exit
 // Spring Roo 2.0.0.M1 [rev 33e5d76] log closed at 2015-09-24 16:17:53
+// Spring Roo 2.0.0.M1 [rev 33e5d76] log opened at 2015-09-24 16:21:48
+equals --class ~.domain.Played
