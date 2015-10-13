@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `user_level` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `user_level` (
-  `level_id` TINYINT NOT NULL COMMENT '',
+  `level_id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `can_play` BIT NOT NULL DEFAULT 1 COMMENT '',
   `can_shout` BIT NOT NULL DEFAULT 0 COMMENT '',
   `can_downgrade` BIT NOT NULL DEFAULT 0 COMMENT '',
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `country_id` INT UNSIGNED NOT NULL COMMENT '',
   `bio` TEXT NULL COMMENT '',
   `is_premium` BIT NOT NULL DEFAULT 0 COMMENT '',
-  `level_id` TINYINT NOT NULL COMMENT '',
+  `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)  COMMENT '',
   INDEX `player_has_user_level_fk1_idx` (`level_id` ASC)  COMMENT '',
@@ -177,10 +177,12 @@ DROP TABLE IF EXISTS `language` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `language` (
-  `language_code` CHAR(3) NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `iso_code` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
-  PRIMARY KEY (`language_code`)  COMMENT '',
-  UNIQUE INDEX `language_code_UNIQUE` (`language_code` ASC)  COMMENT '',
+  PRIMARY KEY (`language_id`)  COMMENT '',
+  UNIQUE INDEX `language_id_UNIQUE` (`language_id` ASC)  COMMENT '',
+  UNIQUE INDEX `iso_code_UNIQUE` (`iso_code` ASC)  COMMENT '',
   UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '')
 ENGINE = InnoDB;
 
@@ -194,22 +196,22 @@ DROP TABLE IF EXISTS `game_translation` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `game_translation` (
   `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL COMMENT '',
   `name` VARCHAR(100) NOT NULL COMMENT '',
   `rules` MEDIUMTEXT NOT NULL COMMENT '',
   `rules_link` VARCHAR(255) NOT NULL COMMENT '',
-  PRIMARY KEY (`boardgame_id`, `language_code`)  COMMENT '',
-  INDEX `boardgame_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
+  PRIMARY KEY (`boardgame_id`, `language_id`)  COMMENT '',
   INDEX `boardgame_language_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
   UNIQUE INDEX `rules_link_UNIQUE` (`rules_link` ASC)  COMMENT '',
+  INDEX `game_translation_has_language_fk1_idx` (`language_id` ASC)  COMMENT '',
   CONSTRAINT `boardgame_language_has_boardgame_fk1`
     FOREIGN KEY (`boardgame_id`)
     REFERENCES `boardgame` (`boardgame_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `boardgame_language_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`language_code`)
+  CONSTRAINT `game_translation_has_language_fk1`
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`language_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -225,21 +227,21 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `external_link` (
   `external_link_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL COMMENT '',
   `name` VARCHAR(100) NOT NULL COMMENT '',
   `is_video` BIT NOT NULL DEFAULT 0 COMMENT '',
   PRIMARY KEY (`external_link_id`)  COMMENT '',
   UNIQUE INDEX `external_link_id_UNIQUE` (`external_link_id` ASC)  COMMENT '',
   INDEX `external_link_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
-  INDEX `external_link_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
+  INDEX `external_link_has_language_fk1_idx` (`language_id` ASC)  COMMENT '',
   CONSTRAINT `external_link_has_boardgame_fk1`
     FOREIGN KEY (`boardgame_id`)
     REFERENCES `boardgame` (`boardgame_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `external_link_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`language_code`)
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`language_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -315,32 +317,6 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `can_speak`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `can_speak` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `can_speak` (
-  `username` VARCHAR(20) NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
-  PRIMARY KEY (`username`, `language_code`)  COMMENT '',
-  INDEX `language_player_has_player_fk1_idx` (`username` ASC)  COMMENT '',
-  INDEX `language_player_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
-  CONSTRAINT `language_player_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`language_code`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `language_player_has_player_fk1`
-    FOREIGN KEY (`username`)
-    REFERENCES `player` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
 -- Table `game_tag`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `game_tag` ;
@@ -357,53 +333,26 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `tag_translation`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `tag_translation` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `tag_translation` (
-  `tag_name` VARCHAR(20) NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
-  `name` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`tag_name`, `language_code`)  COMMENT '',
-  INDEX `game_tag_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
-  INDEX `game_tag_language_has_game_tag_fk1_idx` (`tag_name` ASC)  COMMENT '',
-  CONSTRAINT `game_tag_language_has_game_tag_fk1`
-    FOREIGN KEY (`tag_name`)
-    REFERENCES `game_tag` (`name`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `game_tag_language_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`language_code`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
 -- Table `level_translation`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `level_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `level_translation` (
-  `level_id` TINYINT NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
+  `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`level_id`, `language_code`)  COMMENT '',
-  INDEX `user_level_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
+  PRIMARY KEY (`level_id`, `language_id`)  COMMENT '',
   INDEX `user_level_language_has_user_level_fk1_idx` (`level_id` ASC)  COMMENT '',
+  INDEX `level_translation_has_language_fk1_idx` (`language_id` ASC)  COMMENT '',
   CONSTRAINT `user_level_language_has_user_level_fk1`
     FOREIGN KEY (`level_id`)
     REFERENCES `user_level` (`level_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `user_level_language_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`language_code`)
+  CONSTRAINT `level_translation_has_language_fk1`
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`language_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -435,19 +384,19 @@ DROP TABLE IF EXISTS `achievement_translation` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `achievement_translation` (
   `achievement_id` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
-  PRIMARY KEY (`achievement_id`, `language_code`)  COMMENT '',
-  INDEX `achievement_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
+  PRIMARY KEY (`achievement_id`, `language_id`)  COMMENT '',
   INDEX `achievement_language_has_achievement_fk1_idx` (`achievement_id` ASC)  COMMENT '',
+  INDEX `achievement_translation_has_language_fk1_idx` (`language_id` ASC)  COMMENT '',
   CONSTRAINT `achievement_language_has_achievement_fk1`
     FOREIGN KEY (`achievement_id`)
     REFERENCES `achievement` (`achievement_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `achievement_language_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`language_code`)
+  CONSTRAINT `achievement_translation_has_language_fk1`
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`language_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -616,25 +565,58 @@ CREATE TABLE IF NOT EXISTS `played` (
 
 SHOW WARNINGS;
 
+-- -----------------------------------------------------
+-- Table `can_speak`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `can_speak` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `can_speak` (
+  `player_id` INT UNSIGNED NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL COMMENT '',
+  PRIMARY KEY (`player_id`, `language_id`)  COMMENT '',
+  INDEX `player_language_has_language_fk1_idx` (`language_id` ASC)  COMMENT '',
+  INDEX `player_language_has_player_fk1_idx` (`player_id` ASC)  COMMENT '',
+  CONSTRAINT `player_language_has_player_fk1`
+    FOREIGN KEY (`player_id`)
+    REFERENCES `player` (`player_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `player_language_has_language_fk1`
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`language_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `tag_translation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tag_translation` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `tag_translation` (
+  `game_tag_id` INT UNSIGNED NOT NULL COMMENT '',
+  `language_id` INT UNSIGNED NOT NULL COMMENT '',
+  `name` VARCHAR(20) NOT NULL COMMENT '',
+  PRIMARY KEY (`game_tag_id`, `language_id`)  COMMENT '',
+  INDEX `game_tag_language_has_language_fk1_idx` (`language_id` ASC)  COMMENT '',
+  INDEX `game_tag_language_has_game_tag_fk1_idx` (`game_tag_id` ASC)  COMMENT '',
+  CONSTRAINT `game_tag_language_has_game_tag_fk1`
+    FOREIGN KEY (`game_tag_id`)
+    REFERENCES `game_tag` (`game_tag_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `game_tag_language_has_language_fk1`
+    FOREIGN KEY (`language_id`)
+    REFERENCES `language` (`language_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `language`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `boardgames`;
-INSERT INTO `language` (`language_code`, `name`) VALUES ('ITA', 'Italian');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('ENG', 'English');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('RUS', 'Russian');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('FRA', 'French');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('SPA', 'Spanish');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('POR', 'Portuguese');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('DEU', 'German');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('HBS', 'Serbo-Croatian');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('RON', 'Romanian');
-INSERT INTO `language` (`language_code`, `name`) VALUES ('SWE', 'Swedish');
-
-COMMIT;
-
