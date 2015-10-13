@@ -34,22 +34,6 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `gender`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `gender` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `gender` (
-  `gender_id` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `name` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`gender_id`)  COMMENT '',
-  UNIQUE INDEX `gender_id_UNIQUE` (`gender_id` ASC)  COMMENT '',
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '')
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
 -- Table `country`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `country` ;
@@ -64,6 +48,23 @@ CREATE TABLE IF NOT EXISTS `country` (
   UNIQUE INDEX `country_id_UNIQUE` (`country_id` ASC)  COMMENT '',
   UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
   UNIQUE INDEX `alpha_2_UNIQUE` (`alpha_2` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `gender`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gender` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `gender` (
+  `gender_id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `iso_code` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `name` VARCHAR(20) NOT NULL COMMENT '',
+  PRIMARY KEY (`gender_id`)  COMMENT '',
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
+  UNIQUE INDEX `iso_code_UNIQUE` (`iso_code` ASC)  COMMENT '')
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -89,23 +90,23 @@ CREATE TABLE IF NOT EXISTS `player` (
   UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)  COMMENT '',
   INDEX `player_has_user_level_fk1_idx` (`level_id` ASC)  COMMENT '',
-  INDEX `player_has_gender_fk1_idx` (`sex` ASC)  COMMENT '',
   PRIMARY KEY (`player_id`)  COMMENT '',
   UNIQUE INDEX `player_id_UNIQUE` (`player_id` ASC)  COMMENT '',
   INDEX `player_has_country_fk1_idx` (`country_id` ASC)  COMMENT '',
+  INDEX `player_has_gender_fk1_idx` (`sex` ASC)  COMMENT '',
   CONSTRAINT `player_has_user_level_fk1`
     FOREIGN KEY (`level_id`)
     REFERENCES `user_level` (`level_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `player_has_gender_fk1`
-    FOREIGN KEY (`sex`)
-    REFERENCES `gender` (`gender_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `player_has_country_fk1`
     FOREIGN KEY (`country_id`)
     REFERENCES `country` (`country_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `player_has_gender_fk1`
+    FOREIGN KEY (`sex`)
+    REFERENCES `gender` (`gender_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -618,19 +619,6 @@ SHOW WARNINGS;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `gender`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `boardgames`;
-INSERT INTO `gender` (`gender_id`, `name`) VALUES (0, 'not known');
-INSERT INTO `gender` (`gender_id`, `name`) VALUES (1, 'male');
-INSERT INTO `gender` (`gender_id`, `name`) VALUES (2, 'female');
-INSERT INTO `gender` (`gender_id`, `name`) VALUES (9, 'not applicable');
-
-COMMIT;
-
 
 -- -----------------------------------------------------
 -- Data for table `language`
