@@ -25,6 +25,6 @@ equals --class ~.domain.AvgGameLengthPK
 //this one does not work for some reason, but "mvn test" will
 //perform tests
 
-//web mvc setup
-//web mvc all --package ~.web
+web mvc setup
+web mvc all --package ~.web
 //perform tests
