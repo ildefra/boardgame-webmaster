@@ -2,13 +2,24 @@
 development mode
 project setup --topLevelPackage org.m4.bgw
 addon install bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql-connector-java
-jpa setup --database MYSQL --provider HIBERNATE --databaseName boardgames --userName root --password root
+jpa setup --provider OPENJPA --database MYSQL --databaseName boardgames --userName root --password root
 database reverse engineer --schema boardgames --package ~.domain --testAutomatically
+
+
+//the following are only required with provider OPENJPA:
+equals --class ~.domain.GameTranslationPK
+equals --class ~.domain.LevelTranslationPK
+equals --class ~.domain.PlayedPK
+equals --class ~.domain.TagTranslationPK
+equals --class ~.domain.AchievedPK
+equals --class ~.domain.AchievementTranslationPK
+equals --class ~.domain.AvgGameLengthPK
+
 
 //enable this if you are having problems with the persistence layer
 //logging setup --level DEBUG --package PERSISTENCE
 
-//now add the following line to persistence.xml file:
+//if working with HIBERNATE, add the following line to persistence.xml file:
 //<property name="hibernate.show_sql" value ="true"/>
 
 //this one does not work for some reason, but "mvn test" will
