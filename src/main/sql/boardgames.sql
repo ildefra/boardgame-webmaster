@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `user_level` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `user_level` (
-  `level_id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `level_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
   `can_play` BIT NOT NULL DEFAULT 1 COMMENT '',
   `can_shout` BIT NOT NULL DEFAULT 0 COMMENT '',
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `country_id` INT UNSIGNED NOT NULL COMMENT '',
   `bio` TEXT NULL COMMENT '',
   `is_premium` BIT NOT NULL DEFAULT 0 COMMENT '',
-  `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `level_id` INT UNSIGNED NOT NULL COMMENT '',
   UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)  COMMENT '',
   INDEX `player_has_user_level_fk1_idx` (`level_id` ASC)  COMMENT '',
@@ -341,7 +341,7 @@ DROP TABLE IF EXISTS `level_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `level_translation` (
-  `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `level_id` INT UNSIGNED NOT NULL COMMENT '',
   `language_id` INT UNSIGNED NOT NULL COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
   PRIMARY KEY (`level_id`, `language_id`)  COMMENT '',
@@ -368,7 +368,7 @@ DROP TABLE IF EXISTS `achievement` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `achievement` (
-  `achievement_id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `achievement_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `points` SMALLINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
   PRIMARY KEY (`achievement_id`)  COMMENT '',
@@ -385,7 +385,7 @@ DROP TABLE IF EXISTS `achievement_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `achievement_translation` (
-  `achievement_id` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `achievement_id` INT UNSIGNED NOT NULL COMMENT '',
   `language_id` INT UNSIGNED NOT NULL COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
   PRIMARY KEY (`achievement_id`, `language_id`)  COMMENT '',
@@ -414,7 +414,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `achieved` (
   `player_id` INT UNSIGNED NOT NULL COMMENT '',
   `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
-  `achievement_id` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `achievement_id` INT UNSIGNED NOT NULL COMMENT '',
   `on_date` DATE NOT NULL COMMENT '',
   PRIMARY KEY (`player_id`, `boardgame_id`, `achievement_id`)  COMMENT '',
   INDEX `has_achievement_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
