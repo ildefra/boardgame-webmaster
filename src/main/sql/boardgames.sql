@@ -24,11 +24,13 @@ DROP TABLE IF EXISTS `user_level` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `user_level` (
   `level_id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `name` VARCHAR(20) NOT NULL COMMENT '',
   `can_play` BIT NOT NULL DEFAULT 1 COMMENT '',
   `can_shout` BIT NOT NULL DEFAULT 0 COMMENT '',
   `can_downgrade` BIT NOT NULL DEFAULT 0 COMMENT '',
   PRIMARY KEY (`level_id`)  COMMENT '',
-  UNIQUE INDEX `level_id_UNIQUE` (`level_id` ASC)  COMMENT '')
+  UNIQUE INDEX `level_id_UNIQUE` (`level_id` ASC)  COMMENT '',
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '')
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
