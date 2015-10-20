@@ -3,8 +3,7 @@ development mode
 project setup --topLevelPackage org.m4.bgw
 addon install bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql-connector-java
 jpa setup --provider OPENJPA --database MYSQL --databaseName boardgames --userName root --password root
-database reverse engineer --schema boardgames --package ~.domain --testAutomatically
-
+database reverse engineer --schema boardgames --excludeTables openjpa_sequence_table --package ~.domain --testAutomatically
 
 //the following are only required with provider OPENJPA:
 equals --class ~.domain.GameTranslationPK
@@ -14,7 +13,6 @@ equals --class ~.domain.TagTranslationPK
 equals --class ~.domain.AchievedPK
 equals --class ~.domain.AchievementTranslationPK
 equals --class ~.domain.AvgGameLengthPK
-
 
 //enable this if you are having problems with the persistence layer
 //logging setup --level DEBUG --package PERSISTENCE
@@ -26,5 +24,10 @@ equals --class ~.domain.AvgGameLengthPK
 //perform tests
 
 web mvc setup
+
+web mvc scaffold --class ~.web.GenderController --backingType ~.domain.Gender --disallowedOperations create,update,delete
+web mvc scaffold --class ~.web.CountryController --backingType ~.domain.Country --disallowedOperations create,update,delete
+web mvc scaffold --class ~.web.LanguageController --backingType ~.domain.Language --disallowedOperations create,update,delete
+
 web mvc all --package ~.web
 //perform tests
