@@ -14,7 +14,7 @@ USE `boardgames`;
 --
 
 
-INSERT INTO `country` (`name`, `alpha_2`, `alpha_3`) VALUES
+INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Afghanistan', 'af', 'afg'),
     ('Aland Islands', 'ax', 'ala'),
     ('Albania', 'al', 'alb'),
