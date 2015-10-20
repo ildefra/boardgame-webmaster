@@ -1,0 +1,6 @@
+#commands used to generate entities with OpenJPA INSTEAD OF with Roo
+
+mvn archetype:generate -DgroupId=org.m4.bgw -DartifactId=bgw-openjpa -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+cd bgw-openjpa
+mvn eclipse:eclipse
+java -cp C:\Tools\Workstation\Java\apache-openjpa-2.4.0\openjpa-all-2.4.0.jar;C:\Users\lenovo648567\.m2\repository\mysql\mysql-connector-java\5.1.18\mysql-connector-java-5.1.18.jar org.apache.openjpa.jdbc.meta.ReverseMappingTool -d ./src/main/java -pkg org.m4.bgw.domain -p src\main\resources\META-INF\persistence.xml -annotations true -metadata none -nullableAsObject true -useGenericCollections true -identityClassSuffix PK -cf.tabSpaces 4
