@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_m4_bgw_domain_Achieved" object="${achieved}" path="/achieveds" z="k1N5KEb/h4AgXqukc/l8M9FSmQE=">
+        <field:display field="achievementId" id="s_org_m4_bgw_domain_Achieved_achievementId" object="${achieved}" z="voR14MTF1a01LR6B01mtkmLUmHI="/>
+        <field:display field="boardgameId" id="s_org_m4_bgw_domain_Achieved_boardgameId" object="${achieved}" z="pWX5YcD242gthKhSyDqn0+s6VQU="/>
+        <field:display field="username" id="s_org_m4_bgw_domain_Achieved_username" object="${achieved}" z="k6TcYQOvj2RfqaL3rRDb9hIk9J8="/>
+        <field:display date="true" dateTimePattern="${achieved_ondate_date_format}" field="onDate" id="s_org_m4_bgw_domain_Achieved_onDate" object="${achieved}" z="FvH1aU9vrV68U8KN5ojwLkOD5EI="/>
+    </page:show>
+</div>

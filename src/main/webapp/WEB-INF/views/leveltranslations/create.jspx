@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create compositePkField="id" id="fc_org_m4_bgw_domain_LevelTranslation" modelAttribute="levelTranslation" path="/leveltranslations" render="${empty dependencies}" z="IYRF9MhRb8OWKE9mlUM+RTVJguk=">
+        <field:input disableFormBinding="true" field="id.levelId" id="c_org_m4_bgw_domain_LevelTranslation_id_levelId" required="true" validationMessageCode="field_invalid_integer" z="JOxEK0Lucn6J8dAkWKxkoogz8no="/>
+        <field:input disableFormBinding="true" field="id.languageCode" id="c_org_m4_bgw_domain_LevelTranslation_id_languageCode" required="true" z="2ENCBOFJJjGHZdM8S/QNqSW3Sxs="/>
+        <field:input field="name" id="c_org_m4_bgw_domain_LevelTranslation_name" required="true" z="3CLa8cNre5fHKwAdA7Nk5i8dQVs="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_m4_bgw_domain_LevelTranslation" render="${not empty dependencies}" z="HaTu0qzZcrhJnQ/46ti8coBMS+4="/>
+</div>

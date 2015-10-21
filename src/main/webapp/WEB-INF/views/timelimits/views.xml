@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="timelimits/list">
+        <put-attribute name="body" value="/WEB-INF/views/timelimits/list.jspx"/>
+    </definition>
+<definition extends="default" name="timelimits/show">
+        <put-attribute name="body" value="/WEB-INF/views/timelimits/show.jspx"/>
+    </definition>
+<definition extends="default" name="timelimits/create">
+        <put-attribute name="body" value="/WEB-INF/views/timelimits/create.jspx"/>
+    </definition>
+<definition extends="default" name="timelimits/update">
+        <put-attribute name="body" value="/WEB-INF/views/timelimits/update.jspx"/>
+    </definition>
+</tiles-definitions>

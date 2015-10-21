@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_m4_bgw_domain_Player" modelAttribute="player" path="/players" render="${empty dependencies}" z="sSSrF7CRFsdyh1CMuC3+9xcHNnU=">
+        <field:select field="languages" id="c_org_m4_bgw_domain_Player_languages" itemValue="isoCode" items="${languages}" multiple="true" path="/languages" z="DTQsGF6GAso5IP2+13ooAHef8t4="/>
+        <field:simple field="achieveds" id="c_org_m4_bgw_domain_Player_achieveds" messageCode="entity_reference_not_managed" messageCodeAttribute="Achieved" z="70K4RlwQ1AmKNW4mpRu9cGyRUjs="/>
+        <field:simple field="boardgames" id="c_org_m4_bgw_domain_Player_boardgames" messageCode="entity_reference_not_managed" messageCodeAttribute="Boardgame" z="c0BOCxaQeL7rBmtmuowxUhfE2WM="/>
+        <field:simple field="playeds" id="c_org_m4_bgw_domain_Player_playeds" messageCode="entity_reference_not_managed" messageCodeAttribute="Played" z="ue+90ev4LDfJGbJBjkGcVyFVwVE="/>
+        <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex" itemValue="isoCode" items="${genders}" path="/genders" z="uYj2XtiKXV3KW9XfArwlz/mcnZo="/>
+        <field:select field="levelId" id="c_org_m4_bgw_domain_Player_levelId" itemValue="levelId" items="${userlevels}" path="/userlevels" z="EpMSIC1GEdcdxh2yr0/w88TIJJU="/>
+        <field:select field="country" id="c_org_m4_bgw_domain_Player_country" itemValue="isoAlpha2" items="${countrys}" path="/countrys" z="v2ILcsnwZ1Zx23X1f7WomcnfbFM="/>
+        <field:input field="email" id="c_org_m4_bgw_domain_Player_email" validationMessageCode="field_invalid_email" z="DNFGvnfx2MYRHgE0ROYh5oOL/xI="/>
+        <field:input field="password" id="c_org_m4_bgw_domain_Player_password" required="true" z="4XqkcskjGW97vFqRvdAn1TvpDH4="/>
+        <field:datetime dateTimePattern="${player_registrationdtm_date_format}" field="registrationDtm" id="c_org_m4_bgw_domain_Player_registrationDtm" required="true" z="/AmoxWGFV/mB1nhAIj1G5xTJOSI="/>
+        <field:datetime dateTimePattern="${player_birthdate_date_format}" field="birthDate" id="c_org_m4_bgw_domain_Player_birthDate" z="iF3iU+JKQm1Jz98YKg6iP2yDdyk="/>
+        <field:input field="bio" id="c_org_m4_bgw_domain_Player_bio" z="RnrrRlnB1YuXKHFpAMiXwocGPes="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_m4_bgw_domain_Player" render="${not empty dependencies}" z="OpwaRAB+ilBKqNUoO8Gc880j1Uc="/>
+</div>

@@ -1,0 +1,24 @@
+// Spring Roo 2.0.0.M1 [rev 33e5d76] log opened at 2015-10-21 19:21:48
+development mode
+project setup --topLevelPackage org.m4.bgw
+!g obr:deploy org.springframework.roo.wrapping.mysql-connector-java
+!g obr:start org.springframework.roo.wrapping.mysql-connector-java
+addon install bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql-connector-java
+jpa setup --provider OPENJPA --database MYSQL --databaseName boardgames --userName root --password root
+database reverse engineer --schema boardgames --excludeTables openjpa_sequence_table --package ~.domain --repository
+logging setup --level INFO --package PERSISTENCE
+equals --class ~.domain.GameTranslationPK
+equals --class ~.domain.LevelTranslationPK
+equals --class ~.domain.PlayedPK
+equals --class ~.domain.TagTranslationPK
+equals --class ~.domain.AchievedPK
+equals --class ~.domain.AchievementTranslationPK
+equals --class ~.domain.AvgGameLengthPK
+web mvc setup
+web mvc scaffold --class ~.web.GenderController --backingType ~.domain.Gender --disallowedOperations create,update,delete
+web mvc scaffold --class ~.web.CountryController --backingType ~.domain.Country --disallowedOperations create,update,delete
+web mvc scaffold --class ~.web.LanguageController --backingType ~.domain.Language --disallowedOperations create,update,delete
+web mvc all --package ~.web
+// script --file bgw.roo
+exit
+// Spring Roo 2.0.0.M1 [rev 33e5d76] log closed at 2015-10-21 19:23:42

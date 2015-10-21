@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_m4_bgw_domain_AvgGameLength" object="${avggamelength}" path="/avggamelengths" z="f+ISLOD6lMn3xKWBdQGJhILwyf8=">
+        <field:display field="boardgameId" id="s_org_m4_bgw_domain_AvgGameLength_boardgameId" object="${avggamelength}" z="LgMiqkUWq5d+OdcSYwuXmmaLXEI="/>
+        <field:display field="timeLimitId" id="s_org_m4_bgw_domain_AvgGameLength_timeLimitId" object="${avggamelength}" z="KGo6rTLkUbc8+zByS94cGmYjLWA="/>
+        <field:display field="avgLengthMinutes" id="s_org_m4_bgw_domain_AvgGameLength_avgLengthMinutes" object="${avggamelength}" z="qTm7w9mAoVZZQGcDfl3wBH1m3OA="/>
+    </page:show>
+</div>

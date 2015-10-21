@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_m4_bgw_domain_Boardgame" items="${boardgames}" z="gea519N8UddQzdj8R0f7BxM2Dk8=">
+        <table:table data="${boardgames}" id="l_org_m4_bgw_domain_Boardgame" path="/boardgames" typeIdFieldName="boardgameId" z="3Rf2B7z7JKTAydhKRBgvDfdrujY=">
+            <table:column id="c_org_m4_bgw_domain_Boardgame_gameDesigners" property="gameDesigners" z="K+y4kEpXIe4MduWOm8eBWgMYLVk="/>
+            <table:column id="c_org_m4_bgw_domain_Boardgame_gameDesigners1" property="gameDesigners1" z="C+e5UsFmlyVQrWRAhe5poPLBVA0="/>
+            <table:column id="c_org_m4_bgw_domain_Boardgame_gameTags2" property="gameTags2" z="JbOM23B0WqgtiSaicvol5qrMepQ="/>
+        </table:table>
+    </page:list>
+</div>

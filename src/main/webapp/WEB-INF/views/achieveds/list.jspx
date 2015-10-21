@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_m4_bgw_domain_Achieved" items="${achieveds}" z="mEfS4O90fHnKabkoV6USP+hhocU=">
+        <table:table data="${achieveds}" id="l_org_m4_bgw_domain_Achieved" path="/achieveds" z="Yq/H+XflxV9CL8uSPFE2RbeYZHc=">
+            <table:column id="c_org_m4_bgw_domain_Achieved_achievementId" property="achievementId" z="Pg0q1IXiUUTvMwh/3OCxe2P4Bp4="/>
+            <table:column id="c_org_m4_bgw_domain_Achieved_boardgameId" property="boardgameId" z="Qhtp7puOluGL+Mu2ja3IV+o0Sas="/>
+            <table:column id="c_org_m4_bgw_domain_Achieved_username" property="username" z="nG0w3dsyhsg21Va8kmbNBCUJ0Sg="/>
+            <table:column date="true" dateTimePattern="${achieved_ondate_date_format}" id="c_org_m4_bgw_domain_Achieved_onDate" property="onDate" z="cnnTvq22h0/8TYHqzIcz4vbzykc="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_m4_bgw_domain_AchievementTranslation" object="${achievementtranslation}" path="/achievementtranslations" z="PWPErMHghcWx/94aKS5ko/aH/GI=">
+        <field:display field="achievementId" id="s_org_m4_bgw_domain_AchievementTranslation_achievementId" object="${achievementtranslation}" z="5EydFLpmztsUCeXD5ZVg76MjyAg="/>
+        <field:display field="languageCode" id="s_org_m4_bgw_domain_AchievementTranslation_languageCode" object="${achievementtranslation}" z="wQJcichSgHEZb8Rgs9ipnMoz6ZU="/>
+        <field:display field="name" id="s_org_m4_bgw_domain_AchievementTranslation_name" object="${achievementtranslation}" z="Wna64FY+MDHZFi00VZLQULIATM8="/>
+    </page:show>
+</div>
