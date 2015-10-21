@@ -17,17 +17,9 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.roo.addon.dbre.annotations.RooDbManaged;
-import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
-import org.springframework.roo.addon.javabean.annotations.RooToString;
-import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 
 @Entity
 @Table(name = "player")
-@RooJavaBean
-@RooJpaEntity(versionField = "", table = "player")
-@RooDbManaged(automaticallyDelete = true)
-@RooToString(excludeFields = { "languages", "achieveds", "boardgames", "playeds", "sex", "levelId", "country" })
 public class Player {
 
 	@ManyToMany(mappedBy = "players")

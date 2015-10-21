@@ -1,5 +1,4 @@
 package org.m4.bgw.domain;
-import org.springframework.roo.addon.jpa.annotations.identifier.RooIdentifier;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.Serializable;
@@ -10,12 +9,9 @@ import javax.persistence.Embeddable;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.javabean.annotations.RooEquals;
 
 @Configurable
 @Embeddable
-@RooIdentifier(dbManaged = true)
-@RooEquals
 public final class TagTranslationPK implements Serializable {
 
 	public String toJson() {

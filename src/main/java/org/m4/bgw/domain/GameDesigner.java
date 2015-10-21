@@ -10,17 +10,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.springframework.roo.addon.dbre.annotations.RooDbManaged;
-import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
-import org.springframework.roo.addon.javabean.annotations.RooToString;
-import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 
 @Entity
 @Table(name = "game_designer")
-@RooJavaBean
-@RooJpaEntity(versionField = "", table = "game_designer")
-@RooDbManaged(automaticallyDelete = true)
-@RooToString(excludeFields = { "boardgames", "boardgames1" })
 public class GameDesigner {
 
 	@Id

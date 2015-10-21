@@ -2,7 +2,6 @@ package org.m4.bgw.web;
 import org.m4.bgw.domain.Gender;
 import org.m4.bgw.domain.GenderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.roo.addon.web.mvc.controller.annotations.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RequestMapping("/genders")
 @Controller
-@RooWebScaffold(path = "genders", formBackingObject = Gender.class, create = false, update = false, delete = false)
 public class GenderController {
 
 	@Autowired

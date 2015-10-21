@@ -7,7 +7,6 @@ import org.m4.bgw.domain.PlayerRepository;
 import org.m4.bgw.domain.UserLevel;
 import org.m4.bgw.domain.UserLevelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.roo.addon.web.mvc.controller.annotations.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,6 @@ import org.springframework.web.util.WebUtils;
 
 @RequestMapping("/userlevels")
 @Controller
-@RooWebScaffold(path = "userlevels", formBackingObject = UserLevel.class)
 public class UserLevelController {
 
 	@Autowired

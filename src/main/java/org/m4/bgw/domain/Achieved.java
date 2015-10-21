@@ -12,17 +12,9 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.roo.addon.dbre.annotations.RooDbManaged;
-import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
-import org.springframework.roo.addon.javabean.annotations.RooToString;
-import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 
 @Entity
 @Table(name = "achieved")
-@RooJavaBean
-@RooJpaEntity(identifierType = AchievedPK.class, versionField = "", table = "achieved")
-@RooDbManaged(automaticallyDelete = true)
-@RooToString(excludeFields = { "achievementId", "boardgameId", "username" })
 public class Achieved {
 
 	@EmbeddedId

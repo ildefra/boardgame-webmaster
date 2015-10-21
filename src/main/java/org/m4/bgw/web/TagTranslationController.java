@@ -9,7 +9,6 @@ import org.m4.bgw.domain.TagTranslationPK;
 import org.m4.bgw.domain.TagTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
-import org.springframework.roo.addon.web.mvc.controller.annotations.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,7 +21,6 @@ import org.springframework.web.util.WebUtils;
 
 @RequestMapping("/tagtranslations")
 @Controller
-@RooWebScaffold(path = "tagtranslations", formBackingObject = TagTranslation.class)
 public class TagTranslationController {
 
 	private ConversionService conversionService;

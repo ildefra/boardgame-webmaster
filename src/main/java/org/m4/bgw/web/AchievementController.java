@@ -7,7 +7,6 @@ import org.m4.bgw.domain.Achievement;
 import org.m4.bgw.domain.AchievementRepository;
 import org.m4.bgw.domain.AchievementTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.roo.addon.web.mvc.controller.annotations.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,6 @@ import org.springframework.web.util.WebUtils;
 
 @RequestMapping("/achievements")
 @Controller
-@RooWebScaffold(path = "achievements", formBackingObject = Achievement.class)
 public class AchievementController {
 
 	@Autowired

@@ -8,17 +8,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.springframework.roo.addon.dbre.annotations.RooDbManaged;
-import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
-import org.springframework.roo.addon.javabean.annotations.RooToString;
-import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
 
 @Entity
 @Table(name = "level_translation")
-@RooJavaBean
-@RooJpaEntity(identifierType = LevelTranslationPK.class, versionField = "", table = "level_translation")
-@RooDbManaged(automaticallyDelete = true)
-@RooToString(excludeFields = { "languageCode", "levelId" })
 public class LevelTranslation {
 
 	@EmbeddedId

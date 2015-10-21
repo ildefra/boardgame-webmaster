@@ -7,7 +7,6 @@ import org.m4.bgw.domain.GameTableRepository;
 import org.m4.bgw.domain.TimeLimit;
 import org.m4.bgw.domain.TimeLimitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.roo.addon.web.mvc.controller.annotations.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,6 @@ import org.springframework.web.util.WebUtils;
 
 @RequestMapping("/timelimits")
 @Controller
-@RooWebScaffold(path = "timelimits", formBackingObject = TimeLimit.class)
 public class TimeLimitController {
 
 	@Autowired
