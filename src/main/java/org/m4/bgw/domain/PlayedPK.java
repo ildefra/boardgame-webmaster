@@ -1,4 +1,5 @@
 package org.m4.bgw.domain;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.Serializable;
@@ -14,6 +15,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 @Configurable
 public final class PlayedPK implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
 	@Column(name = "username", nullable = false, length = 20)
     private String username;
 
@@ -26,10 +29,11 @@ public final class PlayedPK implements Serializable {
         this.gameTableId = gameTableId;
     }
 
-	private PlayedPK() {
+	public PlayedPK() {
         super();
     }
 
+	
 	public String getUsername() {
         return username;
     }
@@ -38,6 +42,7 @@ public final class PlayedPK implements Serializable {
         return gameTableId;
     }
 
+	
 	public String toJson() {
         return new JSONSerializer()
         .exclude("*.class").serialize(this);
@@ -68,6 +73,8 @@ public final class PlayedPK implements Serializable {
         .use("values", PlayedPK.class).deserialize(json);
     }
 
+	
+	@Override
 	public boolean equals(Object obj) {
         if (!(obj instanceof PlayedPK)) {
             return false;
@@ -76,12 +83,14 @@ public final class PlayedPK implements Serializable {
             return true;
         }
         PlayedPK rhs = (PlayedPK) obj;
-        return new EqualsBuilder().append(gameTableId, rhs.gameTableId).append(username, rhs.username).isEquals();
+        return new EqualsBuilder()
+                .append(gameTableId, rhs.gameTableId)
+                .append(username, rhs.username).isEquals();
     }
 
+	@Override
 	public int hashCode() {
-        return new HashCodeBuilder().append(gameTableId).append(username).toHashCode();
+        return new HashCodeBuilder()
+                .append(gameTableId).append(username).toHashCode();
     }
-
-	private static final long serialVersionUID = 1L;
 }

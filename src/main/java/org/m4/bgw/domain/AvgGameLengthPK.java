@@ -1,4 +1,5 @@
 package org.m4.bgw.domain;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.Serializable;
@@ -28,10 +29,11 @@ public final class AvgGameLengthPK implements Serializable {
         this.timeLimitId = timeLimitId;
     }
 
-	private AvgGameLengthPK() {
+	public AvgGameLengthPK() {
         super();
     }
 
+	
 	public Integer getBoardgameId() {
         return boardgameId;
     }
@@ -40,20 +42,6 @@ public final class AvgGameLengthPK implements Serializable {
         return timeLimitId;
     }
 
-	public boolean equals(Object obj) {
-        if (!(obj instanceof AvgGameLengthPK)) {
-            return false;
-        }
-        if (this == obj) {
-            return true;
-        }
-        AvgGameLengthPK rhs = (AvgGameLengthPK) obj;
-        return new EqualsBuilder().append(boardgameId, rhs.boardgameId).append(timeLimitId, rhs.timeLimitId).isEquals();
-    }
-
-	public int hashCode() {
-        return new HashCodeBuilder().append(boardgameId).append(timeLimitId).toHashCode();
-    }
 
 	public String toJson() {
         return new JSONSerializer()
@@ -84,4 +72,26 @@ public final class AvgGameLengthPK implements Serializable {
         return new JSONDeserializer<List<AvgGameLengthPK>>()
         .use("values", AvgGameLengthPK.class).deserialize(json);
     }
+	
+	
+	@Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof AvgGameLengthPK)) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        AvgGameLengthPK rhs = (AvgGameLengthPK) obj;
+        return new EqualsBuilder()
+                .append(boardgameId, rhs.boardgameId)
+                .append(timeLimitId, rhs.timeLimitId).isEquals();
+    }
+
+	@Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(boardgameId).append(timeLimitId).toHashCode();
+    }
+
 }

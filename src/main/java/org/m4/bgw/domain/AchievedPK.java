@@ -1,4 +1,5 @@
 package org.m4.bgw.domain;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.Serializable;
@@ -32,10 +33,11 @@ public final class AchievedPK implements Serializable {
         this.achievementId = achievementId;
     }
 
-	private AchievedPK() {
+	public AchievedPK() {
         super();
     }
 
+	
 	public String getUsername() {
         return username;
     }
@@ -48,6 +50,7 @@ public final class AchievedPK implements Serializable {
         return achievementId;
     }
 
+	
 	public String toJson() {
         return new JSONSerializer()
         .exclude("*.class").serialize(this);
@@ -78,6 +81,8 @@ public final class AchievedPK implements Serializable {
         .use("values", AchievedPK.class).deserialize(json);
     }
 
+	
+	@Override
 	public boolean equals(Object obj) {
         if (!(obj instanceof AchievedPK)) {
             return false;
@@ -86,10 +91,15 @@ public final class AchievedPK implements Serializable {
             return true;
         }
         AchievedPK rhs = (AchievedPK) obj;
-        return new EqualsBuilder().append(achievementId, rhs.achievementId).append(boardgameId, rhs.boardgameId).append(username, rhs.username).isEquals();
+        return new EqualsBuilder()
+                .append(achievementId, rhs.achievementId)
+                .append(boardgameId, rhs.boardgameId)
+                .append(username, rhs.username).isEquals();
     }
 
+	@Override
 	public int hashCode() {
-        return new HashCodeBuilder().append(achievementId).append(boardgameId).append(username).toHashCode();
+        return new HashCodeBuilder()
+                .append(achievementId).append(boardgameId).append(username).toHashCode();
     }
 }

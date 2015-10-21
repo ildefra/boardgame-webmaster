@@ -1,4 +1,5 @@
 package org.m4.bgw.domain;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.Serializable;
@@ -16,36 +17,6 @@ public final class GameTranslationPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public String toJson() {
-        return new JSONSerializer()
-        .exclude("*.class").serialize(this);
-    }
-
-	public String toJson(String[] fields) {
-        return new JSONSerializer()
-        .include(fields).exclude("*.class").serialize(this);
-    }
-
-	public static GameTranslationPK fromJsonToGameTranslationPK(String json) {
-        return new JSONDeserializer<GameTranslationPK>()
-        .use(null, GameTranslationPK.class).deserialize(json);
-    }
-
-	public static String toJsonArray(Collection<GameTranslationPK> collection) {
-        return new JSONSerializer()
-        .exclude("*.class").serialize(collection);
-    }
-
-	public static String toJsonArray(Collection<GameTranslationPK> collection, String[] fields) {
-        return new JSONSerializer()
-        .include(fields).exclude("*.class").serialize(collection);
-    }
-
-	public static Collection<GameTranslationPK> fromJsonArrayToGameTranslationPKs(String json) {
-        return new JSONDeserializer<List<GameTranslationPK>>()
-        .use("values", GameTranslationPK.class).deserialize(json);
-    }
-
 	@Column(name = "boardgame_id", nullable = false)
     private Integer boardgameId;
 
@@ -58,10 +29,11 @@ public final class GameTranslationPK implements Serializable {
         this.languageCode = languageCode;
     }
 
-	private GameTranslationPK() {
+	public GameTranslationPK() {
         super();
     }
 
+	
 	public Integer getBoardgameId() {
         return boardgameId;
     }
@@ -70,6 +42,39 @@ public final class GameTranslationPK implements Serializable {
         return languageCode;
     }
 
+	
+    public String toJson() {
+        return new JSONSerializer()
+        .exclude("*.class").serialize(this);
+    }
+
+    public String toJson(String[] fields) {
+        return new JSONSerializer()
+        .include(fields).exclude("*.class").serialize(this);
+    }
+
+    public static GameTranslationPK fromJsonToGameTranslationPK(String json) {
+        return new JSONDeserializer<GameTranslationPK>()
+        .use(null, GameTranslationPK.class).deserialize(json);
+    }
+
+    public static String toJsonArray(Collection<GameTranslationPK> collection) {
+        return new JSONSerializer()
+        .exclude("*.class").serialize(collection);
+    }
+
+    public static String toJsonArray(Collection<GameTranslationPK> collection, String[] fields) {
+        return new JSONSerializer()
+        .include(fields).exclude("*.class").serialize(collection);
+    }
+
+    public static Collection<GameTranslationPK> fromJsonArrayToGameTranslationPKs(String json) {
+        return new JSONDeserializer<List<GameTranslationPK>>()
+        .use("values", GameTranslationPK.class).deserialize(json);
+    }
+
+	
+	@Override
 	public boolean equals(Object obj) {
         if (!(obj instanceof GameTranslationPK)) {
             return false;
@@ -78,10 +83,14 @@ public final class GameTranslationPK implements Serializable {
             return true;
         }
         GameTranslationPK rhs = (GameTranslationPK) obj;
-        return new EqualsBuilder().append(boardgameId, rhs.boardgameId).append(languageCode, rhs.languageCode).isEquals();
+        return new EqualsBuilder()
+                .append(boardgameId, rhs.boardgameId)
+                .append(languageCode, rhs.languageCode).isEquals();
     }
 
+	@Override
 	public int hashCode() {
-        return new HashCodeBuilder().append(boardgameId).append(languageCode).toHashCode();
+        return new HashCodeBuilder()
+                .append(boardgameId).append(languageCode).toHashCode();
     }
 }

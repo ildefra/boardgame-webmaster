@@ -1,4 +1,5 @@
 package org.m4.bgw.domain;
+
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.Serializable;
@@ -14,6 +15,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 @Configurable
 public final class AchievementTranslationPK implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
 	@Column(name = "achievement_id", nullable = false)
     private Short achievementId;
 
@@ -26,10 +29,11 @@ public final class AchievementTranslationPK implements Serializable {
         this.languageCode = languageCode;
     }
 
-	private AchievementTranslationPK() {
+	public AchievementTranslationPK() {
         super();
     }
 
+	
 	public Short getAchievementId() {
         return achievementId;
     }
@@ -37,8 +41,7 @@ public final class AchievementTranslationPK implements Serializable {
 	public String getLanguageCode() {
         return languageCode;
     }
-
-	private static final long serialVersionUID = 1L;
+	
 
 	public String toJson() {
         return new JSONSerializer()
@@ -70,6 +73,8 @@ public final class AchievementTranslationPK implements Serializable {
         .use("values", AchievementTranslationPK.class).deserialize(json);
     }
 
+	
+	@Override
 	public boolean equals(Object obj) {
         if (!(obj instanceof AchievementTranslationPK)) {
             return false;
@@ -78,10 +83,14 @@ public final class AchievementTranslationPK implements Serializable {
             return true;
         }
         AchievementTranslationPK rhs = (AchievementTranslationPK) obj;
-        return new EqualsBuilder().append(achievementId, rhs.achievementId).append(languageCode, rhs.languageCode).isEquals();
+        return new EqualsBuilder()
+                .append(achievementId, rhs.achievementId)
+                .append(languageCode, rhs.languageCode).isEquals();
     }
 
+	@Override
 	public int hashCode() {
-        return new HashCodeBuilder().append(achievementId).append(languageCode).toHashCode();
+        return new HashCodeBuilder()
+                .append(achievementId).append(languageCode).toHashCode();
     }
 }
