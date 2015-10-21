@@ -81,7 +81,6 @@ CREATE TABLE IF NOT EXISTS `player` (
   `birth_date` DATE NULL COMMENT '',
   `country` CHAR(2) NOT NULL COMMENT '',
   `bio` TEXT NULL COMMENT '',
-  `is_premium` BIT NOT NULL DEFAULT 0 COMMENT '',
   `level_id` TINYINT NOT NULL COMMENT '',
   PRIMARY KEY (`username`)  COMMENT '',
   UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',
@@ -304,31 +303,6 @@ CREATE TABLE IF NOT EXISTS `autorship` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `friendship`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `friendship` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `friendship` (
-  `username1` VARCHAR(20) NOT NULL COMMENT '',
-  `username2` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`username1`, `username2`)  COMMENT '',
-  INDEX `player_player_has_player_fk2_idx` (`username2` ASC)  COMMENT '',
-  INDEX `player_player_has_player_fk1_idx` (`username1` ASC)  COMMENT '',
-  CONSTRAINT `player_player_has_player_fk1`
-    FOREIGN KEY (`username1`)
-    REFERENCES `player` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `player_player_has_player_fk2`
-    FOREIGN KEY (`username2`)
-    REFERENCES `player` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
 
 SHOW WARNINGS;
 
