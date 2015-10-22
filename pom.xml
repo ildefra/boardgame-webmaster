@@ -305,9 +305,9 @@
             
             <!-- web container -->
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.4.v20120524</version>
+                <version>9.3.5.v20151012</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/${project.name}</contextPath>
