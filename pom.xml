@@ -64,14 +64,13 @@
             <version>3.4</version>
         </dependency>
         
-        
-        <!-- Spring runtime dependencies -->
+        <!-- Spring general dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
-            <scope>runtime</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
