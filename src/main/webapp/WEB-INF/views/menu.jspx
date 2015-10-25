@@ -6,9 +6,13 @@
         <menu:category id="c_gender" z="rs6Edo9pdk6gqZx5Augnd7P/lu0=">
             <menu:item id="i_gender_list" messageCode="global_menu_list" url="/genders?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OlI2PsbrQB3JpnCZPVE5DRB+iN4="/>
         </menu:category>
+        
         <menu:category id="c_country" z="+9IFFFqXHr5bWdYjx7upDibmQfo=">
-            <menu:item id="i_country_list" messageCode="global_menu_list" url="/countrys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="AwKhjnZH+dOj0X4glIoj4SVuHNY="/>
+            <menu:item id="i_country_list" label="countries"
+            		url="/countrys?page=1&amp;size=${empty param.size ? 10 : param.size}"
+            		messageCode="global_menu_list" z="AwKhjnZH+dOj0X4glIoj4SVuHNY="/>
         </menu:category>
+        
         <menu:category id="c_language" z="Vmkl0xtqK+Ud4uzTgDDr52kU7Oo=">
             <menu:item id="i_language_list" messageCode="global_menu_list" url="/languages?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ElqbZy+53HRFVQ8s2jdG81J9A5w="/>
         </menu:category>
