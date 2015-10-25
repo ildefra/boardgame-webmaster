@@ -3,8 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_m4_bgw_domain_UserLevel" modelAttribute="userLevel" path="/userlevels" render="${empty dependencies}" z="XOCMsTe/avy75nAi/za2XRP+L64=">
-        <field:simple field="levelTranslations" id="c_org_m4_bgw_domain_UserLevel_levelTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Level Translation" z="rR4X5tfp5dppIAyI04K5NarsJl0="/>
-        <field:simple field="players" id="c_org_m4_bgw_domain_UserLevel_players" messageCode="entity_reference_not_managed" messageCodeAttribute="Player" z="2ZKDWBRlHsKyhkfRGWBntu2qyqo="/>
         <field:checkbox field="canPlay" id="c_org_m4_bgw_domain_UserLevel_canPlay" z="ckgrCG3OabxcGEgAQIvpAkFTh10="/>
         <field:checkbox field="canShout" id="c_org_m4_bgw_domain_UserLevel_canShout" z="yA8xzV/z71fNNnHjWWLJO88Q7HQ="/>
         <field:checkbox field="canDowngrade" id="c_org_m4_bgw_domain_UserLevel_canDowngrade" z="p4d+Iql6jV1S+4SkrQoLLUgG13Y="/>

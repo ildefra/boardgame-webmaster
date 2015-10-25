@@ -6,11 +6,6 @@
         <field:select field="gameDesigners" id="c_org_m4_bgw_domain_Boardgame_gameDesigners" itemValue="gameDesignerId" items="${gamedesigners}" multiple="true" path="/gamedesigners" z="2HH0sGbU0QIqXZ/eVcbSyIz0Xi4="/>
         <field:select field="gameDesigners1" id="c_org_m4_bgw_domain_Boardgame_gameDesigners1" itemValue="gameDesignerId" items="${gamedesigners}" multiple="true" path="/gamedesigners" z="fNbkJ0CE5N3Ig6DyHpk2JH2zXys="/>
         <field:select field="gameTags2" id="c_org_m4_bgw_domain_Boardgame_gameTags2" itemValue="name" items="${gametags}" multiple="true" path="/gametags" z="4ZbezpB1Ix+lJ98NXDhpWnixySk="/>
-        <field:simple field="achieveds" id="c_org_m4_bgw_domain_Boardgame_achieveds" messageCode="entity_reference_not_managed" messageCodeAttribute="Achieved" z="NhZ0YgN5twXrTqRJkvdS81oedLE="/>
-        <field:simple field="avgGameLengths" id="c_org_m4_bgw_domain_Boardgame_avgGameLengths" messageCode="entity_reference_not_managed" messageCodeAttribute="Avg Game Length" z="jYK8nl9CSySdtn0u4Mr//zASiCk="/>
-        <field:simple field="externalLinks" id="c_org_m4_bgw_domain_Boardgame_externalLinks" messageCode="entity_reference_not_managed" messageCodeAttribute="External Link" z="b46pcgyPmuS5r3jYznjUprtaw5I="/>
-        <field:simple field="gameTables" id="c_org_m4_bgw_domain_Boardgame_gameTables" messageCode="entity_reference_not_managed" messageCodeAttribute="Game Table" z="WkQ2Zz2Px53WmydpxCrBmMLVcL8="/>
-        <field:simple field="gameTranslations" id="c_org_m4_bgw_domain_Boardgame_gameTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Game Translation" z="VZowNyq9AcRifG+gQf40IIdilgM="/>
         <field:select field="publisher" id="c_org_m4_bgw_domain_Boardgame_publisher" itemValue="name" items="${publishers}" path="/publishers" z="KdPmKUri5CnIwA3tglaX3BWLq+A="/>
         <field:select field="developedBy" id="c_org_m4_bgw_domain_Boardgame_developedBy" itemValue="username" items="${players}" path="/players" z="Lb+8uvmm20RiAHq0YDwT592cu3c="/>
         <field:input field="originalName" id="c_org_m4_bgw_domain_Boardgame_originalName" required="true" z="Zn5/kkWCYmUUwWCvmBfBbjoN4HI="/>

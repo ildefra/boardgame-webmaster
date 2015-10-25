@@ -4,7 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_m4_bgw_domain_GameTag" modelAttribute="gameTag" path="/gametags" render="${empty dependencies}" z="twooz12tjrEPcAQcWFchldxFg2M=">
         <field:select field="boardgames2" id="c_org_m4_bgw_domain_GameTag_boardgames2" itemValue="boardgameId" items="${boardgames}" multiple="true" path="/boardgames" z="GCe7Uxy9PoROX7a8uzggefD6mBs="/>
-        <field:simple field="tagTranslations" id="c_org_m4_bgw_domain_GameTag_tagTranslations" messageCode="entity_reference_not_managed" messageCodeAttribute="Tag Translation" z="xOO7M3Bn2ad0k8gMnwkcRsSXb1w="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_m4_bgw_domain_GameTag" render="${not empty dependencies}" z="NeaihMNHPZo/XF1XqjmyU5aeDMU="/>
 </div>

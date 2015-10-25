@@ -4,9 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_m4_bgw_domain_Player" idField="username" modelAttribute="player" path="/players" versionField="none" z="1CT/OE3HSElYi3G/LI/5luSLn7I=">
         <field:select field="languages" id="c_org_m4_bgw_domain_Player_languages" itemValue="isoCode" items="${languages}" multiple="true" path="/languages" z="DTQsGF6GAso5IP2+13ooAHef8t4="/>
-        <field:simple field="achieveds" id="c_org_m4_bgw_domain_Player_achieveds" messageCode="entity_reference_not_managed" messageCodeAttribute="Achieved" z="70K4RlwQ1AmKNW4mpRu9cGyRUjs="/>
-        <field:simple field="boardgames" id="c_org_m4_bgw_domain_Player_boardgames" messageCode="entity_reference_not_managed" messageCodeAttribute="Boardgame" z="c0BOCxaQeL7rBmtmuowxUhfE2WM="/>
-        <field:simple field="playeds" id="c_org_m4_bgw_domain_Player_playeds" messageCode="entity_reference_not_managed" messageCodeAttribute="Played" z="ue+90ev4LDfJGbJBjkGcVyFVwVE="/>
         <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex" itemValue="isoCode" items="${genders}" path="/genders" z="uYj2XtiKXV3KW9XfArwlz/mcnZo="/>
         <field:select field="levelId" id="c_org_m4_bgw_domain_Player_levelId" itemValue="levelId" items="${userlevels}" path="/userlevels" z="EpMSIC1GEdcdxh2yr0/w88TIJJU="/>
         <field:select field="country" id="c_org_m4_bgw_domain_Player_country" itemValue="isoAlpha2" items="${countrys}" path="/countrys" z="v2ILcsnwZ1Zx23X1f7WomcnfbFM="/>

@@ -3,7 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_m4_bgw_domain_GameTable" idField="gameTableId" modelAttribute="gameTable" path="/gametables" versionField="none" z="9ne2O2IpD2sGRp3wJZh/GJJ1eyU=">
-        <field:simple field="playeds" id="c_org_m4_bgw_domain_GameTable_playeds" messageCode="entity_reference_not_managed" messageCodeAttribute="Played" z="HjLrGU7p/eEDa/cUUaKx5HUNIec="/>
         <field:select field="boardgameId" id="c_org_m4_bgw_domain_GameTable_boardgameId" itemValue="boardgameId" items="${boardgames}" path="/boardgames" z="NOmJDvaBZH/ZOAsNbRq5dWoZ0iE="/>
         <field:select field="timeLimitId" id="c_org_m4_bgw_domain_GameTable_timeLimitId" itemValue="timeLimitId" items="${timelimits}" path="/timelimits" z="Auw19l4JwH5Rxl07lvSaNaC068U="/>
         <field:checkbox field="rated" id="c_org_m4_bgw_domain_GameTable_rated" z="Hyg7q0CLni9kxcqnoBHNobzRXVs="/>
