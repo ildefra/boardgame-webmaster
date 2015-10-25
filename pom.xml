@@ -223,9 +223,6 @@
                 <configuration>
                     <printSummary>false</printSummary>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <excludes>
-                        <exclude>**/*_Roo_*</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -254,11 +251,6 @@
                     </webResources>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>            
             
             <!-- web container -->
             <plugin>
@@ -279,7 +271,6 @@
                 <version>${openjpa.version}</version>
                 <configuration>
                         <includes>**/*.class</includes>
-                        <excludes>**/*_Roo_*.class</excludes>
                         <addDefaultConstructor>true</addDefaultConstructor>
                     </configuration>
                 <executions>
