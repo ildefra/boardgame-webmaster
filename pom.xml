@@ -201,6 +201,36 @@
 
     
     <build>
+    	<pluginManagement>
+    		<plugins>
+        	<plugin>
+            	<groupId>org.eclipse.m2e</groupId>
+            	<artifactId>lifecycle-mapping</artifactId>
+            	<version>1.0.0</version>
+            	<configuration>
+                	<lifecycleMappingMetadata>
+                		<pluginExecutions>
+                		<pluginExecution>
+	                		<pluginExecutionFilter>
+		                		<groupId>org.apache.openjpa</groupId>
+		                		<artifactId>openjpa-maven-plugin</artifactId>
+		                		<versionRange>[${openjpa.version},)</versionRange>
+		                		<goals>
+		                			<goal>enhance</goal>
+		                		</goals>
+	                		</pluginExecutionFilter>
+	                		<action>
+	                			<execute />
+	                		</action>
+	                	</pluginExecution>
+	                	</pluginExecutions>
+	                </lifecycleMappingMetadata>
+				</configuration>
+			</plugin>
+			</plugins>
+    	</pluginManagement>
+    	
+    
         <plugins>            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -270,9 +300,9 @@
                 <artifactId>openjpa-maven-plugin</artifactId>
                 <version>${openjpa.version}</version>
                 <configuration>
-                        <includes>**/*.class</includes>
-                        <addDefaultConstructor>true</addDefaultConstructor>
-                    </configuration>
+                	<includes>**/*.class</includes>
+                	<addDefaultConstructor>true</addDefaultConstructor>
+				</configuration>
                 <executions>
                     <execution>
                         <id>enhancer</id>
@@ -282,23 +312,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.openjpa</groupId>
-                        <artifactId>openjpa</artifactId>
-                        <version>${openjpa.version}</version>
-                        <exclusions>
-                            <exclusion>
-                                <groupId>commons-logging</groupId>
-                                <artifactId>commons-logging</artifactId>
-                            </exclusion>
-                            <exclusion>
-                                <groupId>org.apache.geronimo.specs</groupId>
-                                <artifactId>geronimo-jms_1.1_spec</artifactId>
-                            </exclusion>
-                        </exclusions>
-                    </dependency>
-                </dependencies>
             </plugin>
             
         </plugins>
