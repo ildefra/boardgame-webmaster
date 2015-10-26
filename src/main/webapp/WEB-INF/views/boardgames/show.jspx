@@ -5,7 +5,7 @@
     <page:show id="ps_org_m4_bgw_domain_Boardgame" object="${boardgame}" path="/boardgames" z="6DJBBaUxZ5289tBQ5yFbS7IQ9VE=">
         <field:display field="gameDesigners" id="s_org_m4_bgw_domain_Boardgame_gameDesigners" object="${boardgame}" z="8WOseBV0ToWhp51DSxYes2DCMzg="/>
         <field:display field="gameDesigners1" id="s_org_m4_bgw_domain_Boardgame_gameDesigners1" object="${boardgame}" z="6t3/uflKM8/cHQrc/hD6dN/5Uk8="/>
-        <field:display field="gameTags2" id="s_org_m4_bgw_domain_Boardgame_gameTags2" object="${boardgame}" z="DrljQAex8iJ5dPM1/zikGMePHYU="/>
+        <field:display field="gameTags" id="s_org_m4_bgw_domain_Boardgame_gameTags" object="${boardgame}" z="DrljQAex8iJ5dPM1/zikGMePHYU="/>
         <field:display field="publisher" id="s_org_m4_bgw_domain_Boardgame_publisher" object="${boardgame}" z="ZsC+8RHOKv6grXzAxlTOW1ub4lk="/>
         <field:display field="developedBy" id="s_org_m4_bgw_domain_Boardgame_developedBy" object="${boardgame}" z="fsnHBkFUiQwK/KpLW5KjY0S8Yk8="/>
         <field:display field="originalName" id="s_org_m4_bgw_domain_Boardgame_originalName" object="${boardgame}" z="o6XJ052GOXGGsmEvHc0eRVBptmg="/>

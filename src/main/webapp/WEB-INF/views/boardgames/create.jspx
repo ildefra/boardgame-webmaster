@@ -5,7 +5,7 @@
     <form:create id="fc_org_m4_bgw_domain_Boardgame" modelAttribute="boardgame" path="/boardgames" render="${empty dependencies}" z="MihFScC0Zccbfm2KnK01jJeH1RU=">
         <field:select field="gameDesigners" id="c_org_m4_bgw_domain_Boardgame_gameDesigners" itemValue="gameDesignerId" items="${gamedesigners}" multiple="true" path="/gamedesigners" z="2HH0sGbU0QIqXZ/eVcbSyIz0Xi4="/>
         <field:select field="gameDesigners1" id="c_org_m4_bgw_domain_Boardgame_gameDesigners1" itemValue="gameDesignerId" items="${gamedesigners}" multiple="true" path="/gamedesigners" z="fNbkJ0CE5N3Ig6DyHpk2JH2zXys="/>
-        <field:select field="gameTags2" id="c_org_m4_bgw_domain_Boardgame_gameTags2" itemValue="name" items="${gametags}" multiple="true" path="/gametags" z="4ZbezpB1Ix+lJ98NXDhpWnixySk="/>
+        <field:select field="gameTags" id="c_org_m4_bgw_domain_Boardgame_gameTags" itemValue="name" items="${gametags}" multiple="true" path="/gametags" z="4ZbezpB1Ix+lJ98NXDhpWnixySk="/>
         <field:select field="publisher" id="c_org_m4_bgw_domain_Boardgame_publisher" itemValue="name" items="${publishers}" path="/publishers" z="KdPmKUri5CnIwA3tglaX3BWLq+A="/>
         <field:select field="developedBy" id="c_org_m4_bgw_domain_Boardgame_developedBy" itemValue="username" items="${players}" path="/players" z="Lb+8uvmm20RiAHq0YDwT592cu3c="/>
         <field:input field="originalName" id="c_org_m4_bgw_domain_Boardgame_originalName" required="true" z="Zn5/kkWCYmUUwWCvmBfBbjoN4HI="/>
