@@ -19,41 +19,11 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 @Table(name = "boardgame")
 public class Boardgame {
 
-	@ManyToMany
-    @JoinTable(name = "artwork", joinColumns = { @JoinColumn(name = "boardgame_id", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "game_designer_id", nullable = false) })
-    private Set<GameDesigner> gameDesigners;
-
-	@ManyToMany
-    @JoinTable(name = "autorship", joinColumns = { @JoinColumn(name = "boardgame_id", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "game_designer_id", nullable = false) })
-    private Set<GameDesigner> gameDesigners1;
-
-	@ManyToMany
-    @JoinTable(name = "has_tag", joinColumns = { @JoinColumn(name = "boardgame_id", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "tag_name", nullable = false) })
-    private Set<GameTag> gameTags2;
-
-	@OneToMany(mappedBy = "boardgameId")
-    private Set<Achieved> achieveds;
-
-	@OneToMany(mappedBy = "boardgameId")
-    private Set<AvgGameLength> avgGameLengths;
-
-	@OneToMany(mappedBy = "boardgameId")
-    private Set<ExternalLink> externalLinks;
-
-	@OneToMany(mappedBy = "boardgameId")
-    private Set<GameTable> gameTables;
-
-	@OneToMany(mappedBy = "boardgameId")
-    private Set<GameTranslation> gameTranslations;
-
-	@ManyToOne
-    @JoinColumn(name = "publisher", referencedColumnName = "name")
-    private Publisher publisher;
-
-	@ManyToOne
-    @JoinColumn(name = "developed_by", referencedColumnName = "username")
-    private Player developedBy;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "boardgame_id")
+    private Integer boardgameId;
+	
 	@Column(name = "original_name", length = 50, unique = true)
     @NotNull
     private String originalName;
@@ -93,6 +63,156 @@ public class Boardgame {
     @NotNull
     private String softwareVersion;
 
+	
+    @ManyToOne
+    @JoinColumn(name = "publisher", referencedColumnName = "name")
+    private Publisher publisher;
+
+    @ManyToOne
+    @JoinColumn(name = "developed_by", referencedColumnName = "username")
+    private Player developedBy;
+
+
+    @ManyToMany
+    @JoinTable(name = "artwork",
+            joinColumns = { @JoinColumn(name = "boardgame_id", nullable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "game_designer_id", nullable = false) })
+    private Set<GameDesigner> gameDesigners;
+
+    @ManyToMany
+    @JoinTable(name = "autorship",
+            joinColumns = { @JoinColumn(name = "boardgame_id", nullable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "game_designer_id", nullable = false) })
+    private Set<GameDesigner> gameDesigners1;
+
+    @ManyToMany
+    @JoinTable(name = "has_tag",
+            joinColumns = { @JoinColumn(name = "boardgame_id", nullable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "tag_name", nullable = false) })
+    private Set<GameTag> gameTags;
+
+    @OneToMany(mappedBy = "boardgameId")
+    private Set<Achieved> achieveds;
+
+    @OneToMany(mappedBy = "boardgameId")
+    private Set<AvgGameLength> avgGameLengths;
+
+    @OneToMany(mappedBy = "boardgameId")
+    private Set<ExternalLink> externalLinks;
+
+    @OneToMany(mappedBy = "boardgameId")
+    private Set<GameTable> gameTables;
+
+    @OneToMany(mappedBy = "boardgameId")
+    private Set<GameTranslation> gameTranslations;
+
+    
+    public Integer getBoardgameId() {
+        return this.boardgameId;
+    }
+
+    public void setBoardgameId(Integer id) {
+        this.boardgameId = id;
+    }
+
+    public String getOriginalName() {
+        return originalName;
+    }
+
+    public void setOriginalName(String originalName) {
+        this.originalName = originalName;
+    }
+
+    public Short getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(Short publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public Short getPlayersMin() {
+        return playersMin;
+    }
+
+    public void setPlayersMin(Short playersMin) {
+        this.playersMin = playersMin;
+    }
+
+    public Short getPlayersMax() {
+        return playersMax;
+    }
+
+    public void setPlayersMax(Short playersMax) {
+        this.playersMax = playersMax;
+    }
+
+    public Short getAvgLengthMinutes() {
+        return avgLengthMinutes;
+    }
+
+    public void setAvgLengthMinutes(Short avgLengthMinutes) {
+        this.avgLengthMinutes = avgLengthMinutes;
+    }
+
+    public Short getComplexityScore() {
+        return complexityScore;
+    }
+
+    public void setComplexityScore(Short complexityScore) {
+        this.complexityScore = complexityScore;
+    }
+
+    public Short getStrategyScore() {
+        return strategyScore;
+    }
+
+    public void setStrategyScore(Short strategyScore) {
+        this.strategyScore = strategyScore;
+    }
+
+    public Short getLuckScore() {
+        return luckScore;
+    }
+
+    public void setLuckScore(Short luckScore) {
+        this.luckScore = luckScore;
+    }
+
+    public Short getInteractionScore() {
+        return interactionScore;
+    }
+
+    public void setInteractionScore(Short interactionScore) {
+        this.interactionScore = interactionScore;
+    }
+
+    public String getSoftwareVersion() {
+        return softwareVersion;
+    }
+
+    public void setSoftwareVersion(String softwareVersion) {
+        this.softwareVersion = softwareVersion;
+    }
+
+    
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public Player getDevelopedBy() {
+        return developedBy;
+    }
+
+    public void setDevelopedBy(Player developedBy) {
+        this.developedBy = developedBy;
+    }
+
+    
 	public Set<GameDesigner> getGameDesigners() {
         return gameDesigners;
     }
@@ -109,12 +229,12 @@ public class Boardgame {
         this.gameDesigners1 = gameDesigners1;
     }
 
-	public Set<GameTag> getGameTags2() {
-        return gameTags2;
+	public Set<GameTag> getGameTags() {
+        return gameTags;
     }
 
-	public void setGameTags2(Set<GameTag> gameTags2) {
-        this.gameTags2 = gameTags2;
+	public void setGameTags(Set<GameTag> gameTags) {
+        this.gameTags = gameTags;
     }
 
 	public Set<Achieved> getAchieveds() {
@@ -157,116 +277,14 @@ public class Boardgame {
         this.gameTranslations = gameTranslations;
     }
 
-	public Publisher getPublisher() {
-        return publisher;
-    }
 
-	public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
-
-	public Player getDevelopedBy() {
-        return developedBy;
-    }
-
-	public void setDevelopedBy(Player developedBy) {
-        this.developedBy = developedBy;
-    }
-
-	public String getOriginalName() {
-        return originalName;
-    }
-
-	public void setOriginalName(String originalName) {
-        this.originalName = originalName;
-    }
-
-	public Short getPublicationYear() {
-        return publicationYear;
-    }
-
-	public void setPublicationYear(Short publicationYear) {
-        this.publicationYear = publicationYear;
-    }
-
-	public Short getPlayersMin() {
-        return playersMin;
-    }
-
-	public void setPlayersMin(Short playersMin) {
-        this.playersMin = playersMin;
-    }
-
-	public Short getPlayersMax() {
-        return playersMax;
-    }
-
-	public void setPlayersMax(Short playersMax) {
-        this.playersMax = playersMax;
-    }
-
-	public Short getAvgLengthMinutes() {
-        return avgLengthMinutes;
-    }
-
-	public void setAvgLengthMinutes(Short avgLengthMinutes) {
-        this.avgLengthMinutes = avgLengthMinutes;
-    }
-
-	public Short getComplexityScore() {
-        return complexityScore;
-    }
-
-	public void setComplexityScore(Short complexityScore) {
-        this.complexityScore = complexityScore;
-    }
-
-	public Short getStrategyScore() {
-        return strategyScore;
-    }
-
-	public void setStrategyScore(Short strategyScore) {
-        this.strategyScore = strategyScore;
-    }
-
-	public Short getLuckScore() {
-        return luckScore;
-    }
-
-	public void setLuckScore(Short luckScore) {
-        this.luckScore = luckScore;
-    }
-
-	public Short getInteractionScore() {
-        return interactionScore;
-    }
-
-	public void setInteractionScore(Short interactionScore) {
-        this.interactionScore = interactionScore;
-    }
-
-	public String getSoftwareVersion() {
-        return softwareVersion;
-    }
-
-	public void setSoftwareVersion(String softwareVersion) {
-        this.softwareVersion = softwareVersion;
-    }
-
+	@Override
 	public String toString() {
-        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("gameDesigners", "gameDesigners1", "gameTags2", "achieveds", "avgGameLengths", "externalLinks", "gameTables", "gameTranslations", "publisher", "developedBy").toString();
-    }
-
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "boardgame_id")
-    private Integer boardgameId;
-
-	public Integer getBoardgameId() {
-        return this.boardgameId;
-    }
-
-	public void setBoardgameId(Integer id) {
-        this.boardgameId = id;
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .setExcludeFieldNames(
+                        "gameDesigners", "gameDesigners1", "gameTags2", "achieveds",
+                        "avgGameLengths", "externalLinks", "gameTables", "gameTranslations",
+                        "publisher", "developedBy"
+                ).toString();
     }
 }
