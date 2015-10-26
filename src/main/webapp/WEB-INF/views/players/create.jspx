@@ -7,17 +7,17 @@
     	<field:input field="username" id="c_org_m4_bgw_domain_Player_username" required="true" />
     
         <field:select field="languages" id="c_org_m4_bgw_domain_Player_languages"
-        		items="${languages}" path="/languages" itemValue="isoCode" itemLabel="name"
+        		items="${languages}" path="/languages" itemValue="isoCode"
         		multiple="true" 
         		z="DTQsGF6GAso5IP2+13ooAHef8t4=" />
         <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex"
-        		items="${genders}" path="/genders" itemValue="isoCode" itemLabel="name"
+        		items="${genders}" path="/genders" itemValue="isoCode"
         		z="uYj2XtiKXV3KW9XfArwlz/mcnZo=" />
         <field:select field="levelId" id="c_org_m4_bgw_domain_Player_levelId"
-        		items="${userlevels}" path="/userlevels" itemValue="levelId" itemLabel="name"
+        		items="${userlevels}" path="/userlevels" itemValue="levelId"
         		z="EpMSIC1GEdcdxh2yr0/w88TIJJU=" />
         <field:select field="country" id="c_org_m4_bgw_domain_Player_country"
-        		items="${countrys}" path="/countrys" itemValue="isoAlpha2" itemLabel="name"
+        		items="${countrys}" path="/countrys" itemValue="isoAlpha2"
         		z="v2ILcsnwZ1Zx23X1f7WomcnfbFM=" />
         
         <field:input field="email" id="c_org_m4_bgw_domain_Player_email"

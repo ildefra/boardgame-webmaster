@@ -54,6 +54,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 
+
 @Configurable
 /**
  * A central place to register application converters and formatters. 
@@ -120,6 +121,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
 	@Autowired
     UserLevelRepository userLevelRepository;
 
+	
 	public Converter<Achieved, String> getAchievedToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Achieved, java.lang.String>() {
             public String convert(Achieved achieved) {
@@ -144,11 +146,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Achievement, String> getAchievementToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Achievement, java.lang.String>() {
-            public String convert(Achievement achievement) {
-                return new StringBuilder().append(achievement.getPoints()).append(' ').append(achievement.getName()).toString();
-            }
+	    
+        return new Converter<Achievement, String>() {
+            
+            @Override
+            public String convert(Achievement achievement) {return achievement.getName(); }
         };
     }
 
@@ -168,6 +172,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<AchievementTranslation, String> getAchievementTranslationToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.AchievementTranslation, java.lang.String>() {
             public String convert(AchievementTranslation achievementTranslation) {
@@ -192,6 +197,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<AvgGameLength, String> getAvgGameLengthToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.AvgGameLength, java.lang.String>() {
             public String convert(AvgGameLength avgGameLength) {
@@ -216,11 +222,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Boardgame, String> getBoardgameToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Boardgame, java.lang.String>() {
-            public String convert(Boardgame boardgame) {
-                return new StringBuilder().append(boardgame.getOriginalName()).append(' ').append(boardgame.getPublicationYear()).append(' ').append(boardgame.getPlayersMin()).append(' ').append(boardgame.getPlayersMax()).toString();
-            }
+	    
+        return new Converter<Boardgame, String>() {
+            
+            @Override
+            public String convert(Boardgame boardgame) {return boardgame.getOriginalName(); }
         };
     }
 
@@ -240,14 +248,17 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Country, String> getCountryToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Country, java.lang.String>() {
-            public String convert(Country country) {
-                return new StringBuilder().append(country.getIsoAlpha3()).append(' ').append(country.getName()).toString();
-            }
+	    
+        return new Converter<Country, String>() {
+            
+            @Override
+            public String convert(Country country) {return country.getName(); }
         };
     }
 
+	
 	public Converter<String, Country> getIdToCountryConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.m4.bgw.domain.Country>() {
             public org.m4.bgw.domain.Country convert(java.lang.String id) {
@@ -256,6 +267,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<ExternalLink, String> getExternalLinkToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.ExternalLink, java.lang.String>() {
             public String convert(ExternalLink externalLink) {
@@ -280,10 +292,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<GameDesigner, String> getGameDesignerToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.GameDesigner, java.lang.String>() {
+        return new Converter<GameDesigner, String>() {
+            
+            @Override
             public String convert(GameDesigner gameDesigner) {
-                return new StringBuilder().append(gameDesigner.getFirstName()).append(' ').append(gameDesigner.getSurname()).toString();
+                return gameDesigner.getFirstName() + ' ' + gameDesigner.getSurname();
             }
         };
     }
@@ -304,6 +319,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<GameTable, String> getGameTableToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.GameTable, java.lang.String>() {
             public String convert(GameTable gameTable) {
@@ -328,11 +344,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<GameTag, String> getGameTagToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.GameTag, java.lang.String>() {
-            public String convert(GameTag gameTag) {
-                return "(no displayable fields)";
-            }
+	    
+        return new Converter<GameTag, String>() {
+            
+            @Override
+            public String convert(GameTag gameTag) {return gameTag.getName(); }
         };
     }
 
@@ -344,6 +362,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<GameTranslation, String> getGameTranslationToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.GameTranslation, java.lang.String>() {
             public String convert(GameTranslation gameTranslation) {
@@ -368,11 +387,12 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Gender, String> getGenderToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Gender, java.lang.String>() {
-            public String convert(Gender gender) {
-                return new StringBuilder().append(gender.getName()).toString();
-            }
+        return new Converter<Gender, String>() {
+            
+            @Override
+            public String convert(Gender gender) {return gender.getName(); }
         };
     }
 
@@ -392,11 +412,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Language, String> getLanguageToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Language, java.lang.String>() {
-            public String convert(Language language) {
-                return new StringBuilder().append(language.getName()).toString();
-            }
+	    
+        return new Converter<Language, String>() {
+            
+            @Override
+            public String convert(Language language) {return language.getName(); }
         };
     }
 
@@ -408,6 +430,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<LevelTranslation, String> getLevelTranslationToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.LevelTranslation, java.lang.String>() {
             public String convert(LevelTranslation levelTranslation) {
@@ -432,6 +455,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Played, String> getPlayedToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Played, java.lang.String>() {
             public String convert(Played played) {
@@ -456,11 +480,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Player, String> getPlayerToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Player, java.lang.String>() {
-            public String convert(Player player) {
-                return new StringBuilder().append(player.getEmail()).append(' ').append(player.getPassword()).append(' ').append(player.getRegistrationDtm()).append(' ').append(player.getBirthDate()).toString();
-            }
+	    
+        return new Converter<Player, String>() {
+            
+            @Override
+            public String convert(Player player) {return player.getUsername(); }
         };
     }
 
@@ -472,11 +498,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<Publisher, String> getPublisherToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Publisher, java.lang.String>() {
-            public String convert(Publisher publisher) {
-                return new StringBuilder().append(publisher.getWebsite()).toString();
-            }
+	    
+        return new Converter<Publisher, String>() {
+            
+            @Override
+            public String convert(Publisher publisher) {return publisher.getName(); }
         };
     }
 
@@ -488,6 +516,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<TagTranslation, String> getTagTranslationToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.TagTranslation, java.lang.String>() {
             public String convert(TagTranslation tagTranslation) {
@@ -512,11 +541,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<TimeLimit, String> getTimeLimitToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.TimeLimit, java.lang.String>() {
-            public String convert(TimeLimit timeLimit) {
-                return new StringBuilder().append(timeLimit.getName()).toString();
-            }
+	    
+        return new Converter<TimeLimit, String>() {
+            
+            @Override
+            public String convert(TimeLimit timeLimit) {return timeLimit.getName(); }
         };
     }
 
@@ -536,11 +567,13 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<UserLevel, String> getUserLevelToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.UserLevel, java.lang.String>() {
-            public String convert(UserLevel userLevel) {
-                return "(no displayable fields)";
-            }
+	    
+        return new Converter<UserLevel, String>() {
+            
+            @Override
+            public String convert(UserLevel userLevel) {return userLevel.getName(); }
         };
     }
 
@@ -560,6 +593,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public Converter<String, AchievedPK> getJsonToAchievedPKConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.m4.bgw.domain.AchievedPK>() {
             public AchievedPK convert(String encodedJson) {
@@ -672,6 +706,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
+	
 	public void installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getAchievedToStringConverter());
         registry.addConverter(getIdToAchievedConverter());
@@ -744,6 +779,7 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         registry.addConverter(getLevelTranslationPKToJsonConverter());
     }
 
+	@Override
 	public void afterPropertiesSet() {
         super.afterPropertiesSet();
         installLabelConverters(getObject());
