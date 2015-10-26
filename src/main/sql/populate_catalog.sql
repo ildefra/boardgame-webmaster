@@ -35,12 +35,36 @@ INSERT INTO `boardgame`
 	`original_name`, `publisher`, `publication_year`,
 	`players_min`, `players_max`, `avg_length_minutes`,
 	`complexity_score`, `strategy_score`, `luck_score`, `interaction_score`,
-	`developed_by`, `software_version`
+	`software_version`
 )
 VALUES
 	(
 	'Gomoku', null, 700,
-	2, 2, 5,
+	2, 2, 10,
 	1, 4, 0, 0,
-	null, '1.4.1'
+	'2.0.2'
+	),
+	(
+	'Chess', null, 1475,
+	2, 2, 30,
+	1, 4, 0, 0,
+	'2.1.0'
+	),
+	(
+	'Caylus', 'Ystari Games', 2005,
+	2, 5, 90,
+	4, 5, 0, 2,
+	'2.0.6'
+	),
+	(
+	'Stone Age', 'Hans Im Gluck', 2008,
+	2, 4, 60,
+	3, 3, 3, 1,
+	'2.2.6'
+	),
+	(
+	'6 Nimmt!', 'Amigo', 1994,
+	2, 10, 20,
+	1, 1, 4, 3,
+	'1.5.5'
 	);

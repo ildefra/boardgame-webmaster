@@ -70,9 +70,6 @@ public class Player {
 	@OneToMany(mappedBy = "username")
     private Set<Achieved> achieveds;
 
-	@OneToMany(mappedBy = "developedBy")
-    private Set<Boardgame> boardgames;
-
 	@OneToMany(mappedBy = "username")
     private Set<Played> playeds;
 
@@ -168,14 +165,6 @@ public class Player {
         this.achieveds = achieveds;
     }
 
-	public Set<Boardgame> getBoardgames() {
-        return boardgames;
-    }
-
-	public void setBoardgames(Set<Boardgame> boardgames) {
-        this.boardgames = boardgames;
-    }
-
 	public Set<Played> getPlayeds() {
         return playeds;
     }
@@ -189,8 +178,7 @@ public class Player {
 	public String toString() {
         return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
                 .setExcludeFieldNames(
-                        "languages", "achieveds", "boardgames",
-                        "playeds", "sex", "levelId", "country"
+                        "languages", "achieveds", "playeds", "sex", "levelId", "country"
                 ).toString();
     }
 }

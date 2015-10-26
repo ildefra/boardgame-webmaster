@@ -68,10 +68,6 @@ public class Boardgame {
     @JoinColumn(name = "publisher", referencedColumnName = "name")
     private Publisher publisher;
 
-    @ManyToOne
-    @JoinColumn(name = "developed_by", referencedColumnName = "username")
-    private Player developedBy;
-
 
     @ManyToMany
     @JoinTable(name = "artwork",
@@ -204,14 +200,6 @@ public class Boardgame {
         this.publisher = publisher;
     }
 
-    public Player getDevelopedBy() {
-        return developedBy;
-    }
-
-    public void setDevelopedBy(Player developedBy) {
-        this.developedBy = developedBy;
-    }
-
     
 	public Set<GameDesigner> getGameDesigners() {
         return gameDesigners;
@@ -282,9 +270,9 @@ public class Boardgame {
 	public String toString() {
         return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
                 .setExcludeFieldNames(
-                        "gameDesigners", "gameDesigners1", "gameTags2", "achieveds",
+                        "gameDesigners", "gameDesigners1", "gameTags", "achieveds",
                         "avgGameLengths", "externalLinks", "gameTables", "gameTranslations",
-                        "publisher", "developedBy"
+                        "publisher"
                 ).toString();
     }
 }
