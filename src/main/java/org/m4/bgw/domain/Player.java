@@ -1,5 +1,6 @@
 package org.m4.bgw.domain;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
@@ -37,9 +38,9 @@ public class Player {
 
     @Column(name = "registration_dtm")
     @NotNull
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(style = "M-")
-    private Date registrationDtm;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "MM")
+    private Calendar registrationDtm;
 
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
@@ -95,11 +96,11 @@ public class Player {
         this.password = password;
     }
 
-    public Date getRegistrationDtm() {
+    public Calendar getRegistrationDtm() {
         return registrationDtm;
     }
 
-    public void setRegistrationDtm(Date registrationDtm) {
+    public void setRegistrationDtm(Calendar registrationDtm) {
         this.registrationDtm = registrationDtm;
     }
 
@@ -166,7 +167,7 @@ public class Player {
 	public String toString() {
         return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
                 .setExcludeFieldNames(
-                        "languages", "achieveds", "playeds", "sex", "levelId", "country"
+                        "achieveds", "playeds", "sex", "levelId", "country"
                 ).toString();
     }
 }

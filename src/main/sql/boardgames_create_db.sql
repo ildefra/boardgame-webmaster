@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `username` VARCHAR(20) NOT NULL COMMENT '',
   `email` VARCHAR(90) NULL COMMENT '',
   `password` VARCHAR(20) NOT NULL COMMENT '',
-  `registration_dtm` DATE NOT NULL COMMENT '',
+  `registration_dtm` DATETIME NOT NULL COMMENT '',
   `sex` TINYINT UNSIGNED NOT NULL COMMENT '',
   `birth_date` DATE NULL COMMENT '',
   `country` CHAR(2) NOT NULL COMMENT '',

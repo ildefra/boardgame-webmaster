@@ -119,11 +119,17 @@ public class PlayerController {
         return "redirect:/players";
     }
 
+	
 	void addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("player_registrationdtm_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("player_birthdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute(
+                "player_registrationdtm_date_format",
+                DateTimeFormat.patternForStyle("MM", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute(
+                "player_birthdate_date_format",
+                DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
+	
 	void populateEditForm(Model uiModel, Player player) {
         uiModel.addAttribute("player", player);
         addDateTimeFormatPatterns(uiModel);
