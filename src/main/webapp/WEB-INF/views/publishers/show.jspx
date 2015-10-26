@@ -12,8 +12,5 @@
         <field:display id="s_org_m4_bgw_domain_Publisher_website"
         		object="${publisher}" field="website"
         		z="IczjIKFneK6ihNHr3EG1k9F7/JY=" />
-        <field:display id="s_org_m4_bgw_domain_Publisher_logo"
-        		object="${publisher}" field="logo"
-        		z="iqqTazQHWfHgq07f5BaEEXJdkKw=" />
     </page:show>
 </div>

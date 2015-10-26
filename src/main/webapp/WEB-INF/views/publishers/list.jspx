@@ -14,8 +14,6 @@
             <table:column id="c_org_m4_bgw_domain_Publisher_name"		property="name" />
             <table:column id="c_org_m4_bgw_domain_Publisher_website"	property="website"
             		z="toSS7N90ky9vWsz+6iPLAYF9h8U=" />
-            <table:column id="c_org_m4_bgw_domain_Publisher_logo"		property="logo"
-            		z="6+O4nc4J8eQBmac8jWMECv50dD4=" />
         </table:table>
     </page:list>
 </div>

@@ -25,10 +25,6 @@ public class Publisher {
     @NotNull
     private String website;
 
-	@Column(name = "logo")
-    @NotNull
-    private byte[] logo;
-
 	
     @OneToMany(mappedBy = "publisher")
     private Set<Boardgame> boardgames;
@@ -48,14 +44,6 @@ public class Publisher {
 
 	public void setWebsite(String website) {
         this.website = website;
-    }
-
-	public byte[] getLogo() {
-        return logo;
-    }
-
-	public void setLogo(byte[] logo) {
-        this.logo = logo;
     }
 
 

@@ -117,7 +117,6 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `publisher` (
   `name` VARCHAR(50) NOT NULL COMMENT '',
   `website` VARCHAR(255) NOT NULL COMMENT '',
-  `logo` BLOB NOT NULL COMMENT '',
   PRIMARY KEY (`name`)  COMMENT '',
   UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
   UNIQUE INDEX `website_UNIQUE` (`website` ASC)  COMMENT '')

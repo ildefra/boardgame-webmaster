@@ -11,7 +11,5 @@
     	<field:input field="name" id="c_org_m4_bgw_domain_Publisher_name"		required="true" />
         <field:input field="website" id="c_org_m4_bgw_domain_Publisher_website" required="true"
         		z="gB9NwbEcR4MRp1BfHMaeDyrmD34=" />
-        <field:input field="logo" id="c_org_m4_bgw_domain_Publisher_logo"		required="true"
-        		z="8f70uRW1kuPpQtH2vmO3ZyJyVlo=" />
     </form:update>
 </div>
