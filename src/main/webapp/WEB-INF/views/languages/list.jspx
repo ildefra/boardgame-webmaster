@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_m4_bgw_domain_Language" items="${languages}" z="CFoMA4syruQlIEJc6ODX1e2745A=">
-        <table:table data="${languages}" delete="false" id="l_org_m4_bgw_domain_Language" path="/languages" typeIdFieldName="isoCode" update="false" z="WMLPr38+LTNUwpAenZKkcq+MMI4=">
-            <table:column id="c_org_m4_bgw_domain_Language_players" property="players" z="nm1aa/rypbnNBOpSGtQDRL7ICK4="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
+    <page:list id="pl_org_m4_bgw_domain_Language" items="${languages}"
+    		z="CFoMA4syruQlIEJc6ODX1e2745A=">
+    		
+        <table:table data="${languages}" id="l_org_m4_bgw_domain_Language" path="/languages"
+        		typeIdFieldName="isoCode" update="false" delete="false"
+        		z="WMLPr38+LTNUwpAenZKkcq+MMI4=">
+            <table:column id="c_org_m4_bgw_domain_Language_isoCode" property="isoCode" />
+            <table:column id="c_org_m4_bgw_domain_Language_name" property="name" />
         </table:table>
     </page:list>
 </div>

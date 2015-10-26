@@ -1,9 +1,9 @@
 package org.m4.bgw.domain;
+
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -11,15 +11,28 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
 
 @Entity
 @Table(name = "language")
 public class Language {
 
+    @Id
+    @Column(name = "iso_code", length = 3)
+    private String isoCode;
+
+    @Column(name = "name", length = 50, unique = true)
+    @NotNull
+    private String name;
+
+    
 	@ManyToMany
-    @JoinTable(name = "can_speak", joinColumns = { @JoinColumn(name = "language_code", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "username", nullable = false) })
+    @JoinTable(name = "can_speak",
+            joinColumns = { @JoinColumn(name = "language_code", nullable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "username", nullable = false) })
     private Set<Player> players;
 
 	@OneToMany(mappedBy = "languageCode")
@@ -37,10 +50,24 @@ public class Language {
 	@OneToMany(mappedBy = "languageCode")
     private Set<TagTranslation> tagTranslations;
 
-	@Column(name = "name", length = 50, unique = true)
-    @NotNull
-    private String name;
 
+    public String getIsoCode() {
+        return this.isoCode;
+    }
+
+    public void setIsoCode(String id) {
+        this.isoCode = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
 	public Set<Player> getPlayers() {
         return players;
     }
@@ -89,28 +116,13 @@ public class Language {
         this.tagTranslations = tagTranslations;
     }
 
-	public String getName() {
-        return name;
-    }
 
-	public void setName(String name) {
-        this.name = name;
-    }
-
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "iso_code", length = 3)
-    private String isoCode;
-
-	public String getIsoCode() {
-        return this.isoCode;
-    }
-
-	public void setIsoCode(String id) {
-        this.isoCode = id;
-    }
-
+	@Override
 	public String toString() {
-        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("players", "achievementTranslations", "externalLinks", "gameTranslations", "levelTranslations", "tagTranslations").toString();
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .setExcludeFieldNames(
+                        "players", "achievementTranslations", "externalLinks",
+                        "gameTranslations", "levelTranslations", "tagTranslations"
+                ).toString();
     }
 }
