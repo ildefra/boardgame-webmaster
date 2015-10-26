@@ -67,4 +67,28 @@ VALUES
 	2, 10, 20,
 	1, 1, 4, 3,
 	'1.5.5'
+	),
+	(
+	'Noir: Killer vs. Inspector', 'Level 99 Games', 2012,
+	2, 2, 10,
+	2, 3, 3, 0,
+	'2.3.3'
+	),
+	(
+	'Machiavelli', null, null,
+	2, 5, 30,
+	1, 1, 3, 0,
+	'2.0.1'
+	),
+	(
+	'Seasons', 'Libellud', 2012,
+	2, 4, 40,
+	3, 4, 2, 1,
+	'1.9.3'
+	),
+	(
+	'Carrara', 'Hans Im Gluck', 2012,
+	2, 4, 40,
+	2, 2, 1, 1,
+	'0.0.2'
 	);
