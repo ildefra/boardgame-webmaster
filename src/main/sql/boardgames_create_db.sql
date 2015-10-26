@@ -17,6 +17,54 @@ SHOW WARNINGS;
 USE `boardgames` ;
 
 -- -----------------------------------------------------
+-- Table `publisher`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `publisher` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `publisher` (
+  `name` VARCHAR(50) NOT NULL COMMENT '',
+  `website` VARCHAR(255) NOT NULL COMMENT '',
+  PRIMARY KEY (`name`)  COMMENT '',
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
+  UNIQUE INDEX `website_UNIQUE` (`website` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `boardgame`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `boardgame` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `boardgame` (
+  `boardgame_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
+  `original_name` VARCHAR(50) NOT NULL COMMENT '',
+  `publisher` VARCHAR(50) NULL COMMENT '',
+  `publication_year` SMALLINT NULL COMMENT '',
+  `players_min` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `players_max` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `avg_length_minutes` SMALLINT UNSIGNED NOT NULL COMMENT '',
+  `complexity_score` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `strategy_score` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `luck_score` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `interaction_score` TINYINT UNSIGNED NOT NULL COMMENT '',
+  `software_version` VARCHAR(20) NOT NULL COMMENT '',
+  PRIMARY KEY (`boardgame_id`)  COMMENT '',
+  UNIQUE INDEX `original_name_UNIQUE` (`original_name` ASC)  COMMENT '',
+  UNIQUE INDEX `boardgame_id_UNIQUE` (`boardgame_id` ASC)  COMMENT '',
+  INDEX `boardgame_has_publisher_fk1_idx` (`publisher` ASC)  COMMENT '',
+  CONSTRAINT `boardgame_has_publisher_fk1`
+    FOREIGN KEY (`publisher`)
+    REFERENCES `publisher` (`name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
 -- Table `country`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `country` ;
@@ -29,6 +77,52 @@ CREATE TABLE IF NOT EXISTS `country` (
   PRIMARY KEY (`iso_alpha_2`)  COMMENT '',
   UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
   UNIQUE INDEX `country_code_UNIQUE` (`iso_alpha_2` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `language`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `language` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `language` (
+  `iso_code` CHAR(3) NOT NULL COMMENT '',
+  `name` VARCHAR(50) NOT NULL COMMENT '',
+  PRIMARY KEY (`iso_code`)  COMMENT '',
+  UNIQUE INDEX `language_code_UNIQUE` (`iso_code` ASC)  COMMENT '',
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `game_translation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `game_translation` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `game_translation` (
+  `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
+  `language_code` CHAR(3) NOT NULL COMMENT '',
+  `name` VARCHAR(100) NOT NULL COMMENT '',
+  `rules` MEDIUMTEXT NOT NULL COMMENT '',
+  `rules_link` VARCHAR(255) NOT NULL COMMENT '',
+  PRIMARY KEY (`boardgame_id`, `language_code`)  COMMENT '',
+  INDEX `boardgame_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
+  INDEX `boardgame_language_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
+  UNIQUE INDEX `rules_link_UNIQUE` (`rules_link` ASC)  COMMENT '',
+  CONSTRAINT `boardgame_language_has_boardgame_fk1`
+    FOREIGN KEY (`boardgame_id`)
+    REFERENCES `boardgame` (`boardgame_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `boardgame_language_has_language_fk1`
+    FOREIGN KEY (`language_code`)
+    REFERENCES `language` (`iso_code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -105,107 +199,6 @@ CREATE TABLE IF NOT EXISTS `player` (
     REFERENCES `gender` (`iso_code`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `publisher`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `publisher` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `publisher` (
-  `name` VARCHAR(50) NOT NULL COMMENT '',
-  `website` VARCHAR(255) NOT NULL COMMENT '',
-  PRIMARY KEY (`name`)  COMMENT '',
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
-  UNIQUE INDEX `website_UNIQUE` (`website` ASC)  COMMENT '')
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `boardgame`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `boardgame` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `boardgame` (
-  `boardgame_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
-  `original_name` VARCHAR(50) NOT NULL COMMENT '',
-  `publisher` VARCHAR(50) NULL COMMENT '',
-  `publication_year` SMALLINT NULL COMMENT '',
-  `players_min` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `players_max` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `avg_length_minutes` SMALLINT UNSIGNED NOT NULL COMMENT '',
-  `complexity_score` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `strategy_score` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `luck_score` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `interaction_score` TINYINT UNSIGNED NOT NULL COMMENT '',
-  `developed_by` VARCHAR(20) NULL COMMENT '',
-  `software_version` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`boardgame_id`)  COMMENT '',
-  INDEX `boardgame_has_website_user_fk1_idx` (`developed_by` ASC)  COMMENT '',
-  UNIQUE INDEX `original_name_UNIQUE` (`original_name` ASC)  COMMENT '',
-  UNIQUE INDEX `boardgame_id_UNIQUE` (`boardgame_id` ASC)  COMMENT '',
-  INDEX `boardgame_has_publisher_fk1_idx` (`publisher` ASC)  COMMENT '',
-  CONSTRAINT `boardgame_has_website_user_fk1`
-    FOREIGN KEY (`developed_by`)
-    REFERENCES `player` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `boardgame_has_publisher_fk1`
-    FOREIGN KEY (`publisher`)
-    REFERENCES `publisher` (`name`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `language`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `language` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `language` (
-  `iso_code` CHAR(3) NOT NULL COMMENT '',
-  `name` VARCHAR(50) NOT NULL COMMENT '',
-  PRIMARY KEY (`iso_code`)  COMMENT '',
-  UNIQUE INDEX `language_code_UNIQUE` (`iso_code` ASC)  COMMENT '',
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '')
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `game_translation`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `game_translation` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `game_translation` (
-  `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
-  `name` VARCHAR(100) NOT NULL COMMENT '',
-  `rules` MEDIUMTEXT NOT NULL COMMENT '',
-  `rules_link` VARCHAR(255) NOT NULL COMMENT '',
-  PRIMARY KEY (`boardgame_id`, `language_code`)  COMMENT '',
-  INDEX `boardgame_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
-  INDEX `boardgame_language_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
-  UNIQUE INDEX `rules_link_UNIQUE` (`rules_link` ASC)  COMMENT '',
-  CONSTRAINT `boardgame_language_has_boardgame_fk1`
-    FOREIGN KEY (`boardgame_id`)
-    REFERENCES `boardgame` (`boardgame_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `boardgame_language_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`iso_code`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
