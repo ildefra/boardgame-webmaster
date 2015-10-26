@@ -14,6 +14,7 @@
         <field:input field="password" id="c_org_m4_bgw_domain_Player_password" required="true" z="4XqkcskjGW97vFqRvdAn1TvpDH4="/>
         <field:datetime dateTimePattern="${player_registrationdtm_date_format}" field="registrationDtm" id="c_org_m4_bgw_domain_Player_registrationDtm" required="true" z="/AmoxWGFV/mB1nhAIj1G5xTJOSI="/>
         <field:datetime dateTimePattern="${player_birthdate_date_format}" field="birthDate" id="c_org_m4_bgw_domain_Player_birthDate" z="iF3iU+JKQm1Jz98YKg6iP2yDdyk="/>
-        <field:input field="bio" id="c_org_m4_bgw_domain_Player_bio" z="RnrrRlnB1YuXKHFpAMiXwocGPes="/>
+        
+        <field:textarea field="bio" id="c_org_m4_bgw_domain_Player_bio" z="RnrrRlnB1YuXKHFpAMiXwocGPes="/>
     </form:update>
 </div>
