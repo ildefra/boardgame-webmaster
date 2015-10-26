@@ -21,3 +21,13 @@ VALUES
 	('turn-based - 1 move per day', 1),
 	('turn-based - 1 move each 2 days', 1),
 	('turn-based - no limits', 1);
+
+INSERT INTO `achievement` (`name`, `points`)
+VALUES
+	('tried the game', 10),
+	('first blood', 20),
+	('good player', 100),
+	('expert', 250),
+	('master', 800),
+	('pro', 1500),
+	('champion', 4000);
