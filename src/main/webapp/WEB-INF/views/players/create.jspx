@@ -3,6 +3,9 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_m4_bgw_domain_Player" modelAttribute="player" path="/players" render="${empty dependencies}" z="sSSrF7CRFsdyh1CMuC3+9xcHNnU=">
+    
+    	<field:input field="username" id="c_org_m4_bgw_domain_Player_username" required="true" />
+    
         <field:select field="languages" id="c_org_m4_bgw_domain_Player_languages" itemValue="isoCode" items="${languages}" multiple="true" path="/languages" z="DTQsGF6GAso5IP2+13ooAHef8t4="/>
         <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex" itemValue="isoCode" items="${genders}" path="/genders" z="uYj2XtiKXV3KW9XfArwlz/mcnZo="/>
         <field:select field="levelId" id="c_org_m4_bgw_domain_Player_levelId" itemValue="levelId" items="${userlevels}" path="/userlevels" z="EpMSIC1GEdcdxh2yr0/w88TIJJU="/>

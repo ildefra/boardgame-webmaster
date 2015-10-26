@@ -3,6 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_m4_bgw_domain_Player" object="${player}" path="/players" z="HpzcMozg55Q/xZ5LNf9KRTv2G4g=">
+    
+		<field:display id="s_org_m4_bgw_domain_Player_username"
+        		object="${player}" field="username" />
+    
         <field:display field="languages" id="s_org_m4_bgw_domain_Player_languages" object="${player}" z="xk1XISK7Agq6gaPxZjXvKgpAJPw="/>
         <field:display field="sex" id="s_org_m4_bgw_domain_Player_sex" object="${player}" z="KGRqXDTeLaLngiGJjE2nTzn7JJA="/>
         <field:display field="levelId" id="s_org_m4_bgw_domain_Player_levelId" object="${player}" z="LoBza+Ml63ndyzs90fG/MZjZMFg="/>
