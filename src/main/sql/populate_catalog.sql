@@ -21,3 +21,10 @@ VALUES
 	('Regis', 'Bonnessee'),
 	('Xavier', 'Durin'),
 	('Michael', 'Kiesling');
+
+INSERT INTO `game_tag` (`name`)
+VALUES
+	('abstract'), ('prizewinner'), ('prototype'), ('classic'), ('fantasy'),
+	('scifi'), ('history'), ('adventure'), ('exploration'), ('conquest'),
+	('building'), ('cardgame'), ('dice'), ('workers'), ('bluffing'),
+	('tiles'), ('race');
