@@ -1,12 +1,15 @@
 package org.m4.bgw.web;
-import org.m4.bgw.domain.Gender;
+
 import org.m4.bgw.domain.GenderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RequestMapping("/genders")
 @Controller
@@ -27,7 +30,12 @@ public class GenderController {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("genders", genderRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / sizeNo, sizeNo)).getContent());
+            
+            PageRequest pagedAndSorted =
+                    new PageRequest(firstResult / sizeNo, sizeNo, Direction.ASC, "isoCode");
+            uiModel.addAttribute(
+                    "genders", genderRepository.findAll(pagedAndSorted).getContent());
+
             float nrOfPages = (float) genderRepository.count() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
