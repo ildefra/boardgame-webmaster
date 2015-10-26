@@ -12,7 +12,6 @@
         		typeIdFieldName="username"
         		z="QzOdIV7BQDa8FuYWAEoSXP9o4AU=">
             <table:column id="c_org_m4_bgw_domain_Player_username"	property="username" />
-			<table:column id="c_org_m4_bgw_domain_Player_email"		property="email" />
 			<table:column id="c_org_m4_bgw_domain_Player_registrationdtm"
 					property="registrationDtm" />
             <table:column id="c_org_m4_bgw_domain_Player_sex"		property="sex"
