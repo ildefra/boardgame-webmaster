@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `birth_date` DATE NULL COMMENT '',
   `country` CHAR(2) NOT NULL COMMENT '',
   `bio` TEXT NULL COMMENT '',
-  `level_id` TINYINT NOT NULL COMMENT '',
+  `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   PRIMARY KEY (`username`)  COMMENT '',
   UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)  COMMENT '',
@@ -408,7 +408,7 @@ DROP TABLE IF EXISTS `level_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `level_translation` (
-  `level_id` TINYINT NOT NULL COMMENT '',
+  `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   `language_code` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
   PRIMARY KEY (`level_id`, `language_code`)  COMMENT '',
