@@ -8,7 +8,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Schema boardgames
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `boardgames` ;
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Schema boardgames
@@ -41,7 +40,7 @@ DROP TABLE IF EXISTS `user_level` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `user_level` (
-  `level_id` TINYINT NOT NULL COMMENT '',
+  `level_id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
   `can_play` BIT NOT NULL DEFAULT 1 COMMENT '',
   `can_shout` BIT NOT NULL DEFAULT 0 COMMENT '',
