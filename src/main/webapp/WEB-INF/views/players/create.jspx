@@ -6,10 +6,6 @@
     
     	<field:input field="username" id="c_org_m4_bgw_domain_Player_username" required="true" />
     
-        <field:select field="languages" id="c_org_m4_bgw_domain_Player_languages"
-        		items="${languages}" path="/languages" itemValue="isoCode"
-        		multiple="true" 
-        		z="DTQsGF6GAso5IP2+13ooAHef8t4=" />
         <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex"
         		items="${genders}" path="/genders" itemValue="isoCode"
         		z="uYj2XtiKXV3KW9XfArwlz/mcnZo=" />
@@ -32,8 +28,7 @@
         <field:datetime field="birthDate" id="c_org_m4_bgw_domain_Player_birthDate"
         		dateTimePattern="${player_birthdate_date_format}"
         		z="iF3iU+JKQm1Jz98YKg6iP2yDdyk=" />
-        <field:textarea field="bio" id="c_org_m4_bgw_domain_Player_bio"
-        		z="RnrrRlnB1YuXKHFpAMiXwocGPes=" />
+        <field:textarea field="motto" id="c_org_m4_bgw_domain_Player_motto" />
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_m4_bgw_domain_Player"
     		render="${not empty dependencies}"

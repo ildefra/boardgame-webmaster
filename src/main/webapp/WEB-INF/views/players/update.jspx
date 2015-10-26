@@ -6,7 +6,6 @@
     
     	<field:input field="username" id="c_org_m4_bgw_domain_Player_username" required="true" />
     
-        <field:select field="languages" id="c_org_m4_bgw_domain_Player_languages" itemValue="isoCode" items="${languages}" multiple="true" path="/languages" z="DTQsGF6GAso5IP2+13ooAHef8t4="/>
         <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex" itemValue="isoCode" items="${genders}" path="/genders" z="uYj2XtiKXV3KW9XfArwlz/mcnZo="/>
         <field:select field="levelId" id="c_org_m4_bgw_domain_Player_levelId" itemValue="levelId" items="${userlevels}" path="/userlevels" z="EpMSIC1GEdcdxh2yr0/w88TIJJU="/>
         <field:select field="country" id="c_org_m4_bgw_domain_Player_country" itemValue="isoAlpha2" items="${countrys}" path="/countrys" z="v2ILcsnwZ1Zx23X1f7WomcnfbFM="/>
@@ -15,6 +14,6 @@
         <field:datetime dateTimePattern="${player_registrationdtm_date_format}" field="registrationDtm" id="c_org_m4_bgw_domain_Player_registrationDtm" required="true" z="/AmoxWGFV/mB1nhAIj1G5xTJOSI="/>
         <field:datetime dateTimePattern="${player_birthdate_date_format}" field="birthDate" id="c_org_m4_bgw_domain_Player_birthDate" z="iF3iU+JKQm1Jz98YKg6iP2yDdyk="/>
         
-        <field:textarea field="bio" id="c_org_m4_bgw_domain_Player_bio" z="RnrrRlnB1YuXKHFpAMiXwocGPes="/>
+        <field:textarea field="motto" id="c_org_m4_bgw_domain_Player_motto" />
     </form:update>
 </div>

@@ -6,8 +6,7 @@
     
 		<field:display id="s_org_m4_bgw_domain_Player_username"
         		object="${player}" field="username" />
-    
-        <field:display field="languages" id="s_org_m4_bgw_domain_Player_languages" object="${player}" z="xk1XISK7Agq6gaPxZjXvKgpAJPw="/>
+        
         <field:display field="sex" id="s_org_m4_bgw_domain_Player_sex" object="${player}" z="KGRqXDTeLaLngiGJjE2nTzn7JJA="/>
         <field:display field="levelId" id="s_org_m4_bgw_domain_Player_levelId" object="${player}" z="LoBza+Ml63ndyzs90fG/MZjZMFg="/>
         <field:display field="country" id="s_org_m4_bgw_domain_Player_country" object="${player}" z="VhPYDZNCaRkXDJTgKmck3wg2WA8="/>
@@ -15,6 +14,7 @@
         <field:display field="password" id="s_org_m4_bgw_domain_Player_password" object="${player}" z="cwR7X1/9F1WL2O5NxgzAO5hWJIY="/>
         <field:display date="true" dateTimePattern="${player_registrationdtm_date_format}" field="registrationDtm" id="s_org_m4_bgw_domain_Player_registrationDtm" object="${player}" z="aAhZZckU4FwtM+1XQG6A0L5FOGg="/>
         <field:display date="true" dateTimePattern="${player_birthdate_date_format}" field="birthDate" id="s_org_m4_bgw_domain_Player_birthDate" object="${player}" z="TxGQLrR3T92PCf29lbFZALzsvC0="/>
-        <field:display field="bio" id="s_org_m4_bgw_domain_Player_bio" object="${player}" z="wRiRCL2ZRVHgJ3S7z50gBLIrxBo="/>
+        
+        <field:display id="s_org_m4_bgw_domain_Player_motto" object="${player}" field="motto" />
     </page:show>
 </div>

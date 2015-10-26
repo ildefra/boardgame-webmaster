@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -64,9 +63,6 @@ public class Player {
     private Country country;
 
     
-	@ManyToMany(mappedBy = "players")
-    private Set<Language> languages;
-
 	@OneToMany(mappedBy = "username")
     private Set<Achieved> achieveds;
 
@@ -149,14 +145,6 @@ public class Player {
     }
 
     
-	public Set<Language> getLanguages() {
-        return languages;
-    }
-
-	public void setLanguages(Set<Language> languages) {
-        this.languages = languages;
-    }
-
 	public Set<Achieved> getAchieveds() {
         return achieveds;
     }

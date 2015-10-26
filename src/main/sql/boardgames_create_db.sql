@@ -301,32 +301,6 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `can_speak`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `can_speak` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `can_speak` (
-  `username` VARCHAR(20) NOT NULL COMMENT '',
-  `language_code` CHAR(3) NOT NULL COMMENT '',
-  PRIMARY KEY (`username`, `language_code`)  COMMENT '',
-  INDEX `language_player_has_player_fk1_idx` (`username` ASC)  COMMENT '',
-  INDEX `language_player_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
-  CONSTRAINT `language_player_has_language_fk1`
-    FOREIGN KEY (`language_code`)
-    REFERENCES `language` (`iso_code`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `language_player_has_player_fk1`
-    FOREIGN KEY (`username`)
-    REFERENCES `player` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
 -- Table `game_tag`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `game_tag` ;

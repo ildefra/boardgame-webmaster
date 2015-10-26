@@ -5,9 +5,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -29,12 +26,6 @@ public class Language {
     private String name;
 
     
-	@ManyToMany
-    @JoinTable(name = "can_speak",
-            joinColumns = { @JoinColumn(name = "language_code", nullable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "username", nullable = false) })
-    private Set<Player> players;
-
 	@OneToMany(mappedBy = "languageCode")
     private Set<AchievementTranslation> achievementTranslations;
 
@@ -68,14 +59,6 @@ public class Language {
     }
 
     
-	public Set<Player> getPlayers() {
-        return players;
-    }
-
-	public void setPlayers(Set<Player> players) {
-        this.players = players;
-    }
-
 	public Set<AchievementTranslation> getAchievementTranslations() {
         return achievementTranslations;
     }
