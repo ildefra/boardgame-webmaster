@@ -92,3 +92,11 @@ VALUES
 	2, 2, 1, 1,
 	'0.0.2'
 	);
+
+INSERT INTO `autorship` (`boardgame_id`, `game_designer_id`)
+VALUES
+	(3, 1), (4, 3), (5, 5), (6, 7), (8, 9), (9, 11), (9, 5);
+
+INSERT INTO `artwork` (`boardgame_id`, `game_designer_id`)
+VALUES
+	(3, 2), (4, 4), (5, 6), (6, 8), (8, 10), (9, 6);
