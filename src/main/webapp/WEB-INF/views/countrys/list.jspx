@@ -10,7 +10,7 @@
     		z="Hvfp5RM9bNU7xuSZvCwXEZifKHM=">
     
         <table:table data="${countrys}" id="l_org_m4_bgw_domain_Country" path="/countrys"
-        		typeIdFieldName="isoAlpha2" update="false" delete="false"
+        		typeIdFieldName="isoAlpha2" create="false" update="false" delete="false"
         		z="yz8CD26yZzprsDDH8yBzayz2fnM=">
 			<table:column id="c_org_m4_bgw_domain_Country_isoAlpha2" property="isoAlpha2" />
             <table:column id="c_org_m4_bgw_domain_Country_isoAlpha3" property="isoAlpha3"

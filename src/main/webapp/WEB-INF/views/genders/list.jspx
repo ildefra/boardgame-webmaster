@@ -10,7 +10,7 @@
     		z="hC7G4L3etA+YGCgchKulnbm2fQ0=">
     		
         <table:table data="${genders}" id="l_org_m4_bgw_domain_Gender" path="/genders"
-        		typeIdFieldName="isoCode" update="false" delete="false"
+        		typeIdFieldName="isoCode" create="false" update="false" delete="false"
         		z="wPw0gfzF6zWkrJXQpv9rzMUSDKw=">
             <table:column id="c_org_m4_bgw_domain_Gender_isocode" property="isoCode" />
             <table:column id="c_org_m4_bgw_domain_Gender_name" property="name"

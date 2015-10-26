@@ -10,7 +10,7 @@
     		z="CFoMA4syruQlIEJc6ODX1e2745A=">
     		
         <table:table data="${languages}" id="l_org_m4_bgw_domain_Language" path="/languages"
-        		typeIdFieldName="isoCode" update="false" delete="false"
+        		typeIdFieldName="isoCode" create="false" update="false" delete="false"
         		z="WMLPr38+LTNUwpAenZKkcq+MMI4=">
             <table:column id="c_org_m4_bgw_domain_Language_isoCode" property="isoCode" />
             <table:column id="c_org_m4_bgw_domain_Language_name" property="name" />
