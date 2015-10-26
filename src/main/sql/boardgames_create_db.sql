@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `sex` TINYINT UNSIGNED NOT NULL COMMENT '',
   `birth_date` DATE NULL COMMENT '',
   `country` CHAR(2) NOT NULL COMMENT '',
-  `bio` TEXT NULL COMMENT '',
+  `motto` TEXT NULL COMMENT '',
   `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   PRIMARY KEY (`username`)  COMMENT '',
   UNIQUE INDEX `username_UNIQUE` (`username` ASC)  COMMENT '',

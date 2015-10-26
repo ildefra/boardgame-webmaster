@@ -47,8 +47,8 @@ public class Player {
     @DateTimeFormat(style = "M-")
     private Date birthDate;
 
-    @Column(name = "bio")
-    private String bio;
+    @Column(name = "motto")
+    private String motto;
 
 
     @ManyToOne
@@ -115,12 +115,12 @@ public class Player {
         this.birthDate = birthDate;
     }
 
-    public String getBio() {
-        return bio;
+    public String getMotto() {
+        return motto;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
+    public void setMotto(String motto) {
+        this.motto = motto;
     }
 
 
