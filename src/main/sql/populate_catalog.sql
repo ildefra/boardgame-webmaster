@@ -100,3 +100,16 @@ VALUES
 INSERT INTO `artwork` (`boardgame_id`, `game_designer_id`)
 VALUES
 	(3, 2), (4, 4), (5, 6), (6, 8), (8, 10), (9, 6);
+
+INSERT INTO `has_tag` (`boardgame_id`, `tag_name`)
+VALUES
+	(1, 'abstract'), (2, 'abstract'), (7, 'abstract'),
+	(3, 'prizewinner'),
+	(1, 'classic'), (2, 'classic'), (7, 'classic'),
+	(8, 'fantasy'),
+	(3, 'history'), (4, 'history'),
+	(9, 'building'),
+	(5, 'cardgame'), (6, 'cardgame'), (7, 'cardgame'), (8, 'cardgame'),
+	(8, 'dice'),
+	(3, 'workers'), (4, 'workers'),
+	(9, 'tiles');
