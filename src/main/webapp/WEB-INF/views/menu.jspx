@@ -8,49 +8,43 @@
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
     
         <menu:category id="c_dictionaries">
-            <menu:item id="i_gender_list" messageCode="global_menu_list" url="/genders?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OlI2PsbrQB3JpnCZPVE5DRB+iN4="/>
-            <menu:item id="i_country_list" label="countries"
+            <menu:item id="i_gender_list"
+            		url="/genders?page=1&amp;size=${empty param.size ? 10 : param.size}"
+            		messageCode="global_menu_list"
+            		z="OlI2PsbrQB3JpnCZPVE5DRB+iN4=" />
+            <menu:item id="i_country_list" label="Countries"
             		url="/countrys?page=1&amp;size=${empty param.size ? 10 : param.size}"
-            		messageCode="global_menu_list" z="AwKhjnZH+dOj0X4glIoj4SVuHNY="/>
-            <menu:item id="i_language_list" messageCode="global_menu_list" url="/languages?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ElqbZy+53HRFVQ8s2jdG81J9A5w="/>
-
-            <menu:item id="i_userlevel_new" messageCode="global_menu_new" url="/userlevels?form" z="0MHFU0Tl62OTjXQL5pIz1UbH/rc="/>
-            <menu:item id="i_userlevel_list" messageCode="global_menu_list" url="/userlevels?page=1&amp;size=${empty param.size ? 10 : param.size}" z="XBvCvaK2tBuykL7fJmAMHMUr8RM="/>
-
-            <menu:item id="i_timelimit_new" messageCode="global_menu_new" url="/timelimits?form" z="g/CE+GnmBDcDfozz3XQNyUYAzuE="/>
-            <menu:item id="i_timelimit_list" messageCode="global_menu_list" url="/timelimits?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OGyH/2sKMCI6s6AZY27LZS1lH4A="/>
-            
-            <menu:item id="i_achievement_new" messageCode="global_menu_new" url="/achievements?form" z="z97A+V1uGXAtzaHVDn8FqBtOLJY="/>
-            <menu:item id="i_achievement_list" messageCode="global_menu_list" url="/achievements?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ODuIAdT8RxD3ftXZ2xG1C9Yih0k="/>
+            		messageCode="global_menu_list" />
+            <menu:item id="i_language_list"
+            		url="/languages?page=1&amp;size=${empty param.size ? 10 : param.size}"
+            		messageCode="global_menu_list"
+            		z="ElqbZy+53HRFVQ8s2jdG81J9A5w=" />
+            <menu:item id="i_userlevel_list"
+            		url="/userlevels?page=1&amp;size=${empty param.size ? 10 : param.size}"
+            		messageCode="global_menu_list"
+            		z="XBvCvaK2tBuykL7fJmAMHMUr8RM=" />
+            <menu:item id="i_timelimit_list"
+            		url="/timelimits?page=1&amp;size=${empty param.size ? 10 : param.size}"
+            		messageCode="global_menu_list"
+            		z="OGyH/2sKMCI6s6AZY27LZS1lH4A=" />
+            <menu:item id="i_achievement_list"
+            		url="/achievements?page=1&amp;size=${empty param.size ? 10 : param.size}"
+            		messageCode="global_menu_list"
+            		z="ODuIAdT8RxD3ftXZ2xG1C9Yih0k=" />
         </menu:category>
         
         <menu:category id="c_catalog">
-            <menu:item id="i_publisher_new" messageCode="global_menu_new" url="/publishers?form" z="2hSC98CZKE50cwiLT192QWp0yKo="/>
             <menu:item id="i_publisher_list" messageCode="global_menu_list" url="/publishers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="D9gX70ZMMMlJ/PYfJho8BOrerYk="/>
-
-            <menu:item id="i_gamedesigner_new" messageCode="global_menu_new" url="/gamedesigners?form" z="0wrZGqEKMaHn/zUAkQo4mcg1jQc="/>
             <menu:item id="i_gamedesigner_list" messageCode="global_menu_list" url="/gamedesigners?page=1&amp;size=${empty param.size ? 10 : param.size}" z="NT7Z18D/EIiynUM93SFGMhk632Q="/>
-
-            <menu:item id="i_gametag_new" messageCode="global_menu_new" url="/gametags?form" z="jNT5ZNFLBa0P6UOZXC+d8wFpn6w="/>
             <menu:item id="i_gametag_list" messageCode="global_menu_list" url="/gametags?page=1&amp;size=${empty param.size ? 10 : param.size}" z="cAz8I+YbE9gQ8JgLprxevS8pcmk="/>
-
-            <menu:item id="i_boardgame_new" messageCode="global_menu_new" url="/boardgames?form" z="UnRzTn8CtR7SNLKEaer5hU6R4oU="/>
             <menu:item id="i_boardgame_list" messageCode="global_menu_list" url="/boardgames?page=1&amp;size=${empty param.size ? 10 : param.size}" z="lXtgc5Kv6tUSvA/u4D3eKFdyiZg="/>
         </menu:category>
                 
         <menu:category id="c_play">
-            <menu:item id="i_player_new" messageCode="global_menu_new" url="/players?form" z="xCwCGj+PbS/WEOyltkUd6nZ4y4g="/>
             <menu:item id="i_player_list" messageCode="global_menu_list" url="/players?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZCszNjmNvFu/+xYfzxw5lZP3Y2o="/>
-
-            <menu:item id="i_achieved_new" messageCode="global_menu_new" url="/achieveds?form" z="o2mJ64Vf8i9vXF/gD/htETv38T4="/>
             <menu:item id="i_achieved_list" messageCode="global_menu_list" url="/achieveds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="5GNXRC+p0o8QK8LJSuNb4xcvYOY="/>
-
-            <menu:item id="i_gametable_new" messageCode="global_menu_new" url="/gametables?form" z="KWqUDFNbb0pmdkdmqXdpqhgE1q8="/>
             <menu:item id="i_gametable_list" messageCode="global_menu_list" url="/gametables?page=1&amp;size=${empty param.size ? 10 : param.size}" z="RfX4DAfRSncF1TQqhbUR2h2GmHI="/>
-
-            <menu:item id="i_played_new" messageCode="global_menu_new" url="/playeds?form" z="DyjBtP5zBFWpU3qhWMZcGP4Ibe0="/>
             <menu:item id="i_played_list" messageCode="global_menu_list" url="/playeds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pkYD6TdSJhc/H0e0I4iWJqAnoOM="/>
-
         </menu:category>
         
         <menu:category id="c_reports">
