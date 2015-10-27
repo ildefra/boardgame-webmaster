@@ -46,8 +46,9 @@
             <menu:item id="i_gametable_list" messageCode="global_menu_list" url="/gametables?page=1&amp;size=${empty param.size ? 10 : param.size}" z="RfX4DAfRSncF1TQqhbUR2h2GmHI="/>
             <menu:item id="i_played_list" messageCode="global_menu_list" url="/playeds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pkYD6TdSJhc/H0e0I4iWJqAnoOM="/>
         </menu:category>
-        
+
         <menu:category id="c_reports">
+        	<menu:item id="i_prestige" url="/prestige" label="Hall of Fame" />        	
         </menu:category>
 
         <menu:category id="c_localization">
