@@ -3,8 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_m4_bgw_domain_GameDesigner" modelAttribute="gameDesigner" path="/gamedesigners" render="${empty dependencies}" z="jrF5pvX9E+72WRrkOd+fQTL5hKQ=">
-        <field:select field="boardgames" id="c_org_m4_bgw_domain_GameDesigner_boardgames" itemValue="boardgameId" items="${boardgames}" multiple="true" path="/boardgames" z="gr/a1TKRynyRnJKZ6mjtY7ZkCx4="/>
-        <field:select field="boardgames1" id="c_org_m4_bgw_domain_GameDesigner_boardgames1" itemValue="boardgameId" items="${boardgames}" multiple="true" path="/boardgames" z="HSfeItCGlCL5KbRHVNtTJq5x/EE="/>
         <field:input field="firstName" id="c_org_m4_bgw_domain_GameDesigner_firstName" required="true" z="gMzk68vVqEpukDTxcDLAzOp7r6U="/>
         <field:input field="surname" id="c_org_m4_bgw_domain_GameDesigner_surname" required="true" z="3Mb0QghVK6lAf6Tyq+qUzoMIOPQ="/>
     </form:create>

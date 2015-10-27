@@ -3,8 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_m4_bgw_domain_GameDesigner" object="${gamedesigner}" path="/gamedesigners" z="DgnTIzrH1Om/YpBNb2+oi13J69Y=">
-        <field:display field="boardgames" id="s_org_m4_bgw_domain_GameDesigner_boardgames" object="${gamedesigner}" z="PuXi5HkQYsA5fjhjIKU4MCQM4e0="/>
-        <field:display field="boardgames1" id="s_org_m4_bgw_domain_GameDesigner_boardgames1" object="${gamedesigner}" z="fXAHKi6epb6VYyQTcSFq0Hw6AWE="/>
         <field:display field="firstName" id="s_org_m4_bgw_domain_GameDesigner_firstName" object="${gamedesigner}" z="YjrP9Intuql9ESkQHQ+hQM91wQI="/>
         <field:display field="surname" id="s_org_m4_bgw_domain_GameDesigner_surname" object="${gamedesigner}" z="z9PmY6rJL9K8eLXDWJnb7NN2fcg="/>
     </page:show>
