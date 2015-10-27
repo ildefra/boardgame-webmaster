@@ -28,6 +28,6 @@ VALUES
 	('first blood', 20),
 	('good player', 100),
 	('expert', 250),
-	('master', 800),
+	('master', 1000),
 	('pro', 1500),
-	('champion', 4000);
+	('champion', 5000);
