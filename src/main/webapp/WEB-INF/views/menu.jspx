@@ -1,88 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu"
+		id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_gender" z="rs6Edo9pdk6gqZx5Augnd7P/lu0=">
+    
+        <menu:category id="c_dictionaries">
             <menu:item id="i_gender_list" messageCode="global_menu_list" url="/genders?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OlI2PsbrQB3JpnCZPVE5DRB+iN4="/>
-        </menu:category>
-        
-        <menu:category id="c_country" z="+9IFFFqXHr5bWdYjx7upDibmQfo=">
             <menu:item id="i_country_list" label="countries"
             		url="/countrys?page=1&amp;size=${empty param.size ? 10 : param.size}"
             		messageCode="global_menu_list" z="AwKhjnZH+dOj0X4glIoj4SVuHNY="/>
-        </menu:category>
-        
-        <menu:category id="c_language" z="Vmkl0xtqK+Ud4uzTgDDr52kU7Oo=">
             <menu:item id="i_language_list" messageCode="global_menu_list" url="/languages?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ElqbZy+53HRFVQ8s2jdG81J9A5w="/>
-        </menu:category>
-        <menu:category id="c_publisher" z="SuwG9M8lO4KwiepgRsEVNCRI+eQ=">
-            <menu:item id="i_publisher_new" messageCode="global_menu_new" url="/publishers?form" z="2hSC98CZKE50cwiLT192QWp0yKo="/>
-            <menu:item id="i_publisher_list" messageCode="global_menu_list" url="/publishers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="D9gX70ZMMMlJ/PYfJho8BOrerYk="/>
-        </menu:category>
-        <menu:category id="c_timelimit" z="AE7dKP8kt8xxvkSr7l31fHAuCUs=">
-            <menu:item id="i_timelimit_new" messageCode="global_menu_new" url="/timelimits?form" z="g/CE+GnmBDcDfozz3XQNyUYAzuE="/>
-            <menu:item id="i_timelimit_list" messageCode="global_menu_list" url="/timelimits?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OGyH/2sKMCI6s6AZY27LZS1lH4A="/>
-        </menu:category>
-        <menu:category id="c_gametable" z="qd/29kLxHY4u7+UEG1JQh6AxtDQ=">
-            <menu:item id="i_gametable_new" messageCode="global_menu_new" url="/gametables?form" z="KWqUDFNbb0pmdkdmqXdpqhgE1q8="/>
-            <menu:item id="i_gametable_list" messageCode="global_menu_list" url="/gametables?page=1&amp;size=${empty param.size ? 10 : param.size}" z="RfX4DAfRSncF1TQqhbUR2h2GmHI="/>
-        </menu:category>
-        <menu:category id="c_player" z="cK8M0OPX/OW66GiF/SNgS8vWpjs=">
-            <menu:item id="i_player_new" messageCode="global_menu_new" url="/players?form" z="xCwCGj+PbS/WEOyltkUd6nZ4y4g="/>
-            <menu:item id="i_player_list" messageCode="global_menu_list" url="/players?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZCszNjmNvFu/+xYfzxw5lZP3Y2o="/>
-        </menu:category>
-        <menu:category id="c_leveltranslation" z="Tsx7iX7UBKLLy/uG9IhmptR7CGo=">
-            <menu:item id="i_leveltranslation_new" messageCode="global_menu_new" url="/leveltranslations?form" z="z/sz4YTKOPkqmsLgHLzZQ9amm88="/>
-            <menu:item id="i_leveltranslation_list" messageCode="global_menu_list" url="/leveltranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="AnstSeOY8jlQpgJOflJc6KUJjiw="/>
-        </menu:category>
-        <menu:category id="c_achieved" z="dWCDCh/xOjtqz/I7IHPykzmCTyg=">
-            <menu:item id="i_achieved_new" messageCode="global_menu_new" url="/achieveds?form" z="o2mJ64Vf8i9vXF/gD/htETv38T4="/>
-            <menu:item id="i_achieved_list" messageCode="global_menu_list" url="/achieveds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="5GNXRC+p0o8QK8LJSuNb4xcvYOY="/>
-        </menu:category>
-        <menu:category id="c_achievementtranslation" z="wJ2zdDkveaBU8MR+/8/XnKdU8z4=">
-            <menu:item id="i_achievementtranslation_new" messageCode="global_menu_new" url="/achievementtranslations?form" z="LWFVDQ0MNOoN7sFtW+RqzSqGVaw="/>
-            <menu:item id="i_achievementtranslation_list" messageCode="global_menu_list" url="/achievementtranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yt/ieXxnCURFWKstxJMsHO223Fs="/>
-        </menu:category>
-        <menu:category id="c_tagtranslation" z="8+ofDr92QWbMOOO0VARqruqwCQ0=">
-            <menu:item id="i_tagtranslation_new" messageCode="global_menu_new" url="/tagtranslations?form" z="cUvc4W9SGGg3PmD3RCZYSY8u5b4="/>
-            <menu:item id="i_tagtranslation_list" messageCode="global_menu_list" url="/tagtranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="SgkOzXXRMDNAtzIMTLjB/0GDYGk="/>
-        </menu:category>
-        <menu:category id="c_gametag" z="duazh5ZCpaz2TkAIKPqG0EWlStA=">
-            <menu:item id="i_gametag_new" messageCode="global_menu_new" url="/gametags?form" z="jNT5ZNFLBa0P6UOZXC+d8wFpn6w="/>
-            <menu:item id="i_gametag_list" messageCode="global_menu_list" url="/gametags?page=1&amp;size=${empty param.size ? 10 : param.size}" z="cAz8I+YbE9gQ8JgLprxevS8pcmk="/>
-        </menu:category>
-        <menu:category id="c_avggamelength" z="igLdz68VYbtGigWsIqzDfIqRN1g=">
-            <menu:item id="i_avggamelength_new" messageCode="global_menu_new" url="/avggamelengths?form" z="3Cw1sujHPv6G0p8T1Gnhh9KNxM8="/>
-            <menu:item id="i_avggamelength_list" messageCode="global_menu_list" url="/avggamelengths?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/Kr1QrjiaTRkPvj8hDELP5vJkjM="/>
-        </menu:category>
-        <menu:category id="c_userlevel" z="R8GCStYMv+dbyGMEVi0XuG43J9M=">
+
             <menu:item id="i_userlevel_new" messageCode="global_menu_new" url="/userlevels?form" z="0MHFU0Tl62OTjXQL5pIz1UbH/rc="/>
             <menu:item id="i_userlevel_list" messageCode="global_menu_list" url="/userlevels?page=1&amp;size=${empty param.size ? 10 : param.size}" z="XBvCvaK2tBuykL7fJmAMHMUr8RM="/>
-        </menu:category>
-        <menu:category id="c_gametranslation" z="JMM2JnxNVZgf5suFbzs01ayfx6c=">
-            <menu:item id="i_gametranslation_new" messageCode="global_menu_new" url="/gametranslations?form" z="kMbjDHImPSbYCtKWszrV1aJRkVE="/>
-            <menu:item id="i_gametranslation_list" messageCode="global_menu_list" url="/gametranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="wggXh0gaowJlHnLtHCBsfCJQZuk="/>
-        </menu:category>
-        <menu:category id="c_gamedesigner" z="HTAsYbqZtwLI9HcoxxH0ko/Bygo=">
-            <menu:item id="i_gamedesigner_new" messageCode="global_menu_new" url="/gamedesigners?form" z="0wrZGqEKMaHn/zUAkQo4mcg1jQc="/>
-            <menu:item id="i_gamedesigner_list" messageCode="global_menu_list" url="/gamedesigners?page=1&amp;size=${empty param.size ? 10 : param.size}" z="NT7Z18D/EIiynUM93SFGMhk632Q="/>
-        </menu:category>
-        <menu:category id="c_externallink" z="hIwOesB+8XT0Mu9744klE0vpn78=">
-            <menu:item id="i_externallink_new" messageCode="global_menu_new" url="/externallinks?form" z="c+7IoFVZy19++ILMsMxCA8w3b00="/>
-            <menu:item id="i_externallink_list" messageCode="global_menu_list" url="/externallinks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="WDatxoRPIEQI8z0soPZENnsIaWs="/>
-        </menu:category>
-        <menu:category id="c_boardgame" z="pK4BRXTI8rRKjSqWDf8BlrCyQCk=">
-            <menu:item id="i_boardgame_new" messageCode="global_menu_new" url="/boardgames?form" z="UnRzTn8CtR7SNLKEaer5hU6R4oU="/>
-            <menu:item id="i_boardgame_list" messageCode="global_menu_list" url="/boardgames?page=1&amp;size=${empty param.size ? 10 : param.size}" z="lXtgc5Kv6tUSvA/u4D3eKFdyiZg="/>
-        </menu:category>
-        <menu:category id="c_achievement" z="8TVJoadunNWH1rrQUMaoPyuobP4=">
+
+            <menu:item id="i_timelimit_new" messageCode="global_menu_new" url="/timelimits?form" z="g/CE+GnmBDcDfozz3XQNyUYAzuE="/>
+            <menu:item id="i_timelimit_list" messageCode="global_menu_list" url="/timelimits?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OGyH/2sKMCI6s6AZY27LZS1lH4A="/>
+            
             <menu:item id="i_achievement_new" messageCode="global_menu_new" url="/achievements?form" z="z97A+V1uGXAtzaHVDn8FqBtOLJY="/>
             <menu:item id="i_achievement_list" messageCode="global_menu_list" url="/achievements?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ODuIAdT8RxD3ftXZ2xG1C9Yih0k="/>
         </menu:category>
-        <menu:category id="c_played" z="0n3ip7jvxr/DtyAJFiFAAoiVd7E=">
+        
+        <menu:category id="c_catalog">
+            <menu:item id="i_publisher_new" messageCode="global_menu_new" url="/publishers?form" z="2hSC98CZKE50cwiLT192QWp0yKo="/>
+            <menu:item id="i_publisher_list" messageCode="global_menu_list" url="/publishers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="D9gX70ZMMMlJ/PYfJho8BOrerYk="/>
+
+            <menu:item id="i_gamedesigner_new" messageCode="global_menu_new" url="/gamedesigners?form" z="0wrZGqEKMaHn/zUAkQo4mcg1jQc="/>
+            <menu:item id="i_gamedesigner_list" messageCode="global_menu_list" url="/gamedesigners?page=1&amp;size=${empty param.size ? 10 : param.size}" z="NT7Z18D/EIiynUM93SFGMhk632Q="/>
+
+            <menu:item id="i_gametag_new" messageCode="global_menu_new" url="/gametags?form" z="jNT5ZNFLBa0P6UOZXC+d8wFpn6w="/>
+            <menu:item id="i_gametag_list" messageCode="global_menu_list" url="/gametags?page=1&amp;size=${empty param.size ? 10 : param.size}" z="cAz8I+YbE9gQ8JgLprxevS8pcmk="/>
+
+            <menu:item id="i_boardgame_new" messageCode="global_menu_new" url="/boardgames?form" z="UnRzTn8CtR7SNLKEaer5hU6R4oU="/>
+            <menu:item id="i_boardgame_list" messageCode="global_menu_list" url="/boardgames?page=1&amp;size=${empty param.size ? 10 : param.size}" z="lXtgc5Kv6tUSvA/u4D3eKFdyiZg="/>
+        </menu:category>
+                
+        <menu:category id="c_play">
+            <menu:item id="i_player_new" messageCode="global_menu_new" url="/players?form" z="xCwCGj+PbS/WEOyltkUd6nZ4y4g="/>
+            <menu:item id="i_player_list" messageCode="global_menu_list" url="/players?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZCszNjmNvFu/+xYfzxw5lZP3Y2o="/>
+
+            <menu:item id="i_achieved_new" messageCode="global_menu_new" url="/achieveds?form" z="o2mJ64Vf8i9vXF/gD/htETv38T4="/>
+            <menu:item id="i_achieved_list" messageCode="global_menu_list" url="/achieveds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="5GNXRC+p0o8QK8LJSuNb4xcvYOY="/>
+
+            <menu:item id="i_gametable_new" messageCode="global_menu_new" url="/gametables?form" z="KWqUDFNbb0pmdkdmqXdpqhgE1q8="/>
+            <menu:item id="i_gametable_list" messageCode="global_menu_list" url="/gametables?page=1&amp;size=${empty param.size ? 10 : param.size}" z="RfX4DAfRSncF1TQqhbUR2h2GmHI="/>
+
             <menu:item id="i_played_new" messageCode="global_menu_new" url="/playeds?form" z="DyjBtP5zBFWpU3qhWMZcGP4Ibe0="/>
             <menu:item id="i_played_list" messageCode="global_menu_list" url="/playeds?page=1&amp;size=${empty param.size ? 10 : param.size}" z="pkYD6TdSJhc/H0e0I4iWJqAnoOM="/>
+
+        </menu:category>
+        
+        <menu:category id="c_reports">
+        </menu:category>
+
+        <menu:category id="c_localization">
+            <menu:item id="i_leveltranslation_new" messageCode="global_menu_new" url="/leveltranslations?form" z="z/sz4YTKOPkqmsLgHLzZQ9amm88="/>
+            <menu:item id="i_leveltranslation_list" messageCode="global_menu_list" url="/leveltranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="AnstSeOY8jlQpgJOflJc6KUJjiw="/>
+            <menu:item id="i_achievementtranslation_new" messageCode="global_menu_new" url="/achievementtranslations?form" z="LWFVDQ0MNOoN7sFtW+RqzSqGVaw="/>
+            <menu:item id="i_achievementtranslation_list" messageCode="global_menu_list" url="/achievementtranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yt/ieXxnCURFWKstxJMsHO223Fs="/>
+            <menu:item id="i_tagtranslation_new" messageCode="global_menu_new" url="/tagtranslations?form" z="cUvc4W9SGGg3PmD3RCZYSY8u5b4="/>
+            <menu:item id="i_tagtranslation_list" messageCode="global_menu_list" url="/tagtranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="SgkOzXXRMDNAtzIMTLjB/0GDYGk="/>
+            <menu:item id="i_gametranslation_new" messageCode="global_menu_new" url="/gametranslations?form" z="kMbjDHImPSbYCtKWszrV1aJRkVE="/>
+            <menu:item id="i_gametranslation_list" messageCode="global_menu_list" url="/gametranslations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="wggXh0gaowJlHnLtHCBsfCJQZuk="/>
+            <menu:item id="i_externallink_new" messageCode="global_menu_new" url="/externallinks?form" z="c+7IoFVZy19++ILMsMxCA8w3b00="/>
+            <menu:item id="i_externallink_list" messageCode="global_menu_list" url="/externallinks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="WDatxoRPIEQI8z0soPZENnsIaWs="/>
         </menu:category>
     </menu:menu>
 </div>
