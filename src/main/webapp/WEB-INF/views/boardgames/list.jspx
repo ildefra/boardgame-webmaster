@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_m4_bgw_domain_Boardgame" items="${boardgames}" z="gea519N8UddQzdj8R0f7BxM2Dk8=">
-        <table:table data="${boardgames}" id="l_org_m4_bgw_domain_Boardgame" path="/boardgames" typeIdFieldName="boardgameId" z="3Rf2B7z7JKTAydhKRBgvDfdrujY=">
-            <table:column id="c_org_m4_bgw_domain_Boardgame_gameDesigners" property="gameDesigners" z="K+y4kEpXIe4MduWOm8eBWgMYLVk="/>
-            <table:column id="c_org_m4_bgw_domain_Boardgame_gameDesigners1" property="gameDesigners1" z="C+e5UsFmlyVQrWRAhe5poPLBVA0="/>
-            <table:column id="c_org_m4_bgw_domain_Boardgame_gameTags" property="gameTags" z="JbOM23B0WqgtiSaicvol5qrMepQ="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
+    <page:list id="pl_org_m4_bgw_domain_Boardgame" items="${boardgames}"
+    		z="gea519N8UddQzdj8R0f7BxM2Dk8=">
+        <table:table id="l_org_m4_bgw_domain_Boardgame" path="/boardgames"
+        		data="${boardgames}" typeIdFieldName="boardgameId"
+        		z="3Rf2B7z7JKTAydhKRBgvDfdrujY=">
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_originalName" property="originalName" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_playersMin" property="playersMin" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_playersMax" property="playersMax" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_avgLengthMinutes" property="avgLengthMinutes" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_complexityScore" property="complexityScore" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_strategyScore" property="strategyScore" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_luckScore" property="luckScore" />
+        	<table:column id="c_org_m4_bgw_domain_Boardgame_interactionScore" property="interactionScore" />
+            <table:column id="c_org_m4_bgw_domain_Boardgame_gameTags" property="gameTags"
+            		z="JbOM23B0WqgtiSaicvol5qrMepQ=" />
         </table:table>
     </page:list>
 </div>
