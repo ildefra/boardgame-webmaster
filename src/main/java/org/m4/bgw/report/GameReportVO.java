@@ -6,14 +6,17 @@ public class GameReportVO implements Comparable<GameReportVO> {
 
 private final Boardgame boardgame;
 private final int gamesPlayed;
+private final int avgLength;
 
-public GameReportVO(Boardgame boardgame, int gamesPlayed) {
+public GameReportVO(Boardgame boardgame, int gamesPlayed, int avgLength) {
     this.boardgame      = boardgame;
     this.gamesPlayed    = gamesPlayed;
+    this.avgLength      = avgLength;
 }
 
 public Boardgame getBoardgame() {return boardgame; }
 public int getGamesPlayed() {return gamesPlayed; }
+public int getAvgLength() {return avgLength; }
 
 
 @Override

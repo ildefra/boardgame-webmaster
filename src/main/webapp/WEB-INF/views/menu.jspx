@@ -48,7 +48,8 @@
         </menu:category>
 
         <menu:category id="c_reports">
-        	<menu:item id="i_prestige" url="/prestige" label="Hall of Fame" />        	
+        	<menu:item id="i_prestige"	url="/prestige"	label="Hall of Fame" />
+        	<menu:item id="i_games"		url="/games"	label="Most played games" />
         </menu:category>
 
         <menu:category id="c_localization">
