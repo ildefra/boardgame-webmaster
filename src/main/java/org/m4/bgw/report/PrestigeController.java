@@ -1,4 +1,4 @@
-package org.m4.bgw.web;
+package org.m4.bgw.report;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +7,6 @@ import java.util.List;
 import org.m4.bgw.domain.Achieved;
 import org.m4.bgw.domain.Player;
 import org.m4.bgw.domain.PlayerRepository;
-import org.m4.bgw.report.PrestigeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +23,7 @@ public class PrestigeController {
 	@RequestMapping(produces = "text/html")
     public String list(Model uiModel) {
 	    List<PrestigeVO> items = new ArrayList<>();
-	    List<Player> players = playerRepository.findAll();
-	    for (Player player : players) {
+	    for (Player player : playerRepository.findAll()) {
 	        int points = 0;
 	        for (Achieved achieved : player.getAchieveds()) {
 	            points += achieved.getAchievementId().getPoints();

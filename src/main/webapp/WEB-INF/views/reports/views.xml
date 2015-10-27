@@ -4,4 +4,7 @@
     <definition extends="default" name="reports/prestige">
         <put-attribute name="body" value="/WEB-INF/views/reports/prestige.jspx"/>
     </definition>
+    <definition extends="default" name="reports/games">
+        <put-attribute name="body" value="/WEB-INF/views/reports/games.jspx"/>
+    </definition>
 </tiles-definitions>
