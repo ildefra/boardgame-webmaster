@@ -13,6 +13,7 @@
 			<table:column id="c_org_m4_bgw_reports_GameReportVO_boardgame" property="boardgame" />
 			<table:column id="c_org_m4_bgw_reports_GameReportVO_gamesPlayed" property="gamesPlayed" />
 			<table:column id="c_org_m4_bgw_reports_GameReportVO_avgLength" property="avgLength" />
+			<table:column id="c_org_m4_bgw_reports_GameReportVO_realAvgLength" property="realAvgLength" />
         </table:table>
     </page:list>
 </div>

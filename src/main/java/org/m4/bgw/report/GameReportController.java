@@ -28,12 +28,13 @@ public class GameReportController {
 	    List<GameReportVO> items = new ArrayList<>();
 	    for (Boardgame game : gameRepository.findAll()) {	        
 	        Set<GameTable> tables = game.getGameTables();
-	        Double avgLength = tables.stream().mapToInt(
+	        Double realAvgLength = tables.stream().mapToInt(
 	                table -> Minutes.minutesBetween(
 	                        new DateTime(table.getGameStartedDtm().getTime()),
 	                        new DateTime(table.getGameEndedDtm().getTime())).getMinutes()
 	                ).average().orElse(0.0);
-	        items.add(new GameReportVO(game, tables.size(), avgLength.intValue()));
+	        items.add(new GameReportVO(
+	                game, tables.size(), game.getAvgLengthMinutes().intValue(), realAvgLength.intValue()));
 	    }
 	    Collections.sort(items);
         uiModel.addAttribute("items", items);
