@@ -1,8 +1,8 @@
 package org.m4.bgw.web;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import org.m4.bgw.domain.Achieved;
 import org.m4.bgw.domain.Player;
@@ -23,7 +23,7 @@ public class PrestigeController {
 
 	@RequestMapping(produces = "text/html")
     public String list(Model uiModel) {
-	    Set<PrestigeVO> items = new TreeSet<>();
+	    List<PrestigeVO> items = new ArrayList<>();
 	    List<Player> players = playerRepository.findAll();
 	    for (Player player : players) {
 	        int points = 0;
@@ -32,6 +32,7 @@ public class PrestigeController {
 	        }
 	        items.add(new PrestigeVO(player.getCountry(), player.getUsername(), points));
 	    }
+	    Collections.sort(items);
         uiModel.addAttribute("items", items);
         return "reports/prestige";
     }

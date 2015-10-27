@@ -21,6 +21,6 @@ public int getPoints()      {return points; }
 
 @Override
 public int compareTo(PrestigeVO other) {
-    return Integer.compare(points, other.getPoints());
+    return Integer.compare(other.getPoints(), points);
 }
 }

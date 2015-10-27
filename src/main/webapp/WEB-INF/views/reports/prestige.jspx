@@ -10,8 +10,8 @@
         <table:table id="l_org_m4_bgw_reports_PrestigeVO" data="${items}" path="/players"
         		typeIdFieldName="username"
         		create="false" update="false" delete="false">
-			<table:column id="c_org_m4_bgw_reports_PrestigeVO_country"	property="country" />
 			<table:column id="c_org_m4_bgw_reports_PrestigeVO_username"	property="username" />
+			<table:column id="c_org_m4_bgw_reports_PrestigeVO_country"	property="country" />
             <table:column id="c_org_m4_bgw_reports_PrestigeVO_points"	property="points" />
         </table:table>
     </page:list>
