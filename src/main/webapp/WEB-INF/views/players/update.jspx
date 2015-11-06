@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_m4_bgw_domain_Player" idField="username" modelAttribute="player" path="/players" versionField="none" z="1CT/OE3HSElYi3G/LI/5luSLn7I=">
     
-    	<field:input field="username" id="c_org_m4_bgw_domain_Player_username" required="true" />
+    	<field:input field="username" id="c_org_m4_bgw_domain_Player_username" disabled="true" />
     
         <field:select field="sex" id="c_org_m4_bgw_domain_Player_sex" itemValue="isoCode" items="${genders}" path="/genders" z="uYj2XtiKXV3KW9XfArwlz/mcnZo="/>
         <field:select field="levelId" id="c_org_m4_bgw_domain_Player_levelId" itemValue="levelId" items="${userlevels}" path="/userlevels" z="EpMSIC1GEdcdxh2yr0/w88TIJJU="/>
