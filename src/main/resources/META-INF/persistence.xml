@@ -20,7 +20,13 @@
 			<property name="openjpa.jdbc.SynchronizeMappings" value="validate" />
 			
 			<property name="openjpa.RuntimeUnenhancedClasses" value="supported" />
-			<property name="openjpa.Log" value="log4j"/>
+			
+			<property name="openjpa.Log" value="SQL=TRACE" />
+			<property
+					name="openjpa.ConnectionFactoryProperties"
+					value="PrintParameters=true, PrettyPrint=true, PrettyPrintLineLength=80"
+			/>
+			
 		</properties>
 	</persistence-unit>
 </persistence>
