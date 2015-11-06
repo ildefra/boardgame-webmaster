@@ -371,3 +371,9 @@ fieldset th {
 	height: 11px;
 	width: 16px;
 }
+
+
+.dijitDisabled {
+	color: #FFFFFF;
+	-webkit-text-fill-color: #FFFFFF;
+}
