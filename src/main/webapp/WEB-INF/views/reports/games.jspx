@@ -8,7 +8,7 @@
     
     <page:list id="pl_org_m4_bgw_reports_GameReportVO" items="${boardgames}">
         <table:table id="l_org_m4_bgw_reports_GameReportVO" data="${items}" path="/boardgames"
-        		typeIdFieldName="boardgame"
+        		typeIdFieldName="boardgame.boardgameId"
         		create="false" update="false" delete="false">
 			<table:column id="c_org_m4_bgw_reports_GameReportVO_boardgame" property="boardgame" />
 			<table:column id="c_org_m4_bgw_reports_GameReportVO_gamesPlayed" property="gamesPlayed" />
