@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,8 +18,12 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 @Entity
 @Table(name = "publisher")
 public class Publisher {
-	
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "publisher_id")
+    private Integer publisherId;
+
     @Column(name = "name", length = 50)
     private String name;
 
@@ -29,6 +35,15 @@ public class Publisher {
     @OneToMany(mappedBy = "publisher")
     private Set<Boardgame> boardgames;
 
+    
+    
+    public Integer getPublisherId() {
+        return publisherId;
+    }
+    
+    public void setPublisherId(Integer publisherId) {
+        this.publisherId = publisherId;
+    }
 
     public String getName() {
         return this.name;

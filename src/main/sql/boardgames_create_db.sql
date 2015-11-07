@@ -43,7 +43,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `boardgame` (
   `boardgame_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `original_name` VARCHAR(50) NOT NULL COMMENT '',
-  `publisher` VARCHAR(50) NULL COMMENT '',
+  `publisher_id` INT UNSIGNED NULL COMMENT '',
   `publication_year` SMALLINT NULL COMMENT '',
   `players_min` TINYINT UNSIGNED NOT NULL COMMENT '',
   `players_max` TINYINT UNSIGNED NOT NULL COMMENT '',
@@ -56,10 +56,10 @@ CREATE TABLE IF NOT EXISTS `boardgame` (
   PRIMARY KEY (`boardgame_id`)  COMMENT '',
   UNIQUE INDEX `original_name_UNIQUE` (`original_name` ASC)  COMMENT '',
   UNIQUE INDEX `boardgame_id_UNIQUE` (`boardgame_id` ASC)  COMMENT '',
-  INDEX `boardgame_has_publisher_fk1_idx` (`publisher` ASC)  COMMENT '',
+  INDEX `boardgame_has_publisher_fk1_idx` (`publisher_id` ASC)  COMMENT '',
   CONSTRAINT `boardgame_has_publisher_fk1`
-    FOREIGN KEY (`publisher`)
-    REFERENCES `publisher` (`name`)
+    FOREIGN KEY (`publisher_id`)
+    REFERENCES `publisher` (`publisher_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

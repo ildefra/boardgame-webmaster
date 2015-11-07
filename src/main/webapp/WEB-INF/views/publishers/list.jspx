@@ -9,7 +9,7 @@
     <page:list id="pl_org_m4_bgw_domain_Publisher" items="${publishers}"
     		z="p1Kc6CAHk+B/u6Ly4ZfIY+klQQ8=">
         <table:table data="${publishers}" id="l_org_m4_bgw_domain_Publisher" path="/publishers"
-        		typeIdFieldName="name"
+        		typeIdFieldName="publisherId"
         		z="tRkIR0HxorVwRKJ1e6ir3PAlYeU=">
             <table:column id="c_org_m4_bgw_domain_Publisher_name"		property="name" />
             <table:column id="c_org_m4_bgw_domain_Publisher_website"	property="website"

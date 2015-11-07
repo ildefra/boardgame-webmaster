@@ -65,7 +65,7 @@ public class Boardgame {
 
 	
     @ManyToOne
-    @JoinColumn(name = "publisher", referencedColumnName = "name")
+    @JoinColumn(name = "publisher_id", referencedColumnName = "publisher_id")
     private Publisher publisher;
 
 

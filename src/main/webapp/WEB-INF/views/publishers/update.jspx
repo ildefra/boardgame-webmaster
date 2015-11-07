@@ -6,7 +6,7 @@
     <jsp:output omit-xml-declaration="yes" />
     
     <form:update id="fu_org_m4_bgw_domain_Publisher" path="/publishers"
-    		modelAttribute="publisher" idField="name" versionField="none"
+    		modelAttribute="publisher" idField="publisherId" versionField="none"
     		z="GPHKmm3BIxDK127E3QenPhmZ4b4=">
     	<field:input field="name" id="c_org_m4_bgw_domain_Publisher_name"		required="true" />
         <field:input field="website" id="c_org_m4_bgw_domain_Publisher_website" required="true"

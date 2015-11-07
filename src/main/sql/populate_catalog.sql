@@ -32,7 +32,7 @@ VALUES
 
 INSERT INTO `boardgame`
 (
-	`original_name`, `publisher`, `publication_year`,
+	`original_name`, `publisher_id`, `publication_year`,
 	`players_min`, `players_max`, `avg_length_minutes`,
 	`complexity_score`, `strategy_score`, `luck_score`, `interaction_score`,
 	`software_version`
@@ -51,25 +51,25 @@ VALUES
 	'2.1.0'
 	),
 	(
-	'Caylus', 'Ystari Games', 2005,
+	'Caylus', 1, 2005,
 	2, 5, 90,
 	4, 5, 0, 2,
 	'2.0.6'
 	),
 	(
-	'Stone Age', 'Hans Im Gluck', 2008,
+	'Stone Age', 2, 2008,
 	2, 4, 60,
 	3, 3, 3, 1,
 	'2.2.6'
 	),
 	(
-	'6 Nimmt!', 'Amigo', 1994,
+	'6 Nimmt!', 3, 1994,
 	2, 10, 20,
 	1, 1, 4, 3,
 	'1.5.5'
 	),
 	(
-	'Noir: Killer vs. Inspector', 'Level 99 Games', 2012,
+	'Noir: Killer vs. Inspector', 4, 2012,
 	2, 2, 10,
 	2, 3, 3, 0,
 	'2.3.3'
@@ -81,13 +81,13 @@ VALUES
 	'2.0.1'
 	),
 	(
-	'Seasons', 'Libellud', 2012,
+	'Seasons', 5, 2012,
 	2, 4, 40,
 	3, 4, 2, 1,
 	'1.9.3'
 	),
 	(
-	'Carrara', 'Hans Im Gluck', 2012,
+	'Carrara', 2, 2012,
 	2, 4, 40,
 	2, 2, 1, 1,
 	'0.0.2'
