@@ -26,17 +26,21 @@ public class PublisherController {
 	@Autowired
     BoardgameRepository boardgameRepository;
 
+	
 	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String create(@Valid Publisher publisher, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String create(@Valid Publisher publisher,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, publisher);
             return "publishers/create";
         }
         uiModel.asMap().clear();
         publisherRepository.save(publisher);
-        return "redirect:/publishers/" + encodeUrlPathSegment(publisher.getName().toString(), httpServletRequest);
+        return "redirect:/publishers/"
+                + encodeId(publisher.getPublisherId(), httpServletRequest.getCharacterEncoding());
     }
 
+	
 	@RequestMapping(params = "form", produces = "text/html")
     public String createForm(Model uiModel) {
         populateEditForm(uiModel, new Publisher());
@@ -64,17 +68,21 @@ public class PublisherController {
         return "publishers/list";
     }
 
+	
 	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String update(@Valid Publisher publisher, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String update(@Valid Publisher publisher,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, publisher);
             return "publishers/update";
         }
         uiModel.asMap().clear();
         publisherRepository.save(publisher);
-        return "redirect:/publishers/" + encodeUrlPathSegment(publisher.getName().toString(), httpServletRequest);
+        return "redirect:/publishers/"
+                + encodeId(publisher.getPublisherId(), httpServletRequest.getCharacterEncoding());
     }
 
+	
 	@RequestMapping(value = "/{name}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("name") String name, Model uiModel) {
         populateEditForm(uiModel, publisherRepository.findOne(name));
@@ -96,14 +104,12 @@ public class PublisherController {
         uiModel.addAttribute("boardgames", boardgameRepository.findAll());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
-        String enc = httpServletRequest.getCharacterEncoding();
-        if (enc == null) {
-            enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
-        }
+	private String encodeId(Integer id, String encoding) {
+	    String enc = encoding != null ? encoding : WebUtils.DEFAULT_CHARACTER_ENCODING;
         try {
-            pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
-        return pathSegment;
+            return UriUtils.encodePathSegment(String.valueOf(id), enc);
+        } catch (UnsupportedEncodingException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
