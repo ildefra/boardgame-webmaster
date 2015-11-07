@@ -19,7 +19,7 @@
         <field:input field="email" id="c_org_m4_bgw_domain_Player_email"
         		validationMessageCode="field_invalid_email"
         		z="DNFGvnfx2MYRHgE0ROYh5oOL/xI=" />
-        <field:input field="password" id="c_org_m4_bgw_domain_Player_password"
+        <field:input field="passwordMd5" id="c_org_m4_bgw_domain_Player_password"
         		type="password" required="true"
         		z="4XqkcskjGW97vFqRvdAn1TvpDH4=" />
         <field:datetime field="registrationDtm" id="c_org_m4_bgw_domain_Player_registrationDtm"

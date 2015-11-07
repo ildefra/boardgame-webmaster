@@ -1,5 +1,7 @@
 package org.m4.bgw.domain;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
@@ -10,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,9 +36,9 @@ public class Player {
     @Column(name = "email", length = 90, unique = true)
     private String email;
 
-    @Column(name = "password", length = 20)
+    @Column(name = "password_md5", length = 32)
     @NotNull
-    private String password;
+    private String passwordMd5;
 
     @Column(name = "registration_dtm")
     @NotNull
@@ -88,12 +92,12 @@ public class Player {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordMd5() {
+        return passwordMd5;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordMd5(String passwordMd5) {
+        this.passwordMd5 = passwordMd5;
     }
 
     public Calendar getRegistrationDtm() {
@@ -162,6 +166,28 @@ public class Player {
         this.playeds = playeds;
     }
 
+	
+	@PrePersist
+	@PreUpdate
+	public void hashPassword() {
+        MessageDigest digester;
+        try {
+            digester = MessageDigest.getInstance("MD5");
+        }
+        catch (NoSuchAlgorithmException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        digester.update(getPasswordMd5().getBytes());
+        byte[] hash = digester.digest();
+        String hashString = "";
+        for (int i = 0; i < hash.length; i++) {
+            hashString +=
+                    ((0xff & hash[i]) < 0x10 ? "0" : "") + Integer.toHexString(0xFF & hash[i]);
+        }
+        setPasswordMd5(hashString);	    
+	}
+	
 
 	@Override
     public int hashCode() {
