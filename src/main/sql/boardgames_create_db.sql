@@ -23,11 +23,13 @@ DROP TABLE IF EXISTS `publisher` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `publisher` (
+  `publisher_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
   `website` VARCHAR(255) NOT NULL COMMENT '',
-  PRIMARY KEY (`name`)  COMMENT '',
   UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
-  UNIQUE INDEX `website_UNIQUE` (`website` ASC)  COMMENT '')
+  UNIQUE INDEX `website_UNIQUE` (`website` ASC)  COMMENT '',
+  PRIMARY KEY (`publisher_id`)  COMMENT '',
+  UNIQUE INDEX `publisher_id_UNIQUE` (`publisher_id` ASC)  COMMENT '')
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
