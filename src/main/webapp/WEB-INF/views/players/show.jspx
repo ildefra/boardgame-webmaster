@@ -11,7 +11,6 @@
         <field:display field="levelId" id="s_org_m4_bgw_domain_Player_levelId" object="${player}" z="LoBza+Ml63ndyzs90fG/MZjZMFg="/>
         <field:display field="country" id="s_org_m4_bgw_domain_Player_country" object="${player}" z="VhPYDZNCaRkXDJTgKmck3wg2WA8="/>
         <field:display field="email" id="s_org_m4_bgw_domain_Player_email" object="${player}" z="ZMcBG3HC1ONA5EW3KYaah8zs0VQ="/>
-        <field:display field="password" id="s_org_m4_bgw_domain_Player_password" object="${player}" z="cwR7X1/9F1WL2O5NxgzAO5hWJIY="/>
         
         <field:display id="s_org_m4_bgw_domain_Player_registrationDtm"
         		object="${player}" field="registrationDtm"
