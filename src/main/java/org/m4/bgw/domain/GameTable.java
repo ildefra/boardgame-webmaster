@@ -121,7 +121,7 @@ public class GameTable {
     }
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_table_id")
     private Integer gameTableId;
 

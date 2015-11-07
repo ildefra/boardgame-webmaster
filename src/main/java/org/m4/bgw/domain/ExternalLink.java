@@ -20,7 +20,7 @@ public class ExternalLink {
     }
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "external_link_id")
     private Integer externalLinkId;
 

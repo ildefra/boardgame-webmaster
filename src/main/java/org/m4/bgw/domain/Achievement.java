@@ -66,7 +66,7 @@ public class Achievement {
     }
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "achievement_id")
     private Short achievementId;
 
