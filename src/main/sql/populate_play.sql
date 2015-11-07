@@ -3,49 +3,60 @@ use `boardgames`;
 
 INSERT INTO `player`
 (
-	`username`, `email`, `password`, `registration_dtm`, `level_id`,
-	`sex`, `birth_date`, `country`, `motto`
+	`username`, `email`, `password_md5`,
+	`registration_dtm`, `level_id`, `sex`, `birth_date`, `country`,
+	`motto`
 )
 VALUES
-	(
-	'alonso', 'alonso@gmail.com', 'ferrari', '2012-06-27 05:25:00', 2,
-	1, '1981-07-29', 'es', 'hola todos'
+	(									-- ferrari
+	'alonso', 'alonso@gmail.com', '0911054d8ad47cc256400031197f3e97',
+	'2012-06-27 05:25:00', 2, 1, '1981-07-29', 'es',
+	'yo lo tiengo como todos'
 	),
-	(
-	'lagrippe', 'lagrippe@gmail.com', 'lamerestbleu', '2014-10-26 23:23:23', 2,
-	2, '1987-04-20', 'fr', 'heureux au jeu, malheureux en amour'
+	(									-- lamerestbleu
+	'lagrippe', 'lagrippe@gmail.com', 'dcfdd51f898af72dbc4119e23dedb5b9',
+	'2014-10-26 23:23:23', 2, 2, '1987-04-20', 'fr',
+	'heureux au jeu, malheureux en amour'
 	),
-	(
-	'rudegirl', null, 'gaelic', '2014-02-17 17:02:00', 4,
-	2, '1986-02-08', 'ie', 'stay hungry stay angry'
+	(									-- gaelic
+	'rudegirl', null, '91fbba2125866f0dbdabac1ac6a1cd9b',
+	'2014-02-17 17:02:00', 4, 2, '1986-02-08', 'ie',
+	'stay hungry stay angry stay rugby'
 	),
-	(
-	'jabbas', 'jabbas@gmail.com', 'maigret', '2011-03-16 16:03:00', 5,
-	0, '1983-08-07', 'ua', 'burning the candle at both ends'
+	(									-- maigret
+	'jabbas', 'jabbas@gmail.com', '4dae79db14ec89cb83e820963c3b3fae',
+	'2011-03-16 16:03:00', 5, 0, '1983-08-07', 'ua',
+	'burning the candle at both ends'
 	),
-	(
-	'sdrea', 'sdrevolution@hotmail.it', 'magamago', '2012-12-21 21:12:12', 2,
-	2, '1987-03-08', 'it', 'the winner is... me!'
+	(									-- magamago
+	'sdrea', 'sdrevolution@hotmail.it', '0d29b72d9b3470d42182db0d2e30e5d8',
+	'2012-12-21 21:12:12', 2, 2, '1987-03-08', 'it',
+	'and the winner is... me!!!'
 	),
-	(
-	'prode', 'prodens@gmail.com', 'vivalavita', '2014-08-13 13:08:00', 1,
-	0, '1979-05-02', 'it', 'la machina de la sorte decide i destini'
+	(									-- vivalavita
+	'prode', 'prodens@gmail.com', 'ede4ca99b6487a1c4930232ff1e91673',
+	'2014-08-13 13:08:00', 1, 0, '1979-05-02', 'it',
+	'la machina de la sorte decide i destini'
 	),
-	(
-	'ivankaramazov', null, 'fedorovich', '2013-07-15 15:07:00', 2,
-	1, '1985-10-14', 'ru', 'popof is alive'
+	(									-- fedorovich
+	'ivankaramazov', null, 'b006307d25d890fdcee03231742fc912',
+	'2013-07-15 15:07:00', 2, 1, '1985-10-14', 'ru',
+	'popof is alive'
 	),
-	(
-	'jasper', 'jasper@gmail.com', 'ilovetrain', '2010-09-12 12:09:00', 3,
-	1, '2001-06-16', 'us', 'play nice or leave'
+	(									-- ilovetrains
+	'jasper', 'jasper@gmail.com', 'cc0183b797782f01cd388a8cc1a9e76e',
+	'2010-09-12 12:09:00', 3, 1, '2001-06-16', 'us',
+	'play nice or leave'
 	),
-	(
-	'pzue', 'zueg@live.com', 'noodleandsoya', '2010-01-01 00:00:00', 3,
-	1, '1972-11-13', 'cn', 'if the rope is long, the kite will soar'
+	(									-- noodleandsoya
+	'pzue', 'zueg@live.com', 'cd4b61795de70bb43d352adb440f1950',
+	'2010-01-01 00:00:00', 3, 1, '1972-11-13', 'cn',
+	'if the rope is long, the kite will soar'
 	),
-	(
-	'omgponies', 'furrylover@aol.com', 'eviltwilight', '2015-03-22 03:23:00', 2,
-	1, '1980-12-31', 'us', 'keep calm and wag your tail'
+	(									-- eviltwilight
+	'omgponies', 'furrylover@aol.com', 'dc10a55d563c56f9d5deb0b038a4fc5c',
+	'2015-03-22 03:23:00', 2, 1, '1980-12-31', 'us',
+	'keep calm and wag your tail'
 	);
 
 
