@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AchievedRepository extends JpaRepository<Achieved, AchievedPK>, JpaSpecificationExecutor<Achieved> {
+public interface AchievedRepository extends JpaRepository<Achieved, Integer>, JpaSpecificationExecutor<Achieved> {
 }

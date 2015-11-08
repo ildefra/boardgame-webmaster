@@ -1,17 +1,18 @@
 package org.m4.bgw.web;
+
 import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.joda.time.format.DateTimeFormat;
 import org.m4.bgw.domain.Achieved;
-import org.m4.bgw.domain.AchievedPK;
 import org.m4.bgw.domain.AchievedRepository;
 import org.m4.bgw.domain.AchievementRepository;
 import org.m4.bgw.domain.BoardgameRepository;
 import org.m4.bgw.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,11 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
+
 @RequestMapping("/achieveds")
 @Controller
 public class AchievedController {
-
-	private ConversionService conversionService;
 
 	@Autowired
     AchievedRepository achievedRepository;
@@ -40,11 +40,6 @@ public class AchievedController {
 	@Autowired
     PlayerRepository playerRepository;
 
-	@Autowired
-    public AchievedController(ConversionService conversionService) {
-        super();
-        this.conversionService = conversionService;
-    }
 
 	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Achieved achieved, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -54,7 +49,8 @@ public class AchievedController {
         }
         uiModel.asMap().clear();
         achievedRepository.save(achieved);
-        return "redirect:/achieveds/" + encodeUrlPathSegment(conversionService.convert(achieved.getId(), String.class), httpServletRequest);
+        return "redirect:/achieveds/"
+                + encodeId(achieved.getAchievedId(), httpServletRequest.getCharacterEncoding());
     }
 
 	@RequestMapping(params = "form", produces = "text/html")
@@ -63,11 +59,11 @@ public class AchievedController {
         return "achieveds/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
-    public String show(@PathVariable("id") AchievedPK id, Model uiModel) {
+	@RequestMapping(value = "/{achievedId}", produces = "text/html")
+    public String show(@PathVariable("achievedId") Integer achievedId, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("achieved", achievedRepository.findOne(id));
-        uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
+        uiModel.addAttribute("achieved", achievedRepository.findOne(achievedId));
+        uiModel.addAttribute("itemId", achievedId);
         return "achieveds/show";
     }
 
@@ -94,18 +90,22 @@ public class AchievedController {
         }
         uiModel.asMap().clear();
         achievedRepository.save(achieved);
-        return "redirect:/achieveds/" + encodeUrlPathSegment(conversionService.convert(achieved.getId(), String.class), httpServletRequest);
+        return "redirect:/achieveds/"
+                + encodeId(achieved.getAchievedId(), httpServletRequest.getCharacterEncoding());
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String updateForm(@PathVariable("id") AchievedPK id, Model uiModel) {
-        populateEditForm(uiModel, achievedRepository.findOne(id));
+	@RequestMapping(value = "/{achievedId}", params = "form", produces = "text/html")
+    public String updateForm(@PathVariable("achievedId") Integer achievedId, Model uiModel) {
+        populateEditForm(uiModel, achievedRepository.findOne(achievedId));
         return "achieveds/update";
     }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("id") AchievedPK id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Achieved achieved = achievedRepository.findOne(id);
+	@RequestMapping(value = "/{achievedId}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(
+            @PathVariable("achievedId") Integer achievedId,
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        Achieved achieved = achievedRepository.findOne(achievedId);
         achievedRepository.delete(achieved);
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
@@ -125,14 +125,13 @@ public class AchievedController {
         uiModel.addAttribute("players", playerRepository.findAll());
     }
 
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
-        String enc = httpServletRequest.getCharacterEncoding();
-        if (enc == null) {
-            enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
-        }
+	
+    private String encodeId(Integer id, String encoding) {
+        String enc = encoding != null ? encoding : WebUtils.DEFAULT_CHARACTER_ENCODING;
         try {
-            pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
-        return pathSegment;
+            return UriUtils.encodePathSegment(String.valueOf(id), enc);
+        } catch (UnsupportedEncodingException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

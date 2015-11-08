@@ -2,7 +2,6 @@ package org.m4.bgw.web;
 
 import org.apache.commons.codec.binary.Base64;
 import org.m4.bgw.domain.Achieved;
-import org.m4.bgw.domain.AchievedPK;
 import org.m4.bgw.domain.AchievedRepository;
 import org.m4.bgw.domain.Achievement;
 import org.m4.bgw.domain.AchievementRepository;
@@ -123,25 +122,34 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
 
 	
 	public Converter<Achieved, String> getAchievedToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.Achieved, java.lang.String>() {
+	    
+        return new Converter<Achieved, String>() {
+            
+            @Override
             public String convert(Achieved achieved) {
-                return new StringBuilder().append(achieved.getOnDate()).toString();
+                return String.valueOf(achieved.getAchievedId());
             }
         };
     }
 
-	public Converter<AchievedPK, Achieved> getIdToAchievedConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.AchievedPK, org.m4.bgw.domain.Achieved>() {
-            public org.m4.bgw.domain.Achieved convert(org.m4.bgw.domain.AchievedPK id) {
+	public Converter<Integer, Achieved> getIdToAchievedConverter() {
+	    
+        return new Converter<Integer, Achieved>() {
+            
+            @Override
+            public Achieved convert(Integer id) {
                 return achievedRepository.findOne(id);
             }
         };
     }
 
 	public Converter<String, Achieved> getStringToAchievedConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.m4.bgw.domain.Achieved>() {
-            public org.m4.bgw.domain.Achieved convert(String id) {
-                return getObject().convert(getObject().convert(id, AchievedPK.class), Achieved.class);
+	    
+        return new Converter<String, Achieved>() {
+            
+            @Override
+            public Achieved convert(String id) {
+                return getObject().convert(getObject().convert(id, Integer.class), Achieved.class);
             }
         };
     }
@@ -593,23 +601,6 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         };
     }
 
-	
-	public Converter<String, AchievedPK> getJsonToAchievedPKConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.m4.bgw.domain.AchievedPK>() {
-            public AchievedPK convert(String encodedJson) {
-                return AchievedPK.fromJsonToAchievedPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-
-	public Converter<AchievedPK, String> getAchievedPKToJsonConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.m4.bgw.domain.AchievedPK, java.lang.String>() {
-            public String convert(AchievedPK achievedPK) {
-                return Base64.encodeBase64URLSafeString(achievedPK.toJson().getBytes());
-            }
-        };
-    }
-
 	public Converter<String, TagTranslationPK> getJsonToTagTranslationPKConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.m4.bgw.domain.TagTranslationPK>() {
             public TagTranslationPK convert(String encodedJson) {
@@ -763,8 +754,6 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         registry.addConverter(getUserLevelToStringConverter());
         registry.addConverter(getIdToUserLevelConverter());
         registry.addConverter(getStringToUserLevelConverter());
-        registry.addConverter(getJsonToAchievedPKConverter());
-        registry.addConverter(getAchievedPKToJsonConverter());
         registry.addConverter(getJsonToTagTranslationPKConverter());
         registry.addConverter(getTagTranslationPKToJsonConverter());
         registry.addConverter(getJsonToAchievementTranslationPKConverter());
