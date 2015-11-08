@@ -1,7 +1,5 @@
 package org.m4.bgw.web;
 
-import java.io.UnsupportedEncodingException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -20,8 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.util.UriUtils;
-import org.springframework.web.util.WebUtils;
 
 
 @RequestMapping("/achieveds")
@@ -48,10 +44,11 @@ public class AchievedController {
             populateEditForm(uiModel, achieved);
             return "achieveds/create";
         }
-        uiModel.asMap().clear();
         achievedRepository.save(achieved);
-        return "redirect:/achieveds/"
-                + encodeId(achieved.getAchievedId(), httpServletRequest.getCharacterEncoding());
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", "1");
+        uiModel.addAttribute("size", "10");
+        return "redirect:/achieveds";
     }
 
 	@RequestMapping(params = "form", produces = "text/html")
@@ -94,10 +91,11 @@ public class AchievedController {
             populateEditForm(uiModel, achieved);
             return "achieveds/update";
         }
-        uiModel.asMap().clear();
         achievedRepository.save(achieved);
-        return "redirect:/achieveds/"
-                + encodeId(achieved.getAchievedId(), httpServletRequest.getCharacterEncoding());
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", "1");
+        uiModel.addAttribute("size", "10");
+        return "redirect:/achieveds";
     }
 
 	@RequestMapping(value = "/{achievedId}", params = "form", produces = "text/html")
@@ -129,15 +127,5 @@ public class AchievedController {
         uiModel.addAttribute("achievements", achievementRepository.findAll());
         uiModel.addAttribute("boardgames", boardgameRepository.findAll());
         uiModel.addAttribute("players", playerRepository.findAll());
-    }
-
-	
-    private String encodeId(Integer id, String encoding) {
-        String enc = encoding != null ? encoding : WebUtils.DEFAULT_CHARACTER_ENCODING;
-        try {
-            return UriUtils.encodePathSegment(String.valueOf(id), enc);
-        } catch (UnsupportedEncodingException ex) {
-            throw new RuntimeException(ex);
-        }
     }
 }
