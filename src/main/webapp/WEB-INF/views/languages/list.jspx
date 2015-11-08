@@ -6,14 +6,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8" />
     <jsp:output omit-xml-declaration="yes" />
     
-    <page:list id="pl_org_m4_bgw_domain_Language" items="${languages}"
-    		z="CFoMA4syruQlIEJc6ODX1e2745A=">
-    		
-        <table:table data="${languages}" id="l_org_m4_bgw_domain_Language" path="/languages"
-        		typeIdFieldName="isoCode" create="false" update="false" delete="false"
-        		z="WMLPr38+LTNUwpAenZKkcq+MMI4=">
-            <table:column id="c_org_m4_bgw_domain_Language_isoCode" property="isoCode" />
-            <table:column id="c_org_m4_bgw_domain_Language_name" property="name" />
+    <page:list id="pl_org_m4_bgw_domain_Language" items="${languages}">
+        <table:table id="l_org_m4_bgw_domain_Language"
+        		path="/languages" data="${languages}" typeIdFieldName="isoCode"
+        		show="false" create="false" update="false" delete="false">
+            <table:column id="c_org_m4_bgw_domain_Language_isoCode"	property="isoCode" />
+            <table:column id="c_org_m4_bgw_domain_Language_name"	property="name" />
         </table:table>
     </page:list>
 </div>
