@@ -1,18 +1,8 @@
 USE `boardgames`;
 
---
---  List of world's countries containing the official short names in English as given in ISO 3166-1,
---  the ISO 3166-1-alpha-2 code provided by the International Organization for Standardization
---  (http://www.iso.org/iso/prods-services/iso3166ma/02iso-3166-code-lists/country_names_and_code_elements)
---  and the ISO alpha-3 code provided by the United Nations Statistics Division
---  (http://unstats.un.org/unsd/methods/m49/m49alpha.htm)
---
---  compiled by Stefan Gabos
---  version 1.2 (last revision: December 09, 2012)
---
---  http://stefangabos.ro/other-projects/list-of-world-countries-with-national-flags/
---
 
+-- List of world countries containing the official short names in English as
+-- given in ISO 3166-1, with their ISO 3166-1 alpha-2 and alpha-3 codes
 
 INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Afghanistan', 'af', 'afg'),
@@ -23,7 +13,7 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Andorra', 'ad', 'and'),
     ('Angola', 'ao', 'ago'),
     ('Anguilla', 'ai', 'aia'),
-    ('Antarctica', 'aq', ''),
+    ('Antarctica', 'aq', 'ata'),
     ('Antigua and Barbuda', 'ag', 'atg'),
     ('Argentina', 'ar', 'arg'),
     ('Armenia', 'am', 'arm'),
@@ -45,9 +35,9 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Bonaire, Sint Eustatius and Saba', 'bq', 'bes'),
     ('Bosnia and Herzegovina', 'ba', 'bih'),
     ('Botswana', 'bw', 'bwa'),
-    ('Bouvet Island', 'bv', ''),
+    ('Bouvet Island', 'bv', 'bvt'),
     ('Brazil', 'br', 'bra'),
-    ('British Indian Ocean Territory', 'io', ''),
+    ('British Indian Ocean Territory', 'io', 'iot'),
     ('Brunei Darussalam', 'bn', 'brn'),
     ('Bulgaria', 'bg', 'bgr'),
     ('Burkina Faso', 'bf', 'bfa'),
@@ -61,8 +51,8 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Chad', 'td', 'tcd'),
     ('Chile', 'cl', 'chl'),
     ('China', 'cn', 'chn'),
-    ('Christmas Island', 'cx', ''),
-    ('Cocos (Keeling) Islands', 'cc', ''),
+    ('Christmas Island', 'cx', 'cxr'),
+    ('Cocos (Keeling) Islands', 'cc', 'cck'),
     ('Colombia', 'co', 'col'),
     ('Comoros', 'km', 'com'),
     ('Congo', 'cg', 'cog'),
@@ -93,7 +83,7 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('France', 'fr', 'fra'),
     ('French Guiana', 'gf', 'guf'),
     ('French Polynesia', 'pf', 'pyf'),
-    ('French Southern Territories', 'tf', ''),
+    ('French Southern Territories', 'tf', 'atf'),
     ('Gabon', 'ga', 'gab'),
     ('Gambia', 'gm', 'gmb'),
     ('Georgia', 'ge', 'geo'),
@@ -111,7 +101,7 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Guinea-Bissau', 'gw', 'gnb'),
     ('Guyana', 'gy', 'guy'),
     ('Haiti', 'ht', 'hti'),
-    ('Heard Island and McDonald Islands', 'hm', ''),
+    ('Heard Island and McDonald Islands', 'hm', 'hmd'),
     ('Holy See (Vatican City State)', 'va', 'vat'),
     ('Honduras', 'hn', 'hnd'),
     ('Hong Kong', 'hk', 'hkg'),
@@ -221,7 +211,7 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Solomon Islands', 'sb', 'slb'),
     ('Somalia', 'so', 'som'),
     ('South Africa', 'za', 'zaf'),
-    ('South Georgia and The South Sandwich Islands', 'gs', ''),
+    ('South Georgia and The South Sandwich Islands', 'gs', 'sgs'),
     ('South Sudan', 'ss', 'ssd'),
     ('Spain', 'es', 'esp'),
     ('Sri Lanka', 'lk', 'lka'),
@@ -232,7 +222,7 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('Sweden', 'se', 'swe'),
     ('Switzerland', 'ch', 'che'),
     ('Syrian Arab Republic', 'sy', 'syr'),
-    ('Taiwan, Province of China', 'tw', ''),
+    ('Taiwan, Province of China', 'tw', 'twn'),
     ('Tajikistan', 'tj', 'tjk'),
     ('Tanzania, United Republic of', 'tz', 'tza'),
     ('Thailand', 'th', 'tha'),
@@ -251,7 +241,7 @@ INSERT INTO `country` (`name`, `iso_alpha_2`, `iso_alpha_3`) VALUES
     ('United Arab Emirates', 'ae', 'are'),
     ('United Kingdom', 'gb', 'gbr'),
     ('United States', 'us', 'usa'),
-    ('United States Minor Outlying Islands', 'um', ''),
+    ('United States Minor Outlying Islands', 'um', 'umi'),
     ('Uruguay', 'uy', 'ury'),
     ('Uzbekistan', 'uz', 'uzb'),
     ('Vanuatu', 'vu', 'vut'),
