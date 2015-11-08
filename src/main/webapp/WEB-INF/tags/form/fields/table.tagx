@@ -34,6 +34,10 @@
 			description="The identifier field name for the type (defaults to 'id')"
 	/>
 
+	<jsp:directive.attribute name="show" type="java.lang.Boolean"
+			required="false" rtexprvalue="true"
+  			description="Include 'show' link into table (default true)"
+	/>
 	<jsp:directive.attribute name="create" type="java.lang.Boolean"
 			required="false" rtexprvalue="true"
   			description="Include 'create' link into table (default true)"
@@ -152,7 +156,10 @@
 				
 				<!-- columns for buttons -->
 				
-				<th></th>
+				<c:if test="${show}">
+					<th></th>
+					<spring:eval var="colCounter" expression="colCounter  + 1" />
+				</c:if>
 				<c:if test="${update}">
 					<th></th>
 					<spring:eval var="colCounter" expression="colCounter  + 1" />
@@ -210,6 +217,7 @@
 
 				<!-- buttons -->
 				
+				<c:if test="${show}">
 				<td class="utilbox">
 					<spring:url value="${path}/${itemId}" var="show_form_url" />
 					<spring:url value="/resources/images/show.png" var="show_image_url" />
@@ -225,6 +233,7 @@
 						/>
 					</a>
 				</td>
+				</c:if>
 
 				<c:if test="${update}">
 				<td class="utilbox">

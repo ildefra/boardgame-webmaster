@@ -57,14 +57,7 @@ public class AchievedController {
         return "achieveds/create";
     }
 
-	@RequestMapping(value = "/{achievedId}", produces = "text/html")
-    public String show(@PathVariable("achievedId") Integer achievedId, Model uiModel) {
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("achieved", achievedRepository.findOne(achievedId));
-        uiModel.addAttribute("itemId", achievedId);
-        return "achieveds/show";
-    }
-
+	
 	@RequestMapping(produces = "text/html")
     public String list(
             @RequestParam(value = "page", required = false) Integer page,

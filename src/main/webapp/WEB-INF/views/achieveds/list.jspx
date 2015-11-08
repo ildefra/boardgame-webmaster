@@ -8,7 +8,7 @@
     
     <page:list id="pl_org_m4_bgw_domain_Achieved" items="${achieveds}">
         <table:table id="l_org_m4_bgw_domain_Achieved" path="/achieveds" data="${achieveds}"
-        		typeIdFieldName="achievedId">
+        		typeIdFieldName="achievedId" show="false">
             <table:column id="c_org_m4_bgw_domain_Achieved_player"		property="player" />
             <table:column id="c_org_m4_bgw_domain_Achieved_boardgame"	property="boardgame" />
             <table:column id="c_org_m4_bgw_domain_Achieved_achievement"	property="achievement" />
