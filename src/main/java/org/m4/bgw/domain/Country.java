@@ -22,6 +22,7 @@ public class Country {
     private String isoAlpha2;
 
 	@Column(name = "iso_alpha_3", length = 3)
+	@NotNull
     private String isoAlpha3;
 
 	@Column(name = "name", length = 50, unique = true)

@@ -74,11 +74,12 @@ DROP TABLE IF EXISTS `country` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `country` (
   `iso_alpha_2` CHAR(2) NOT NULL COMMENT '',
-  `iso_alpha_3` CHAR(3) NULL COMMENT '',
+  `iso_alpha_3` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
   PRIMARY KEY (`iso_alpha_2`)  COMMENT '',
   UNIQUE INDEX `name_UNIQUE` (`name` ASC)  COMMENT '',
-  UNIQUE INDEX `country_code_UNIQUE` (`iso_alpha_2` ASC)  COMMENT '')
+  UNIQUE INDEX `country_code_UNIQUE` (`iso_alpha_2` ASC)  COMMENT '',
+  UNIQUE INDEX `iso_alpha_3_UNIQUE` (`iso_alpha_3` ASC)  COMMENT '')
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
