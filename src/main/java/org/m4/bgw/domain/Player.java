@@ -68,7 +68,7 @@ public class Player {
     private Country country;
 
     
-	@OneToMany(mappedBy = "username")
+	@OneToMany(mappedBy = "player")
     private Set<Achieved> achieveds;
 
 	@OneToMany(mappedBy = "username")

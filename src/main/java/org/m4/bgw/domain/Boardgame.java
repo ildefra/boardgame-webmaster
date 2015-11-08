@@ -87,7 +87,7 @@ public class Boardgame {
             inverseJoinColumns = { @JoinColumn(name = "tag_name", nullable = false) })
     private Set<GameTag> gameTags;
 
-    @OneToMany(mappedBy = "boardgameId")
+    @OneToMany(mappedBy = "boardgame")
     private Set<Achieved> achieveds;
 
     @OneToMany(mappedBy = "boardgameId")

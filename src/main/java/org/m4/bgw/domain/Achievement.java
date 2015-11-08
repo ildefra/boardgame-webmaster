@@ -19,7 +19,7 @@ public class Achievement {
         return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("achieveds", "achievementTranslations").toString();
     }
 
-	@OneToMany(mappedBy = "achievementId")
+	@OneToMany(mappedBy = "achievement")
     private Set<Achieved> achieveds;
 
 	@OneToMany(mappedBy = "achievementId")
