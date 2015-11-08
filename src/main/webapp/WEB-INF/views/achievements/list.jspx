@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_m4_bgw_domain_Achievement" items="${achievements}" z="vQzwuSnuyDRSHC8RnAppM0qtYZ8=">
-        <table:table data="${achievements}" id="l_org_m4_bgw_domain_Achievement" path="/achievements" typeIdFieldName="achievementId" z="qwxon1p9fdhMkdC9M3+qs1ITdP0=">
-            <table:column id="c_org_m4_bgw_domain_Achievement_name" property="name" z="xhp6NTDhWsdmrHIY3YpMx3bZsEc="/>
-            <table:column id="c_org_m4_bgw_domain_Achievement_points" property="points" z="nR26joBzKDvMe9hwbOmctRmrs9w="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+    <page:list id="pl_org_m4_bgw_domain_Achievement" items="${achievements}">
+        <table:table id="l_org_m4_bgw_domain_Achievement"
+        		path="/achievements" data="${achievements}" typeIdFieldName="achievementId"
+        		show="false">
+            <table:column id="c_org_m4_bgw_domain_Achievement_name"		property="name" />
+            <table:column id="c_org_m4_bgw_domain_Achievement_points"	property="points" />
         </table:table>
     </page:list>
 </div>
