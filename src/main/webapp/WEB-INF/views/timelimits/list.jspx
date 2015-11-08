@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_m4_bgw_domain_TimeLimit" items="${timelimits}" z="+czdr6AJpgNRyno9YDOhAxZhYkY=">
-        <table:table data="${timelimits}" id="l_org_m4_bgw_domain_TimeLimit" path="/timelimits" typeIdFieldName="timeLimitId" z="8vc/Sjh2s6WcVIio0lvwmvUh6hc=">
-            <table:column id="c_org_m4_bgw_domain_TimeLimit_name" property="name" z="RhrCx935/+BYaCleXhL/FzaOHLI="/>
-            <table:column id="c_org_m4_bgw_domain_TimeLimit_turnBased" property="turnBased" z="bkNCtX8VCE+KhY3xmtGcrl5aG7o="/>
-        </table:table>
-    </page:list>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+	<page:list id="pl_org_m4_bgw_domain_TimeLimit" items="${timelimits}">
+		<table:table id="l_org_m4_bgw_domain_TimeLimit"
+				path="/timelimits" data="${timelimits}" typeIdFieldName="timeLimitId"
+				show="false">
+			<table:column id="c_org_m4_bgw_domain_TimeLimit_name"		property="name" />
+			<table:column id="c_org_m4_bgw_domain_TimeLimit_turnBased"	property="turnBased" />
+		</table:table>
+	</page:list>
 </div>

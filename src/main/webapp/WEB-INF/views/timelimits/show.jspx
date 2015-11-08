@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_m4_bgw_domain_TimeLimit" object="${timelimit}" path="/timelimits" z="wNgcFb9fdlG391WA1Ff0dnxc0Bs=">
-        <field:display field="name" id="s_org_m4_bgw_domain_TimeLimit_name" object="${timelimit}" z="uViZWF0yqFqQ3luPLBdrU3tPRl4="/>
-        <field:display field="turnBased" id="s_org_m4_bgw_domain_TimeLimit_turnBased" object="${timelimit}" z="MSzoJZfPFJYifY+mkS5gvaIi51M="/>
-    </page:show>
-</div>
