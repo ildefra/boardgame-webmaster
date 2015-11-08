@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_org_m4_bgw_domain_Achieved" modelAttribute="achieved" path="/achieveds" versionField="none" z="LiNl24OUVXA3WPpzPLFCCE92Uvs=">
-        <field:datetime dateTimePattern="${achieved_ondate_date_format}" field="onDate" id="c_org_m4_bgw_domain_Achieved_onDate" required="true" z="3/qsba3QOVzgxN2zs5tNp2ZQr3g="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
+    <form:update id="fu_org_m4_bgw_domain_Achieved" modelAttribute="achieved" path="/achieveds"
+    		render="${empty dependencies}" idField="achievedId" versionField="none">
+        <field:select field="player" id="c_org_m4_bgw_domain_Achieved_player"
+        		itemValue="username" items="${players}" path="/players" />
+        <field:select field="boardgame" id="c_org_m4_bgw_domain_Achieved_boardgame"
+        		itemValue="boardgameId" items="${boardgames}" path="/boardgames" />
+        <field:select field="achievement" id="c_org_m4_bgw_domain_Achieved_achievement"
+        		itemValue="achievementId" items="${achievements}" path="/achievements" />
+
+        <field:datetime field="onDate" id="c_org_m4_bgw_domain_Achieved_onDate" required="true"
+        		dateTimePattern="${achieved_ondate_date_format}" />
     </form:update>
+    <form:dependency dependencies="${dependencies}" id="d_org_m4_bgw_domain_Achieved"
+    		render="${not empty dependencies}" />
 </div>
