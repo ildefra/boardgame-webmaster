@@ -38,21 +38,18 @@ public class Achieved {
 
     @ManyToOne
     @JoinColumn(
-            name = "username", referencedColumnName = "username",
-            nullable = false, insertable = false, updatable = false)
-    private Player username;
+            name = "username", referencedColumnName = "username", nullable = false)
+    private Player player;
 
 	@ManyToOne
     @JoinColumn(
-            name = "boardgame_id", referencedColumnName = "boardgame_id",
-            nullable = false, insertable = false, updatable = false)
-    private Boardgame boardgameId;
+            name = "boardgame_id", referencedColumnName = "boardgame_id", nullable = false)
+    private Boardgame boardgame;
 
     @ManyToOne
     @JoinColumn(
-            name = "achievement_id", referencedColumnName = "achievement_id",
-            nullable = false, insertable = false, updatable = false)
-    private Achievement achievementId;    
+            name = "achievement_id", referencedColumnName = "achievement_id", nullable = false)
+    private Achievement achievement;
     
     
     public Integer getAchievedId() {
@@ -73,34 +70,33 @@ public class Achieved {
     }
 
     
-    public Player getUsername() {
-        return username;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setUsername(Player username) {
-        this.username = username;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
-	public Boardgame getBoardgameId() {
-        return boardgameId;
+	public Boardgame getBoardgame() {
+        return boardgame;
     }
 
-	public void setBoardgameId(Boardgame boardgameId) {
-        this.boardgameId = boardgameId;
+	public void setBoardgame(Boardgame boardgame) {
+        this.boardgame = boardgame;
     }
 
-    public Achievement getAchievementId() {
-        return achievementId;
+    public Achievement getAchievement() {
+        return achievement;
     }
 
-    public void setAchievementId(Achievement achievementId) {
-        this.achievementId = achievementId;
+    public void setAchievement(Achievement achievement) {
+        this.achievement = achievement;
     }
 	
 	
     @Override
     public String toString() {
-        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-                .setExcludeFieldNames("achievementId", "boardgameId", "username").toString();
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).toString();
     }
 }

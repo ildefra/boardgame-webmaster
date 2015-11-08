@@ -26,7 +26,7 @@ public class PrestigeController {
 	    for (Player player : playerRepository.findAll()) {
 	        int points = 0;
 	        for (Achieved achieved : player.getAchieveds()) {
-	            points += achieved.getAchievementId().getPoints();
+	            points += achieved.getAchievement().getPoints();
 	        }
 	        items.add(new PrestigeVO(player.getCountry(), player.getUsername(), points));
 	    }
