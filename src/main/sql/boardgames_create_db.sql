@@ -448,13 +448,15 @@ DROP TABLE IF EXISTS `achieved` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `achieved` (
+  `achieved_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `username` VARCHAR(20) NOT NULL COMMENT '',
   `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
   `achievement_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   `on_date` DATE NOT NULL COMMENT '',
-  PRIMARY KEY (`username`, `boardgame_id`, `achievement_id`)  COMMENT '',
   INDEX `has_achievement_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
   INDEX `has_achievement_has_achievement_fk1_idx` (`achievement_id` ASC)  COMMENT '',
+  PRIMARY KEY (`achieved_id`)  COMMENT '',
+  UNIQUE INDEX `achieved_id_UNIQUE` (`achieved_id` ASC)  COMMENT '',
   CONSTRAINT `has_achievement_has_player_fk1`
     FOREIGN KEY (`username`)
     REFERENCES `player` (`username`)
