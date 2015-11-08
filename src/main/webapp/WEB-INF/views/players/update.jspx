@@ -14,7 +14,6 @@
         <field:input field="passwordMd5" id="c_org_m4_bgw_domain_Player_password"
         		type="password" required="true" />
         
-        <field:datetime dateTimePattern="${player_registrationdtm_date_format}" field="registrationDtm" id="c_org_m4_bgw_domain_Player_registrationDtm" required="true" z="/AmoxWGFV/mB1nhAIj1G5xTJOSI="/>
         <field:datetime dateTimePattern="${player_birthdate_date_format}" field="birthDate" id="c_org_m4_bgw_domain_Player_birthDate" z="iF3iU+JKQm1Jz98YKg6iP2yDdyk="/>
         
         <field:textarea field="motto" id="c_org_m4_bgw_domain_Player_motto" />

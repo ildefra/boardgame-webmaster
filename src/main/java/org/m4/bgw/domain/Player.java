@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -41,7 +42,6 @@ public class Player {
     private String passwordMd5;
 
     @Column(name = "registration_dtm")
-    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "MM")
     private Calendar registrationDtm;
@@ -168,6 +168,11 @@ public class Player {
 
 	
 	@PrePersist
+	public void prePersist() {
+	    hashPassword();
+	    setRegistrationDtm(new GregorianCalendar());
+	}
+	
 	@PreUpdate
 	public void hashPassword() {
         MessageDigest digester;

@@ -20,11 +20,8 @@
         		validationMessageCode="field_invalid_email"
         		z="DNFGvnfx2MYRHgE0ROYh5oOL/xI=" />
         <field:input field="passwordMd5" id="c_org_m4_bgw_domain_Player_password"
-        		type="password" required="true"
-        		z="4XqkcskjGW97vFqRvdAn1TvpDH4=" />
-        <field:datetime field="registrationDtm" id="c_org_m4_bgw_domain_Player_registrationDtm"
-        		dateTimePattern="${player_registrationdtm_date_format}" required="true"
-        		z="/AmoxWGFV/mB1nhAIj1G5xTJOSI=" />
+        		type="password" required="true" />
+        
         <field:datetime field="birthDate" id="c_org_m4_bgw_domain_Player_birthDate"
         		dateTimePattern="${player_birthdate_date_format}"
         		z="iF3iU+JKQm1Jz98YKg6iP2yDdyk=" />
