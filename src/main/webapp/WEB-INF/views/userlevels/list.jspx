@@ -6,18 +6,14 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8" />
     <jsp:output omit-xml-declaration="yes" />
     
-    <page:list id="pl_org_m4_bgw_domain_UserLevel" items="${userlevels}"
-    		z="yvfGXqjMsRG+lamWMADum2CTsoU=">
-        <table:table data="${userlevels}" id="l_org_m4_bgw_domain_UserLevel" path="/userlevels"
-        		typeIdFieldName="levelId"
-        		z="axFRVGjmDfM8jXbU12JVhOk1yqE=">
-        	<table:column id="c_org_m4_bgw_domain_UserLevel_name" property="name" />
-            <table:column id="c_org_m4_bgw_domain_UserLevel_canPlay" property="canPlay"
-            		z="+ZV1I83a919qgwd3wuzxAeUSIuo=" />
-            <table:column id="c_org_m4_bgw_domain_UserLevel_canShout" property="canShout"
-            		z="CAvdKvU/imRXkRuKSBHI1rhk2uw=" />
-            <table:column id="c_org_m4_bgw_domain_UserLevel_canDowngrade" property="canDowngrade"
-            		z="6oCaQljmP7RWqyMxqSqHxUtM7kw=" />
+    <page:list id="pl_org_m4_bgw_domain_UserLevel" items="${userlevels}">
+        <table:table id="l_org_m4_bgw_domain_UserLevel"
+        		path="/userlevels" data="${userlevels}" typeIdFieldName="levelId"
+        		show="false">
+        	<table:column id="c_org_m4_bgw_domain_UserLevel_name"		property="name" />
+            <table:column id="c_org_m4_bgw_domain_UserLevel_canPlay" 	property="canPlay" />
+            <table:column id="c_org_m4_bgw_domain_UserLevel_canShout" 	property="canShout" />
+            <table:column id="c_org_m4_bgw_domain_UserLevel_canDowngrade" property="canDowngrade" />
         </table:table>
     </page:list>
 </div>

@@ -1,7 +1,8 @@
 package org.m4.bgw.web;
-import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.m4.bgw.domain.LevelTranslationRepository;
 import org.m4.bgw.domain.PlayerRepository;
 import org.m4.bgw.domain.UserLevel;
@@ -14,8 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.util.UriUtils;
-import org.springframework.web.util.WebUtils;
+
 
 @RequestMapping("/userlevels")
 @Controller
@@ -31,14 +31,19 @@ public class UserLevelController {
     PlayerRepository playerRepository;
 
 	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String create(@Valid UserLevel userLevel, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String create(
+            @Valid UserLevel userLevel,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, userLevel);
             return "userlevels/create";
         }
-        uiModel.asMap().clear();
         userLevelRepository.save(userLevel);
-        return "redirect:/userlevels/" + encodeUrlPathSegment(userLevel.getLevelId().toString(), httpServletRequest);
+        
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", "1");
+        uiModel.addAttribute("size", "10");
+        return "redirect:/userlevels";
     }
 
 	@RequestMapping(params = "form", produces = "text/html")
@@ -47,15 +52,14 @@ public class UserLevelController {
         return "userlevels/create";
     }
 
-	@RequestMapping(value = "/{levelId}", produces = "text/html")
-    public String show(@PathVariable("levelId") Short levelId, Model uiModel) {
-        uiModel.addAttribute("userlevel", userLevelRepository.findOne(levelId));
-        uiModel.addAttribute("itemId", levelId);
-        return "userlevels/show";
-    }
 
 	@RequestMapping(produces = "text/html")
-    public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+    public String list(
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size,
+            @RequestParam(value = "sortFieldName", required = false) String sortFieldName,
+            @RequestParam(value = "sortOrder", required = false) String sortOrder,
+            Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
@@ -69,14 +73,19 @@ public class UserLevelController {
     }
 
 	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String update(@Valid UserLevel userLevel, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String update(
+            @Valid UserLevel userLevel,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, userLevel);
             return "userlevels/update";
         }
-        uiModel.asMap().clear();
         userLevelRepository.save(userLevel);
-        return "redirect:/userlevels/" + encodeUrlPathSegment(userLevel.getLevelId().toString(), httpServletRequest);
+        
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", "1");
+        uiModel.addAttribute("size", "10");
+        return "redirect:/userlevels";
     }
 
 	@RequestMapping(value = "/{levelId}", params = "form", produces = "text/html")
@@ -86,7 +95,11 @@ public class UserLevelController {
     }
 
 	@RequestMapping(value = "/{levelId}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("levelId") Short levelId, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String delete(
+            @PathVariable("levelId") Short levelId,
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size,
+            Model uiModel) {
         UserLevel userLevel = userLevelRepository.findOne(levelId);
         userLevelRepository.delete(userLevel);
         uiModel.asMap().clear();
@@ -99,16 +112,5 @@ public class UserLevelController {
         uiModel.addAttribute("userLevel", userLevel);
         uiModel.addAttribute("leveltranslations", levelTranslationRepository.findAll());
         uiModel.addAttribute("players", playerRepository.findAll());
-    }
-
-	String encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
-        String enc = httpServletRequest.getCharacterEncoding();
-        if (enc == null) {
-            enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
-        }
-        try {
-            pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {}
-        return pathSegment;
     }
 }
