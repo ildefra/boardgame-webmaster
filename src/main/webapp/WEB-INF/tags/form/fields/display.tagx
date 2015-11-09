@@ -43,12 +43,14 @@
           <c:when test="${bool}">
           	<c:out value="${object[field] ? 'yes' : 'no'}" />
           </c:when>
+          <c:when test="${null or empty object[field]}">
+            -
+          </c:when>
           <c:otherwise>
             <spring:eval expression="object[field]" />
           </c:otherwise>
         </c:choose>
       </div>
     </div>
-    <br />
   </c:if>
 </jsp:root>
