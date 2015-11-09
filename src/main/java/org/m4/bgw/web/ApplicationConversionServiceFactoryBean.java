@@ -328,15 +328,21 @@ public class ApplicationConversionServiceFactoryBean
 
 	
 	public Converter<GameTable, String> getGameTableToStringConverter() {
+	    
         return new Converter<GameTable, String>() {
+            
+            @Override
             public String convert(GameTable gameTable) {
-                return new StringBuilder().append(gameTable.getCreatedDtm()).append(' ').append(gameTable.getGameStartedDtm()).append(' ').append(gameTable.getGameEndedDtm()).toString();
+                return String.valueOf(gameTable.getGameTableId());
             }
         };
     }
 
 	public Converter<Integer, GameTable> getIdToGameTableConverter() {
+	    
         return new Converter<Integer, GameTable>() {
+            
+            @Override
             public GameTable convert(Integer id) {
                 return gameTableRepository.findOne(id);
             }
@@ -344,7 +350,10 @@ public class ApplicationConversionServiceFactoryBean
     }
 
 	public Converter<String, GameTable> getStringToGameTableConverter() {
+	    
         return new Converter<String, GameTable>() {
+            
+            @Override
             public GameTable convert(String id) {
                 return getObject().convert(getObject().convert(id, Integer.class), GameTable.class);
             }
