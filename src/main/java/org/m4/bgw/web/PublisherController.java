@@ -1,11 +1,13 @@
 package org.m4.bgw.web;
-import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.m4.bgw.domain.BoardgameRepository;
 import org.m4.bgw.domain.Publisher;
 import org.m4.bgw.domain.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,8 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.util.UriUtils;
-import org.springframework.web.util.WebUtils;
+
 
 @RequestMapping("/publishers")
 @Controller
@@ -34,10 +35,12 @@ public class PublisherController {
             populateEditForm(uiModel, publisher);
             return "publishers/create";
         }
-        uiModel.asMap().clear();
         publisherRepository.save(publisher);
-        return "redirect:/publishers/"
-                + encodeId(publisher.getPublisherId(), httpServletRequest.getCharacterEncoding());
+        
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", "1");
+        uiModel.addAttribute("size", "10");
+        return "redirect:/publishers";
     }
 
 	
@@ -55,13 +58,22 @@ public class PublisherController {
     }
 
 	@RequestMapping(produces = "text/html")
-    public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+    public String list(
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size,
+            @RequestParam(value = "sortFieldName", required = false) String sortFieldName,
+            @RequestParam(value = "sortOrder", required = false) String sortOrder,
+            Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("publishers", publisherRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / sizeNo, sizeNo)).getContent());
+            uiModel.addAttribute(
+                    "publishers",
+                    publisherRepository.findAll(new PageRequest(firstResult / sizeNo, sizeNo)).getContent());
             float nrOfPages = (float) publisherRepository.count() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+            uiModel.addAttribute(
+                    "maxPages",
+                    (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
             uiModel.addAttribute("publishers", publisherRepository.findAll());
         }
@@ -70,16 +82,19 @@ public class PublisherController {
 
 	
 	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String update(@Valid Publisher publisher,
+    public String update(
+            @Valid Publisher publisher,
             BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, publisher);
             return "publishers/update";
         }
-        uiModel.asMap().clear();
         publisherRepository.save(publisher);
-        return "redirect:/publishers/"
-                + encodeId(publisher.getPublisherId(), httpServletRequest.getCharacterEncoding());
+        
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", "1");
+        uiModel.addAttribute("size", "10");
+        return "redirect:/publishers";
     }
 
 	
@@ -89,10 +104,16 @@ public class PublisherController {
         return "publishers/update";
     }
 
-	@RequestMapping(value = "/{name}", method = RequestMethod.DELETE, produces = "text/html")
-    public String delete(@PathVariable("name") String name, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+	@RequestMapping(
+	        value = "/{name}", method = RequestMethod.DELETE, produces = "text/html")
+    public String delete(
+            @PathVariable("name") String name,
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "size", required = false) Integer size,
+            Model uiModel) {
         Publisher publisher = publisherRepository.findOne(name);
         publisherRepository.delete(publisher);
+        
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
@@ -102,14 +123,5 @@ public class PublisherController {
 	void populateEditForm(Model uiModel, Publisher publisher) {
         uiModel.addAttribute("publisher", publisher);
         uiModel.addAttribute("boardgames", boardgameRepository.findAll());
-    }
-
-	private String encodeId(Integer id, String encoding) {
-	    String enc = encoding != null ? encoding : WebUtils.DEFAULT_CHARACTER_ENCODING;
-        try {
-            return UriUtils.encodePathSegment(String.valueOf(id), enc);
-        } catch (UnsupportedEncodingException ex) {
-            throw new RuntimeException(ex);
-        }
     }
 }
