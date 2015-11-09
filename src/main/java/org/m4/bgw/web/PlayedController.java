@@ -10,6 +10,7 @@ import org.m4.bgw.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -79,9 +80,12 @@ public class PlayedController {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            
+            PageRequest pagedAndSorted =
+                    new PageRequest(firstResult / sizeNo, sizeNo, Direction.ASC, "gameTableId");
             uiModel.addAttribute(
-                    "playeds",
-                    playedRepository.findAll(new PageRequest(firstResult / sizeNo, sizeNo)).getContent());
+                    "playeds", playedRepository.findAll(pagedAndSorted).getContent());
+            
             float nrOfPages = (float) playedRepository.count() / sizeNo;
             uiModel.addAttribute(
                     "maxPages",
