@@ -4,6 +4,7 @@ import org.m4.bgw.domain.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,6 +16,13 @@ public class CountryController {
 	@Autowired
     CountryRepository countryRepository;
 
+    @RequestMapping(value = "/{isoAlpha2}", produces = "text/html")
+    public String show(@PathVariable("isoAlpha2") String isoAlpha2, Model uiModel) {
+        uiModel.addAttribute("country", countryRepository.findOne(isoAlpha2));
+        uiModel.addAttribute("itemId", isoAlpha2);
+        return "countrys/show";
+    }
+	
 	@RequestMapping(produces = "text/html")
     public String list(
             @RequestParam(value = "page", required = false) Integer page,

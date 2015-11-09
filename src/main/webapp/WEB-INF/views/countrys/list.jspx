@@ -9,7 +9,7 @@
     <page:list id="pl_org_m4_bgw_domain_Country" items="${countrys}" label="country">
         <table:table id="l_org_m4_bgw_domain_Country"
         		path="/countrys" data="${countrys}" typeIdFieldName="isoAlpha2"
-        		show="false" create="false" update="false" delete="false">
+        		create="false" update="false" delete="false">
 			<table:column id="c_org_m4_bgw_domain_Country_isoAlpha2" property="isoAlpha2" />
             <table:column id="c_org_m4_bgw_domain_Country_isoAlpha3" property="isoAlpha3" />
             <table:column id="c_org_m4_bgw_domain_Country_name"		property="name" />
