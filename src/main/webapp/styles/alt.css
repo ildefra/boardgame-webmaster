@@ -135,7 +135,8 @@ div {
 
 div .box {
 	display:block;
-	margin-left:105px;
+	margin-left:	125px;
+	margin-bottom:	10px;
 }
 
 /* menu elements*/
