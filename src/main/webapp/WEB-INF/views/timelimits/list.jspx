@@ -11,7 +11,8 @@
 				path="/timelimits" data="${timelimits}" typeIdFieldName="timeLimitId"
 				show="false">
 			<table:column id="c_org_m4_bgw_domain_TimeLimit_name"		property="name" />
-			<table:column id="c_org_m4_bgw_domain_TimeLimit_turnBased"	property="turnBased" />
+			<table:column id="c_org_m4_bgw_domain_TimeLimit_turnBased"	property="turnBased"
+					bool="true" />
 		</table:table>
 	</page:list>
 </div>

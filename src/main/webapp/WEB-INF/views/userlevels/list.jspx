@@ -11,9 +11,13 @@
         		path="/userlevels" data="${userlevels}" typeIdFieldName="levelId"
         		show="false">
         	<table:column id="c_org_m4_bgw_domain_UserLevel_name"		property="name" />
-            <table:column id="c_org_m4_bgw_domain_UserLevel_canPlay" 	property="canPlay" />
-            <table:column id="c_org_m4_bgw_domain_UserLevel_canShout" 	property="canShout" />
-            <table:column id="c_org_m4_bgw_domain_UserLevel_canDowngrade" property="canDowngrade" />
+        	
+            <table:column id="c_org_m4_bgw_domain_UserLevel_canPlay" 	property="canPlay"
+            		bool="true" />
+            <table:column id="c_org_m4_bgw_domain_UserLevel_canShout" 	property="canShout"
+            		bool="true" />
+            <table:column id="c_org_m4_bgw_domain_UserLevel_canDowngrade" property="canDowngrade"
+            		bool="true" />
         </table:table>
     </page:list>
 </div>

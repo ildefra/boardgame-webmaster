@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_m4_bgw_domain_ExternalLink" items="${externallinks}" z="iOoe59XyFXC0EvmjNWXuXYYcEP8=">
-        <table:table data="${externallinks}" id="l_org_m4_bgw_domain_ExternalLink" path="/externallinks" typeIdFieldName="externalLinkId" z="U4++RzT39FJLwK2m3NU95UdO1qw=">
-            <table:column id="c_org_m4_bgw_domain_ExternalLink_boardgameId" property="boardgameId" z="ur5HjJYw5wiymLHnAXiaABw+4r4="/>
-            <table:column id="c_org_m4_bgw_domain_ExternalLink_languageCode" property="languageCode" z="vUNRmDx1YYRKnvFvirl1EntJOnY="/>
-            <table:column id="c_org_m4_bgw_domain_ExternalLink_name" property="name" z="fuOtIRlnoD/Ohw/vkwYRqjALmuA="/>
-            <table:column id="c_org_m4_bgw_domain_ExternalLink_isVideo" property="isVideo" z="5t6a4T2MR2q0AjsAwnMn6bFsZx0="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
+    <page:list id="pl_org_m4_bgw_domain_ExternalLink" items="${externallinks}">
+        <table:table id="l_org_m4_bgw_domain_ExternalLink"
+        		path="/externallinks" data="${externallinks}" typeIdFieldName="externalLinkId">
+            <table:column id="c_org_m4_bgw_domain_ExternalLink_boardgameId"
+            		property="boardgameId" />
+            <table:column id="c_org_m4_bgw_domain_ExternalLink_languageCode"
+            		property="languageCode" />
+            <table:column id="c_org_m4_bgw_domain_ExternalLink_name"
+            		property="name" />
+            <table:column id="c_org_m4_bgw_domain_ExternalLink_isVideo"
+            		property="isVideo" bool="true" />
         </table:table>
     </page:list>
 </div>
