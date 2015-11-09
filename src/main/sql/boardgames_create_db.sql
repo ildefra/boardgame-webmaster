@@ -559,12 +559,15 @@ DROP TABLE IF EXISTS `played` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `played` (
+  `played_id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `username` VARCHAR(20) NOT NULL COMMENT '',
   `game_table_id` INT UNSIGNED NOT NULL COMMENT '',
   `score` SMALLINT NOT NULL COMMENT '',
-  PRIMARY KEY (`username`, `game_table_id`)  COMMENT '',
   INDEX `game_table_player_has_player_fk1_idx` (`username` ASC)  COMMENT '',
   INDEX `game_table_player_has_game_table_fk1_idx` (`game_table_id` ASC)  COMMENT '',
+  PRIMARY KEY (`played_id`)  COMMENT '',
+  UNIQUE INDEX `played_id_UNIQUE` (`played_id` ASC)  COMMENT '',
+  UNIQUE INDEX `natural_key_UNIQUE` (`username` ASC, `game_table_id` ASC)  COMMENT '',
   CONSTRAINT `game_table_player_has_game_table_fk1`
     FOREIGN KEY (`game_table_id`)
     REFERENCES `game_table` (`game_table_id`)
