@@ -32,11 +32,11 @@ public class TagTranslation {
 
     
 	@ManyToOne
-    @JoinColumn(name = "tag_name", referencedColumnName = "name", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "tag_name", referencedColumnName = "name", nullable = false)
     private GameTag tagName;
 
 	@ManyToOne
-    @JoinColumn(name = "language_code", referencedColumnName = "iso_code", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "language_code", referencedColumnName = "iso_code", nullable = false)
     private Language languageCode;
 
 
