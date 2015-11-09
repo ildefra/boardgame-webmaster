@@ -5,12 +5,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8" />
     <jsp:output omit-xml-declaration="yes" />
     
-    <page:show id="ps_org_m4_bgw_domain_Publisher" object="${publisher}" path="/publishers"
-    		z="zeupRRSOZjwZLwK16sd3QJF4DQM=">
+    <page:show id="ps_org_m4_bgw_domain_Publisher" object="${publisher}" path="/publishers">
 		<field:display id="s_org_m4_bgw_domain_Publisher_name"
         		object="${publisher}" field="name" />
         <field:display id="s_org_m4_bgw_domain_Publisher_website"
-        		object="${publisher}" field="website"
-        		z="IczjIKFneK6ihNHr3EG1k9F7/JY=" />
+        		object="${publisher}" field="website" />
+        <field:display id="s_org_m4_bgw_domain_Publisher_boardgames"
+        		object="${publisher}" field="boardgames" />
     </page:show>
 </div>

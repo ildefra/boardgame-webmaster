@@ -5,9 +5,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8" />
     <jsp:output omit-xml-declaration="yes" />
     
-    <page:show id="ps_org_m4_bgw_domain_GameTag" object="${gametag}" path="/gametags"
-    		z="ZUG6rzbE9GbcyvmYPwi7wCPa0po=">
+    <page:show id="ps_org_m4_bgw_domain_GameTag" object="${gametag}" path="/gametags">
         <field:display id="s_org_m4_bgw_domain_GameTag_name"
         		object="${gametag}" field="name" />
+        <field:display id="s_org_m4_bgw_domain_GameTag_boardgames"
+        		object="${gametag}" field="boardgames" />
     </page:show>
 </div>
