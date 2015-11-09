@@ -71,14 +71,8 @@
 		<c:set var="columnSortProperties" scope="request" />
 
 		<jsp:doBody />
-
-
-		<!-- set defaults -->
 		
 		<c:if test="${empty typeIdFieldName}"><c:set var="typeIdFieldName" value="id" /></c:if>
-		<c:if test="${empty update}"><c:set var="update" value="true" /></c:if>
-		<c:if test="${empty delete}"><c:set var="delete" value="true" /></c:if>
-
 
 		<spring:message var="typeName"
 				code="menu_item_${fn:toLowerCase(fn:split(id,'_')[fn:length(fn:split(id,'_')) - 1])}_new_label"
@@ -156,15 +150,15 @@
 				
 				<!-- columns for buttons -->
 				
-				<c:if test="${show}">
+				<c:if test="${empty show or show}">
 					<th></th>
 					<spring:eval var="colCounter" expression="colCounter  + 1" />
 				</c:if>
-				<c:if test="${update}">
+				<c:if test="${empty update or update}">
 					<th></th>
 					<spring:eval var="colCounter" expression="colCounter  + 1" />
 				</c:if>
-				<c:if test="${delete}">
+				<c:if test="${empty delete or delete}">
 					<th></th>
 					<spring:eval var="colCounter" expression="colCounter  + 1" />
 				</c:if>
@@ -224,7 +218,7 @@
 
 				<!-- buttons -->
 				
-				<c:if test="${show}">
+				<c:if test="${empty show or show}">
 				<td class="utilbox">
 					<spring:url value="${path}/${itemId}" var="show_form_url" />
 					<spring:url value="/resources/images/show.png" var="show_image_url" />
@@ -242,7 +236,7 @@
 				</td>
 				</c:if>
 
-				<c:if test="${update}">
+				<c:if test="${empty update or update}">
 				<td class="utilbox">
 					<spring:url value="${path}/${itemId}" var="update_form_url">
 						<spring:param name="form" />
@@ -262,7 +256,7 @@
 				</td>
 				</c:if>
 
-				<c:if test="${delete}">
+				<c:if test="${empty delete or delete}">
 				<td class="utilbox">
 					<spring:url value="${path}/${itemId}" var="delete_form_url" />
 					<spring:url value="/resources/images/delete.png" var="delete_image_url" />
