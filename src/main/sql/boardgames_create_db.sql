@@ -107,15 +107,18 @@ DROP TABLE IF EXISTS `game_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `game_translation` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `boardgame_id` INT UNSIGNED NOT NULL COMMENT '',
   `language_code` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(100) NOT NULL COMMENT '',
   `rules` MEDIUMTEXT NOT NULL COMMENT '',
   `rules_link` VARCHAR(255) NOT NULL COMMENT '',
-  PRIMARY KEY (`boardgame_id`, `language_code`)  COMMENT '',
   INDEX `boardgame_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
   INDEX `boardgame_language_has_boardgame_fk1_idx` (`boardgame_id` ASC)  COMMENT '',
   UNIQUE INDEX `rules_link_UNIQUE` (`rules_link` ASC)  COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  UNIQUE INDEX `natural_key_UNIQUE` (`boardgame_id` ASC, `language_code` ASC)  COMMENT '',
   CONSTRAINT `boardgame_language_has_boardgame_fk1`
     FOREIGN KEY (`boardgame_id`)
     REFERENCES `boardgame` (`boardgame_id`)
@@ -350,12 +353,15 @@ DROP TABLE IF EXISTS `tag_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `tag_translation` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `tag_name` VARCHAR(20) NOT NULL COMMENT '',
   `language_code` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`tag_name`, `language_code`)  COMMENT '',
   INDEX `game_tag_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
   INDEX `game_tag_language_has_game_tag_fk1_idx` (`tag_name` ASC)  COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  UNIQUE INDEX `natural_key_UNIQUE` (`tag_name` ASC, `language_code` ASC)  COMMENT '',
   CONSTRAINT `game_tag_language_has_game_tag_fk1`
     FOREIGN KEY (`tag_name`)
     REFERENCES `game_tag` (`name`)
@@ -377,12 +383,15 @@ DROP TABLE IF EXISTS `level_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `level_translation` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `level_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   `language_code` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(20) NOT NULL COMMENT '',
-  PRIMARY KEY (`level_id`, `language_code`)  COMMENT '',
   INDEX `user_level_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
   INDEX `user_level_language_has_user_level_fk1_idx` (`level_id` ASC)  COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  UNIQUE INDEX `natural_key_UNIQUE` (`level_id` ASC, `language_code` ASC)  COMMENT '',
   CONSTRAINT `user_level_language_has_user_level_fk1`
     FOREIGN KEY (`level_id`)
     REFERENCES `user_level` (`level_id`)
@@ -421,12 +430,15 @@ DROP TABLE IF EXISTS `achievement_translation` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `achievement_translation` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '',
   `achievement_id` TINYINT UNSIGNED NOT NULL COMMENT '',
   `language_code` CHAR(3) NOT NULL COMMENT '',
   `name` VARCHAR(50) NOT NULL COMMENT '',
-  PRIMARY KEY (`achievement_id`, `language_code`)  COMMENT '',
   INDEX `achievement_language_has_language_fk1_idx` (`language_code` ASC)  COMMENT '',
   INDEX `achievement_language_has_achievement_fk1_idx` (`achievement_id` ASC)  COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  UNIQUE INDEX `natural_key_UNIQUE` (`achievement_id` ASC, `language_code` ASC)  COMMENT '',
   CONSTRAINT `achievement_language_has_achievement_fk1`
     FOREIGN KEY (`achievement_id`)
     REFERENCES `achievement` (`achievement_id`)
