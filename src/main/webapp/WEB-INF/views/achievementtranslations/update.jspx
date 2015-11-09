@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_org_m4_bgw_domain_AchievementTranslation" modelAttribute="achievementTranslation" path="/achievementtranslations" versionField="none" z="VW8JRxi6R8SvLRqxeyqIGc4iabk=">
-        <field:input field="name" id="c_org_m4_bgw_domain_AchievementTranslation_name" required="true" z="LwjQcQa56EqqTeNR4WOZg1QXPMY="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
+    <form:update id="fu_org_m4_bgw_domain_AchievementTranslation"
+    		modelAttribute="achievementTranslation" path="/achievementtranslations"
+    		render="${empty dependencies}" idField="id" versionField="none">
+        <field:select id="c_org_m4_bgw_domain_AchievementTranslation_achievementId"
+        		field="achievementId" required="true"
+        		items="${achievements}" path="/achievements" itemValue="achievementId"
+        />
+        <field:select id="c_org_m4_bgw_domain_AchievementTranslation_languageCode"
+        		field="languageCode" required="true"
+        		items="${languages}" path="/languages" itemValue="isoCode"
+        />
+        <field:input id="c_org_m4_bgw_domain_AchievementTranslation_name"
+        		field="name" required="true" />
     </form:update>
+    <form:dependency id="d_org_m4_bgw_domain_AchievementTranslation" dependencies="${dependencies}"
+    		render="${not empty dependencies}" />
 </div>
