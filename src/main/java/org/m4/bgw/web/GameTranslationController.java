@@ -93,7 +93,9 @@ public class GameTranslationController {
     }
 
 	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String update(@Valid GameTranslation gameTranslation, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String update(
+            @Valid GameTranslation gameTranslation,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, gameTranslation);
             return "gametranslations/update";

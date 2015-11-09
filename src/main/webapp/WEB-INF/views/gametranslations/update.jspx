@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_org_m4_bgw_domain_GameTranslation" modelAttribute="gameTranslation" path="/gametranslations" versionField="none" z="BsgFnQ4qfJOO7kMZ5TxooHVI8kI=">
-        <field:input field="name" id="c_org_m4_bgw_domain_GameTranslation_name" required="true" z="eZvjlCKkWa+ReRR3d7CvrLh3Lvg="/>
-        <field:input field="rules" id="c_org_m4_bgw_domain_GameTranslation_rules" required="true" z="3pDaPFBWq/ecC+vkGNzVdG3wqoQ="/>
-        <field:input field="rulesLink" id="c_org_m4_bgw_domain_GameTranslation_rulesLink" required="true" z="NgiKQl8n+XP9NuMy7X+GVNFgdU4="/>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+		xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+		version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+    
+    <form:update id="fu_org_m4_bgw_domain_GameTranslation"
+    		modelAttribute="gameTranslation" path="/gametranslations"
+    		render="${empty dependencies}" idField="id" versionField="none">
+    	
+        <field:select id="c_org_m4_bgw_domain_GameTranslation_boardgameId"
+        		field="boardgameId" required="true"
+        		items="${boardgames}" path="/boardgames" itemValue="boardgameId"
+        />
+        <field:select id="c_org_m4_bgw_domain_GameTranslation_languageCode"
+        		field="languageCode" required="true"
+        		items="${languages}" path="/languages" itemValue="isoCode"
+        />
+
+        <field:input id="c_org_m4_bgw_domain_GameTranslation_name"
+        		field="name" required="true" />
+        <field:input id="c_org_m4_bgw_domain_GameTranslation_rules"
+        		field="rules" required="true" />
+        <field:input id="c_org_m4_bgw_domain_GameTranslation_rulesLink"
+        		field="rulesLink" required="true" />
     </form:update>
+    
+    <form:dependency id="d_org_m4_bgw_domain_GameTranslation" dependencies="${dependencies}"
+    		render="${not empty dependencies}" />
 </div>
