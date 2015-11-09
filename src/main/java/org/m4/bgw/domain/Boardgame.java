@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.m4.bgw.domain.translate.ExternalLink;
+import org.m4.bgw.domain.translate.GameTranslation;
 
 @Entity
 @Table(name = "boardgame")

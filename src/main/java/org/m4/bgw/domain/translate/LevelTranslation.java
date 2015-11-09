@@ -1,4 +1,4 @@
-package org.m4.bgw.domain;
+package org.m4.bgw.domain.translate;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -8,19 +8,21 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.m4.bgw.domain.Language;
+import org.m4.bgw.domain.UserLevel;
 
 @Entity
 @Table(name = "level_translation")
 public class LevelTranslation {
 
 	@EmbeddedId
-    private LevelTranslationPK id;
+    private Integer id;
 
-	public LevelTranslationPK getId() {
+	public Integer getId() {
         return this.id;
     }
 
-	public void setId(LevelTranslationPK id) {
+	public void setId(Integer id) {
         this.id = id;
     }
 

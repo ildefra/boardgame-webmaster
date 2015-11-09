@@ -4,10 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.m4.bgw.domain.AchievementRepository;
-import org.m4.bgw.domain.AchievementTranslation;
-import org.m4.bgw.domain.AchievementTranslationPK;
-import org.m4.bgw.domain.AchievementTranslationRepository;
 import org.m4.bgw.domain.LanguageRepository;
+import org.m4.bgw.domain.translate.AchievementTranslation;
+import org.m4.bgw.domain.translate.AchievementTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.PageRequest;
@@ -64,7 +63,7 @@ public class AchievementTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", produces = "text/html")
-    public String show(@PathVariable("id") AchievementTranslationPK id, Model uiModel) {
+    public String show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("achievementtranslation", achievementTranslationRepository.findOne(id));
         uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
         return "achievementtranslations/show";
@@ -108,7 +107,7 @@ public class AchievementTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String updateForm(@PathVariable("id") AchievementTranslationPK id, Model uiModel) {
+    public String updateForm(@PathVariable("id") Integer id, Model uiModel) {
         populateEditForm(uiModel, achievementTranslationRepository.findOne(id));
         return "achievementtranslations/update";
     }
@@ -116,7 +115,7 @@ public class AchievementTranslationController {
 	@RequestMapping(
 	        value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(
-            @PathVariable("id") AchievementTranslationPK id,
+            @PathVariable("id") Integer id,
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "size", required = false) Integer size,
             Model uiModel) {

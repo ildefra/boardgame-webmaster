@@ -3,10 +3,10 @@ package org.m4.bgw.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import org.m4.bgw.domain.LevelTranslationRepository;
 import org.m4.bgw.domain.PlayerRepository;
 import org.m4.bgw.domain.UserLevel;
 import org.m4.bgw.domain.UserLevelRepository;
+import org.m4.bgw.domain.translate.LevelTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

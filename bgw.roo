@@ -8,12 +8,12 @@ database reverse engineer --schema boardgames --excludeTables openjpa_sequence_t
 logging setup --level INFO --package PERSISTENCE
 
 //the following are only required with provider OPENJPA:
-equals --class ~.domain.GameTranslationPK
-equals --class ~.domain.LevelTranslationPK
+equals --class ~.domain.Integer
+equals --class ~.domain.Integer
 equals --class ~.domain.PlayedPK
-equals --class ~.domain.TagTranslationPK
+equals --class ~.domain.Integer
 equals --class ~.domain.AchievedPK
-equals --class ~.domain.AchievementTranslationPK
+equals --class ~.domain.Integer
 equals --class ~.domain.AvgGameLengthPK
 
 web mvc setup

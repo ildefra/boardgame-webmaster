@@ -7,12 +7,12 @@ addon install bundle --bundleSymbolicName org.springframework.roo.wrapping.mysql
 jpa setup --provider OPENJPA --database MYSQL --databaseName boardgames --userName root --password root
 database reverse engineer --schema boardgames --excludeTables openjpa_sequence_table --package ~.domain --repository
 logging setup --level INFO --package PERSISTENCE
-equals --class ~.domain.GameTranslationPK
-equals --class ~.domain.LevelTranslationPK
+equals --class ~.domain.Integer
+equals --class ~.domain.Integer
 equals --class ~.domain.PlayedPK
-equals --class ~.domain.TagTranslationPK
+equals --class ~.domain.Integer
 equals --class ~.domain.AchievedPK
-equals --class ~.domain.AchievementTranslationPK
+equals --class ~.domain.Integer
 equals --class ~.domain.AvgGameLengthPK
 web mvc setup
 web mvc scaffold --class ~.web.GenderController --backingType ~.domain.Gender --disallowedOperations create,update,delete

@@ -6,7 +6,7 @@ import javax.validation.Valid;
 import org.m4.bgw.domain.AchievedRepository;
 import org.m4.bgw.domain.Achievement;
 import org.m4.bgw.domain.AchievementRepository;
-import org.m4.bgw.domain.AchievementTranslationRepository;
+import org.m4.bgw.domain.translate.AchievementTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;

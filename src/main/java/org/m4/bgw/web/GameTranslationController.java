@@ -4,10 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.m4.bgw.domain.BoardgameRepository;
-import org.m4.bgw.domain.GameTranslation;
-import org.m4.bgw.domain.GameTranslationPK;
-import org.m4.bgw.domain.GameTranslationRepository;
 import org.m4.bgw.domain.LanguageRepository;
+import org.m4.bgw.domain.translate.GameTranslation;
+import org.m4.bgw.domain.translate.GameTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.PageRequest;
@@ -64,7 +63,7 @@ public class GameTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", produces = "text/html")
-    public String show(@PathVariable("id") GameTranslationPK id, Model uiModel) {
+    public String show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("gametranslation", gameTranslationRepository.findOne(id));
         uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
         return "gametranslations/show";
@@ -108,7 +107,7 @@ public class GameTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String updateForm(@PathVariable("id") GameTranslationPK id, Model uiModel) {
+    public String updateForm(@PathVariable("id") Integer id, Model uiModel) {
         populateEditForm(uiModel, gameTranslationRepository.findOne(id));
         return "gametranslations/update";
     }
@@ -116,7 +115,7 @@ public class GameTranslationController {
 	@RequestMapping(
 	        value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(
-            @PathVariable("id") GameTranslationPK id,
+            @PathVariable("id") Integer id,
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "size", required = false) Integer size,
             Model uiModel) {

@@ -5,9 +5,8 @@ import javax.validation.Valid;
 
 import org.m4.bgw.domain.GameTagRepository;
 import org.m4.bgw.domain.LanguageRepository;
-import org.m4.bgw.domain.TagTranslation;
-import org.m4.bgw.domain.TagTranslationPK;
-import org.m4.bgw.domain.TagTranslationRepository;
+import org.m4.bgw.domain.translate.TagTranslation;
+import org.m4.bgw.domain.translate.TagTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.PageRequest;
@@ -64,7 +63,7 @@ public class TagTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", produces = "text/html")
-    public String show(@PathVariable("id") TagTranslationPK id, Model uiModel) {
+    public String show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("tagtranslation", tagTranslationRepository.findOne(id));
         uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
         return "tagtranslations/show";
@@ -110,7 +109,7 @@ public class TagTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String updateForm(@PathVariable("id") TagTranslationPK id, Model uiModel) {
+    public String updateForm(@PathVariable("id") Integer id, Model uiModel) {
         populateEditForm(uiModel, tagTranslationRepository.findOne(id));
         return "tagtranslations/update";
     }
@@ -118,7 +117,7 @@ public class TagTranslationController {
 	@RequestMapping(
 	        value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(
-            @PathVariable("id") TagTranslationPK id,
+            @PathVariable("id") Integer id,
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "size", required = false) Integer size,
             Model uiModel) {

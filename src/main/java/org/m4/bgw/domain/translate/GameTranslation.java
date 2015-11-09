@@ -1,4 +1,4 @@
-package org.m4.bgw.domain;
+package org.m4.bgw.domain.translate;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.m4.bgw.domain.Boardgame;
+import org.m4.bgw.domain.Language;
 
 @Entity
 @Table(name = "game_translation")
@@ -18,13 +20,13 @@ public class GameTranslation {
     }
 
 	@EmbeddedId
-    private GameTranslationPK id;
+    private Integer id;
 
-	public GameTranslationPK getId() {
+	public Integer getId() {
         return this.id;
     }
 
-	public void setId(GameTranslationPK id) {
+	public void setId(Integer id) {
         this.id = id;
     }
 

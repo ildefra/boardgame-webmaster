@@ -6,7 +6,7 @@ import javax.validation.Valid;
 import org.m4.bgw.domain.BoardgameRepository;
 import org.m4.bgw.domain.GameTag;
 import org.m4.bgw.domain.GameTagRepository;
-import org.m4.bgw.domain.TagTranslationRepository;
+import org.m4.bgw.domain.translate.TagTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;

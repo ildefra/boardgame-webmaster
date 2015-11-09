@@ -1,4 +1,4 @@
-package org.m4.bgw.domain;
+package org.m4.bgw.domain.translate;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -8,33 +8,42 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.m4.bgw.domain.Achievement;
+import org.m4.bgw.domain.Language;
 
 @Entity
-@Table(name = "tag_translation")
-public class TagTranslation {
+@Table(name = "achievement_translation")
+public class AchievementTranslation {
 
-	public String toString() {
-        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("tagName", "languageCode").toString();
+	@EmbeddedId
+    private Integer id;
+
+	public Integer getId() {
+        return this.id;
+    }
+
+	public void setId(Integer id) {
+        this.id = id;
     }
 
 	@ManyToOne
-    @JoinColumn(name = "tag_name", referencedColumnName = "name", nullable = false, insertable = false, updatable = false)
-    private GameTag tagName;
+    @JoinColumn(name = "achievement_id", referencedColumnName = "achievement_id", nullable = false, insertable = false, updatable = false)
+    private Achievement achievementId;
 
 	@ManyToOne
     @JoinColumn(name = "language_code", referencedColumnName = "iso_code", nullable = false, insertable = false, updatable = false)
     private Language languageCode;
 
-	@Column(name = "name", length = 20)
+	@Column(name = "name", length = 50)
     @NotNull
     private String name;
 
-	public GameTag getTagName() {
-        return tagName;
+	public Achievement getAchievementId() {
+        return achievementId;
     }
 
-	public void setTagName(GameTag tagName) {
-        this.tagName = tagName;
+	public void setAchievementId(Achievement achievementId) {
+        this.achievementId = achievementId;
     }
 
 	public Language getLanguageCode() {
@@ -53,14 +62,7 @@ public class TagTranslation {
         this.name = name;
     }
 
-	@EmbeddedId
-    private TagTranslationPK id;
-
-	public TagTranslationPK getId() {
-        return this.id;
-    }
-
-	public void setId(TagTranslationPK id) {
-        this.id = id;
+	public String toString() {
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames("achievementId", "languageCode").toString();
     }
 }

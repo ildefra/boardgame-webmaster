@@ -5,9 +5,6 @@ import org.m4.bgw.domain.Achieved;
 import org.m4.bgw.domain.AchievedRepository;
 import org.m4.bgw.domain.Achievement;
 import org.m4.bgw.domain.AchievementRepository;
-import org.m4.bgw.domain.AchievementTranslation;
-import org.m4.bgw.domain.AchievementTranslationPK;
-import org.m4.bgw.domain.AchievementTranslationRepository;
 import org.m4.bgw.domain.AvgGameLength;
 import org.m4.bgw.domain.AvgGameLengthPK;
 import org.m4.bgw.domain.AvgGameLengthRepository;
@@ -15,37 +12,36 @@ import org.m4.bgw.domain.Boardgame;
 import org.m4.bgw.domain.BoardgameRepository;
 import org.m4.bgw.domain.Country;
 import org.m4.bgw.domain.CountryRepository;
-import org.m4.bgw.domain.ExternalLink;
-import org.m4.bgw.domain.ExternalLinkRepository;
 import org.m4.bgw.domain.GameDesigner;
 import org.m4.bgw.domain.GameDesignerRepository;
 import org.m4.bgw.domain.GameTable;
 import org.m4.bgw.domain.GameTableRepository;
 import org.m4.bgw.domain.GameTag;
 import org.m4.bgw.domain.GameTagRepository;
-import org.m4.bgw.domain.GameTranslation;
-import org.m4.bgw.domain.GameTranslationPK;
-import org.m4.bgw.domain.GameTranslationRepository;
 import org.m4.bgw.domain.Gender;
 import org.m4.bgw.domain.GenderRepository;
 import org.m4.bgw.domain.Language;
 import org.m4.bgw.domain.LanguageRepository;
-import org.m4.bgw.domain.LevelTranslation;
-import org.m4.bgw.domain.LevelTranslationPK;
-import org.m4.bgw.domain.LevelTranslationRepository;
 import org.m4.bgw.domain.Played;
 import org.m4.bgw.domain.PlayedRepository;
 import org.m4.bgw.domain.Player;
 import org.m4.bgw.domain.PlayerRepository;
 import org.m4.bgw.domain.Publisher;
 import org.m4.bgw.domain.PublisherRepository;
-import org.m4.bgw.domain.TagTranslation;
-import org.m4.bgw.domain.TagTranslationPK;
-import org.m4.bgw.domain.TagTranslationRepository;
 import org.m4.bgw.domain.TimeLimit;
 import org.m4.bgw.domain.TimeLimitRepository;
 import org.m4.bgw.domain.UserLevel;
 import org.m4.bgw.domain.UserLevelRepository;
+import org.m4.bgw.domain.translate.AchievementTranslation;
+import org.m4.bgw.domain.translate.AchievementTranslationRepository;
+import org.m4.bgw.domain.translate.ExternalLink;
+import org.m4.bgw.domain.translate.ExternalLinkRepository;
+import org.m4.bgw.domain.translate.GameTranslation;
+import org.m4.bgw.domain.translate.GameTranslationRepository;
+import org.m4.bgw.domain.translate.LevelTranslation;
+import org.m4.bgw.domain.translate.LevelTranslationRepository;
+import org.m4.bgw.domain.translate.TagTranslation;
+import org.m4.bgw.domain.translate.TagTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -187,9 +183,9 @@ public class ApplicationConversionServiceFactoryBean
         };
     }
 
-	public Converter<AchievementTranslationPK, AchievementTranslation> getIdToAchievementTranslationConverter() {
-        return new Converter<AchievementTranslationPK, AchievementTranslation>() {
-            public AchievementTranslation convert(AchievementTranslationPK id) {
+	public Converter<Integer, AchievementTranslation> getIdToAchievementTranslationConverter() {
+        return new Converter<Integer, AchievementTranslation>() {
+            public AchievementTranslation convert(Integer id) {
                 return achievementTranslationRepository.findOne(id);
             }
         };
@@ -198,7 +194,7 @@ public class ApplicationConversionServiceFactoryBean
 	public Converter<String, AchievementTranslation> getStringToAchievementTranslationConverter() {
         return new Converter<String, AchievementTranslation>() {
             public AchievementTranslation convert(String id) {
-                return getObject().convert(getObject().convert(id, AchievementTranslationPK.class), AchievementTranslation.class);
+                return getObject().convert(getObject().convert(id, Integer.class), AchievementTranslation.class);
             }
         };
     }
@@ -263,7 +259,6 @@ public class ApplicationConversionServiceFactoryBean
             public String convert(Country country) {return country.getName(); }
         };
     }
-
 	
 	public Converter<String, Country> getIdToCountryConverter() {
         return new Converter<String, Country>() {
@@ -386,9 +381,9 @@ public class ApplicationConversionServiceFactoryBean
         };
     }
 
-	public Converter<GameTranslationPK, GameTranslation> getIdToGameTranslationConverter() {
-        return new Converter<GameTranslationPK, GameTranslation>() {
-            public GameTranslation convert(GameTranslationPK id) {
+	public Converter<Integer, GameTranslation> getIdToGameTranslationConverter() {
+        return new Converter<Integer, GameTranslation>() {
+            public GameTranslation convert(Integer id) {
                 return gameTranslationRepository.findOne(id);
             }
         };
@@ -397,7 +392,7 @@ public class ApplicationConversionServiceFactoryBean
 	public Converter<String, GameTranslation> getStringToGameTranslationConverter() {
         return new Converter<String, GameTranslation>() {
             public GameTranslation convert(String id) {
-                return getObject().convert(getObject().convert(id, GameTranslationPK.class), GameTranslation.class);
+                return getObject().convert(getObject().convert(id, Integer.class), GameTranslation.class);
             }
         };
     }
@@ -454,9 +449,9 @@ public class ApplicationConversionServiceFactoryBean
         };
     }
 
-	public Converter<LevelTranslationPK, LevelTranslation> getIdToLevelTranslationConverter() {
-        return new Converter<LevelTranslationPK, LevelTranslation>() {
-            public LevelTranslation convert(LevelTranslationPK id) {
+	public Converter<Integer, LevelTranslation> getIdToLevelTranslationConverter() {
+        return new Converter<Integer, LevelTranslation>() {
+            public LevelTranslation convert(Integer id) {
                 return levelTranslationRepository.findOne(id);
             }
         };
@@ -465,7 +460,7 @@ public class ApplicationConversionServiceFactoryBean
 	public Converter<String, LevelTranslation> getStringToLevelTranslationConverter() {
         return new Converter<String, LevelTranslation>() {
             public LevelTranslation convert(String id) {
-                return getObject().convert(getObject().convert(id, LevelTranslationPK.class), LevelTranslation.class);
+                return getObject().convert(getObject().convert(id, Integer.class), LevelTranslation.class);
             }
         };
     }
@@ -549,9 +544,9 @@ public class ApplicationConversionServiceFactoryBean
         };
     }
 
-	public Converter<TagTranslationPK, TagTranslation> getIdToTagTranslationConverter() {
-        return new Converter<TagTranslationPK, TagTranslation>() {
-            public TagTranslation convert(TagTranslationPK id) {
+	public Converter<Integer, TagTranslation> getIdToTagTranslationConverter() {
+        return new Converter<Integer, TagTranslation>() {
+            public TagTranslation convert(Integer id) {
                 return tagTranslationRepository.findOne(id);
             }
         };
@@ -560,7 +555,7 @@ public class ApplicationConversionServiceFactoryBean
 	public Converter<String, TagTranslation> getStringToTagTranslationConverter() {
         return new Converter<String, TagTranslation>() {
             public TagTranslation convert(String id) {
-                return getObject().convert(getObject().convert(id, TagTranslationPK.class), TagTranslation.class);
+                return getObject().convert(getObject().convert(id, Integer.class), TagTranslation.class);
             }
         };
     }
@@ -617,54 +612,6 @@ public class ApplicationConversionServiceFactoryBean
         };
     }
 
-	public Converter<String, TagTranslationPK> getJsonToTagTranslationPKConverter() {
-        return new Converter<String, TagTranslationPK>() {
-            public TagTranslationPK convert(String encodedJson) {
-                return TagTranslationPK.fromJsonToTagTranslationPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-
-	public Converter<TagTranslationPK, String> getTagTranslationPKToJsonConverter() {
-        return new Converter<TagTranslationPK, String>() {
-            public String convert(TagTranslationPK tagTranslationPK) {
-                return Base64.encodeBase64URLSafeString(tagTranslationPK.toJson().getBytes());
-            }
-        };
-    }
-
-	public Converter<String, AchievementTranslationPK> getJsonToAchievementTranslationPKConverter() {
-        return new Converter<String, AchievementTranslationPK>() {
-            public AchievementTranslationPK convert(String encodedJson) {
-                return AchievementTranslationPK.fromJsonToAchievementTranslationPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-
-	public Converter<AchievementTranslationPK, String> getAchievementTranslationPKToJsonConverter() {
-        return new Converter<AchievementTranslationPK, String>() {
-            public String convert(AchievementTranslationPK achievementTranslationPK) {
-                return Base64.encodeBase64URLSafeString(achievementTranslationPK.toJson().getBytes());
-            }
-        };
-    }
-
-
-	public Converter<String, GameTranslationPK> getJsonToGameTranslationPKConverter() {
-        return new Converter<String, GameTranslationPK>() {
-            public GameTranslationPK convert(String encodedJson) {
-                return GameTranslationPK.fromJsonToGameTranslationPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-
-	public Converter<GameTranslationPK, String> getGameTranslationPKToJsonConverter() {
-        return new Converter<GameTranslationPK, String>() {
-            public String convert(GameTranslationPK gameTranslationPK) {
-                return Base64.encodeBase64URLSafeString(gameTranslationPK.toJson().getBytes());
-            }
-        };
-    }
 
 	public Converter<String, AvgGameLengthPK> getJsonToAvgGameLengthPKConverter() {
         return new Converter<String, AvgGameLengthPK>() {
@@ -678,22 +625,6 @@ public class ApplicationConversionServiceFactoryBean
         return new Converter<AvgGameLengthPK, String>() {
             public String convert(AvgGameLengthPK avgGameLengthPK) {
                 return Base64.encodeBase64URLSafeString(avgGameLengthPK.toJson().getBytes());
-            }
-        };
-    }
-
-	public Converter<String, LevelTranslationPK> getJsonToLevelTranslationPKConverter() {
-        return new Converter<String, LevelTranslationPK>() {
-            public LevelTranslationPK convert(String encodedJson) {
-                return LevelTranslationPK.fromJsonToLevelTranslationPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-
-	public Converter<LevelTranslationPK, String> getLevelTranslationPKToJsonConverter() {
-        return new Converter<LevelTranslationPK, String>() {
-            public String convert(LevelTranslationPK levelTranslationPK) {
-                return Base64.encodeBase64URLSafeString(levelTranslationPK.toJson().getBytes());
             }
         };
     }
@@ -755,16 +686,8 @@ public class ApplicationConversionServiceFactoryBean
         registry.addConverter(getUserLevelToStringConverter());
         registry.addConverter(getIdToUserLevelConverter());
         registry.addConverter(getStringToUserLevelConverter());
-        registry.addConverter(getJsonToTagTranslationPKConverter());
-        registry.addConverter(getTagTranslationPKToJsonConverter());
-        registry.addConverter(getJsonToAchievementTranslationPKConverter());
-        registry.addConverter(getAchievementTranslationPKToJsonConverter());
-        registry.addConverter(getJsonToGameTranslationPKConverter());
-        registry.addConverter(getGameTranslationPKToJsonConverter());
         registry.addConverter(getJsonToAvgGameLengthPKConverter());
         registry.addConverter(getAvgGameLengthPKToJsonConverter());
-        registry.addConverter(getJsonToLevelTranslationPKConverter());
-        registry.addConverter(getLevelTranslationPKToJsonConverter());
     }
 
 	@Override

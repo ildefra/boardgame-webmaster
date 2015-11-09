@@ -4,10 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.m4.bgw.domain.LanguageRepository;
-import org.m4.bgw.domain.LevelTranslation;
-import org.m4.bgw.domain.LevelTranslationPK;
-import org.m4.bgw.domain.LevelTranslationRepository;
 import org.m4.bgw.domain.UserLevelRepository;
+import org.m4.bgw.domain.translate.LevelTranslation;
+import org.m4.bgw.domain.translate.LevelTranslationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.PageRequest;
@@ -64,7 +63,7 @@ public class LevelTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", produces = "text/html")
-    public String show(@PathVariable("id") LevelTranslationPK id, Model uiModel) {
+    public String show(@PathVariable("id") Integer id, Model uiModel) {
         uiModel.addAttribute("leveltranslation", levelTranslationRepository.findOne(id));
         uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
         return "leveltranslations/show";
@@ -110,7 +109,7 @@ public class LevelTranslationController {
     }
 
 	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String updateForm(@PathVariable("id") LevelTranslationPK id, Model uiModel) {
+    public String updateForm(@PathVariable("id") Integer id, Model uiModel) {
         populateEditForm(uiModel, levelTranslationRepository.findOne(id));
         return "leveltranslations/update";
     }
@@ -118,7 +117,7 @@ public class LevelTranslationController {
 	@RequestMapping(
 	        value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(
-            @PathVariable("id") LevelTranslationPK id,
+            @PathVariable("id") Integer id,
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "size", required = false) Integer size,
             Model uiModel) {
