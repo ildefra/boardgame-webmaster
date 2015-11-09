@@ -123,6 +123,7 @@ public class LevelTranslationController {
             Model uiModel) {
         LevelTranslation levelTranslation = levelTranslationRepository.findOne(id);
         levelTranslationRepository.delete(levelTranslation);
+        
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
