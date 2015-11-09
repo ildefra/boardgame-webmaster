@@ -181,6 +181,7 @@
 					<c:set var="columnType" value="${types[num.count-1]}" />
 					<c:set var="columnDatePattern" value="${patterns[num.count-1]}" />
 					<td>
+						<!-- <c:out value="columnType=${columnType} " /> -->
 						<c:choose>
 							<c:when test="${columnType eq 'date'}">
 								<spring:escapeBody>
@@ -197,6 +198,12 @@
 											var="colTxt"
 									/>
 								</spring:escapeBody>
+							</c:when>
+							<c:when test="${columnType eq 'bool'}">
+								<c:set var="colTxt">
+									<spring:eval expression="item.${column} ? 'yes' : 'no'"
+											htmlEscape="false" />
+								</c:set>
 							</c:when>
 							<c:otherwise>
 								<c:set var="colTxt">
