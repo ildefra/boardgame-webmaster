@@ -15,8 +15,7 @@
             		bool="true" />
             <table:column id="c_org_m4_bgw_domain_GameTable_videoRecorded"	property="videoRecorded"
             		bool="true" />
-            <table:column id="c_org_m4_bgw_domain_GameTable_createdDtm"		property="createdDtm"
-            		calendar="true" dateTimePattern="${gameTable_createddtm_date_format}" />
+            <table:column id="c_org_m4_bgw_domain_GameTable_createdDtm"		property="createdDtm" />
         </table:table>
     </page:list>
 </div>

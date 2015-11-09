@@ -174,8 +174,11 @@
 					<c:set var="columnMaxLength" value="${lengths[num.count-1]}" />
 					<c:set var="columnType" value="${types[num.count-1]}" />
 					<c:set var="columnDatePattern" value="${patterns[num.count-1]}" />
+					
 					<td>
-						<!-- <c:out value="columnType=${columnType} " /> -->
+						<!--
+						<c:out value="columnType=${columnType} " />
+						-->
 						<c:choose>
 							<c:when test="${columnType eq 'date'}">
 								<spring:escapeBody>
@@ -186,6 +189,7 @@
 								</spring:escapeBody>
 							</c:when>
 							<c:when test="${columnType eq 'calendar'}">
+								<!-- <c:out value="calendar field" /> -->
 								<spring:escapeBody>
 									<fmt:formatDate value="${item[column].time}"
 											pattern="${fn:escapeXml(columnDatePattern)}"
@@ -211,6 +215,7 @@
 						</c:if>
 						<c:out value="${colTxt}" />
 					</td>
+					
 				</c:forTokens>
 
 				<c:set var="itemId"><spring:eval expression="item.${typeIdFieldName}" /></c:set>
