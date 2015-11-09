@@ -11,6 +11,7 @@ import org.m4.bgw.domain.BoardgameRepository;
 import org.m4.bgw.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,12 +40,14 @@ public class AchievedController {
 
 	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(
-            @Valid Achieved achieved, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+            @Valid Achieved achieved,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, achieved);
             return "achieveds/create";
         }
         achievedRepository.save(achieved);
+        
         uiModel.asMap().clear();
         uiModel.addAttribute("page", "1");
         uiModel.addAttribute("size", "10");
@@ -63,13 +66,18 @@ public class AchievedController {
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "size", required = false) Integer size,
             @RequestParam(value = "sortFieldName", required = false) String sortFieldName,
-            @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+            @RequestParam(value = "sortOrder", required = false) String sortOrder,
+            Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("achieveds", achievedRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / sizeNo, sizeNo)).getContent());
+            uiModel.addAttribute(
+                    "achieveds",
+                    achievedRepository.findAll(new PageRequest(firstResult / sizeNo, sizeNo)).getContent());
             float nrOfPages = (float) achievedRepository.count() / sizeNo;
-            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+            uiModel.addAttribute(
+                    "maxPages",
+                    (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
             uiModel.addAttribute("achieveds", achievedRepository.findAll());
         }
@@ -79,12 +87,14 @@ public class AchievedController {
 
 	@RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(
-            @Valid Achieved achieved, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+            @Valid Achieved achieved,
+            BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, achieved);
             return "achieveds/update";
         }
         achievedRepository.save(achieved);
+        
         uiModel.asMap().clear();
         uiModel.addAttribute("page", "1");
         uiModel.addAttribute("size", "10");
@@ -97,11 +107,13 @@ public class AchievedController {
         return "achieveds/update";
     }
 
-	@RequestMapping(value = "/{achievedId}", method = RequestMethod.DELETE, produces = "text/html")
+	@RequestMapping(
+	        value = "/{achievedId}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(
             @PathVariable("achievedId") Integer achievedId,
             @RequestParam(value = "page", required = false) Integer page,
-            @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+            @RequestParam(value = "size", required = false) Integer size,
+            Model uiModel) {
         Achieved achieved = achievedRepository.findOne(achievedId);
         achievedRepository.delete(achieved);
         uiModel.asMap().clear();
@@ -111,14 +123,16 @@ public class AchievedController {
     }
 
 	void addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("achieved_ondate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute(
+                "achieved_ondate_date_format",
+                DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
 
 	void populateEditForm(Model uiModel, Achieved achieved) {
+	    addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("achieved", achieved);
-        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("achievements", achievementRepository.findAll());
-        uiModel.addAttribute("boardgames", boardgameRepository.findAll());
-        uiModel.addAttribute("players", playerRepository.findAll());
+        uiModel.addAttribute("boardgames",  boardgameRepository.findAll());
+        uiModel.addAttribute("players",     playerRepository.findAll());
     }
 }
