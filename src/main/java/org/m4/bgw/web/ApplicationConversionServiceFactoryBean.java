@@ -34,7 +34,6 @@ import org.m4.bgw.domain.LevelTranslation;
 import org.m4.bgw.domain.LevelTranslationPK;
 import org.m4.bgw.domain.LevelTranslationRepository;
 import org.m4.bgw.domain.Played;
-import org.m4.bgw.domain.PlayedPK;
 import org.m4.bgw.domain.PlayedRepository;
 import org.m4.bgw.domain.Player;
 import org.m4.bgw.domain.PlayerRepository;
@@ -473,25 +472,34 @@ public class ApplicationConversionServiceFactoryBean
 
 	
 	public Converter<Played, String> getPlayedToStringConverter() {
+	    
         return new Converter<Played, String>() {
+            
+            @Override
             public String convert(Played played) {
-                return new StringBuilder().append(played.getScore()).toString();
+                return String.valueOf(played.getPlayedId());
             }
         };
     }
 
-	public Converter<PlayedPK, Played> getIdToPlayedConverter() {
-        return new Converter<PlayedPK, Played>() {
-            public Played convert(PlayedPK id) {
-                return playedRepository.findOne(id);
+	public Converter<Integer, Played> getIdToPlayedConverter() {
+	    
+        return new Converter<Integer, Played>() {
+            
+            @Override
+            public Played convert(Integer playedId) {
+                return playedRepository.findOne(playedId);
             }
         };
     }
 
 	public Converter<String, Played> getStringToPlayedConverter() {
+	    
         return new Converter<String, Played>() {
+            
+            @Override
             public Played convert(String id) {
-                return getObject().convert(getObject().convert(id, PlayedPK.class), Played.class);
+                return getObject().convert(getObject().convert(id, Integer.class), Played.class);
             }
         };
     }
@@ -641,21 +649,6 @@ public class ApplicationConversionServiceFactoryBean
         };
     }
 
-	public Converter<String, PlayedPK> getJsonToPlayedPKConverter() {
-        return new Converter<String, PlayedPK>() {
-            public PlayedPK convert(String encodedJson) {
-                return PlayedPK.fromJsonToPlayedPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-
-	public Converter<PlayedPK, String> getPlayedPKToJsonConverter() {
-        return new Converter<PlayedPK, String>() {
-            public String convert(PlayedPK playedPK) {
-                return Base64.encodeBase64URLSafeString(playedPK.toJson().getBytes());
-            }
-        };
-    }
 
 	public Converter<String, GameTranslationPK> getJsonToGameTranslationPKConverter() {
         return new Converter<String, GameTranslationPK>() {
@@ -766,8 +759,6 @@ public class ApplicationConversionServiceFactoryBean
         registry.addConverter(getTagTranslationPKToJsonConverter());
         registry.addConverter(getJsonToAchievementTranslationPKConverter());
         registry.addConverter(getAchievementTranslationPKToJsonConverter());
-        registry.addConverter(getJsonToPlayedPKConverter());
-        registry.addConverter(getPlayedPKToJsonConverter());
         registry.addConverter(getJsonToGameTranslationPKConverter());
         registry.addConverter(getGameTranslationPKToJsonConverter());
         registry.addConverter(getJsonToAvgGameLengthPKConverter());

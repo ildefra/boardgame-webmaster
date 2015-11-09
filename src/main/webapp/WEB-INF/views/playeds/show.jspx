@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_m4_bgw_domain_Played" object="${played}" path="/playeds" z="WeSfzFny0/Kz6gafMj9C5GKbtjg=">
         <field:display field="gameTableId" id="s_org_m4_bgw_domain_Played_gameTableId" object="${played}" z="gc89XlTB6W9j/ExY9dPzwcYyRx4="/>
-        <field:display field="username" id="s_org_m4_bgw_domain_Played_username" object="${played}" z="RSbKBZ6xt1Gg4JdqV/pGUTZeLkA="/>
+        <field:display field="player" id="s_org_m4_bgw_domain_Played_username" object="${played}" z="RSbKBZ6xt1Gg4JdqV/pGUTZeLkA="/>
         <field:display field="score" id="s_org_m4_bgw_domain_Played_score" object="${played}" z="sowfehou5ClKwbbtzDc7nw5Bjp0="/>
     </page:show>
 </div>

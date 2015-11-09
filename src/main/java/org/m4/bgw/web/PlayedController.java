@@ -5,7 +5,6 @@ import javax.validation.Valid;
 
 import org.m4.bgw.domain.GameTableRepository;
 import org.m4.bgw.domain.Played;
-import org.m4.bgw.domain.PlayedPK;
 import org.m4.bgw.domain.PlayedRepository;
 import org.m4.bgw.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,10 +62,10 @@ public class PlayedController {
         return "playeds/create";
     }
 
-	@RequestMapping(value = "/{id}", produces = "text/html")
-    public String show(@PathVariable("id") PlayedPK id, Model uiModel) {
-        uiModel.addAttribute("played", playedRepository.findOne(id));
-        uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
+	@RequestMapping(value = "/{playedId}", produces = "text/html")
+    public String show(@PathVariable("playedId") Integer playedId, Model uiModel) {
+        uiModel.addAttribute("played", playedRepository.findOne(playedId));
+        uiModel.addAttribute("itemId", conversionService.convert(playedId, String.class));
         return "playeds/show";
     }
 
@@ -109,20 +108,20 @@ public class PlayedController {
         return "redirect:/playeds";
     }
 
-	@RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String updateForm(@PathVariable("id") PlayedPK id, Model uiModel) {
-        populateEditForm(uiModel, playedRepository.findOne(id));
+	@RequestMapping(value = "/{playedId}", params = "form", produces = "text/html")
+    public String updateForm(@PathVariable("playedId") Integer playedId, Model uiModel) {
+        populateEditForm(uiModel, playedRepository.findOne(playedId));
         return "playeds/update";
     }
 
 	@RequestMapping(
-	        value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
+	        value = "/{playedId}", method = RequestMethod.DELETE, produces = "text/html")
     public String delete(
-            @PathVariable("id") PlayedPK id,
+            @PathVariable("playedId") Integer playedId,
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "size", required = false) Integer size,
             Model uiModel) {
-        Played played = playedRepository.findOne(id);
+        Played played = playedRepository.findOne(playedId);
         playedRepository.delete(played);
         
         uiModel.asMap().clear();
@@ -133,7 +132,7 @@ public class PlayedController {
 
 	void populateEditForm(Model uiModel, Played played) {
         uiModel.addAttribute("played", played);
-        uiModel.addAttribute("gametables", gameTableRepository.findAll());
-        uiModel.addAttribute("players", playerRepository.findAll());
+        uiModel.addAttribute("gametables",  gameTableRepository.findAll());
+        uiModel.addAttribute("players",     playerRepository.findAll());
     }
 }

@@ -7,9 +7,10 @@
     <jsp:output omit-xml-declaration="yes" />
     
     <page:list id="pl_org_m4_bgw_domain_Played" items="${playeds}">
-        <table:table id="l_org_m4_bgw_domain_Played" data="${playeds}" path="/playeds">
+        <table:table id="l_org_m4_bgw_domain_Played" path="/playeds" data="${playeds}"
+        		typeIdFieldName="playedId">
             <table:column id="c_org_m4_bgw_domain_Played_gameTableId" property="gameTableId" />
-            <table:column id="c_org_m4_bgw_domain_Played_username" property="username" />
+            <table:column id="c_org_m4_bgw_domain_Played_username" property="player" />
             <table:column id="c_org_m4_bgw_domain_Played_score" property="score" />
         </table:table>
     </page:list>

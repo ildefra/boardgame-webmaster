@@ -71,7 +71,7 @@ public class Player {
 	@OneToMany(mappedBy = "player")
     private Set<Achieved> achieveds;
 
-	@OneToMany(mappedBy = "username")
+	@OneToMany(mappedBy = "player")
     private Set<Played> playeds;
 
 
