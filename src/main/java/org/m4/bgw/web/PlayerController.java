@@ -118,7 +118,7 @@ public class PlayerController {
         uiModel.asMap().clear();
         uiModel.addAttribute("page", "1");
         uiModel.addAttribute("size", "10");
-        return "redirect:/playeds";
+        return "redirect:/players";
     }
 
 	@RequestMapping(value = "/{username}", params = "form", produces = "text/html")
