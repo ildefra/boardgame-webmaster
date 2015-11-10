@@ -7,6 +7,8 @@ import org.m4.bgw.domain.BoardgameRepository;
 import org.m4.bgw.domain.GameDesigner;
 import org.m4.bgw.domain.GameDesignerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -59,7 +61,12 @@ public class GameDesignerController {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("gamedesigners", gameDesignerRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / sizeNo, sizeNo)).getContent());
+            
+            PageRequest pagedAndSorted =
+                    new PageRequest(firstResult / sizeNo, sizeNo, Direction.ASC, "surname");
+            uiModel.addAttribute(
+                    "gamedesigners", gameDesignerRepository.findAll(pagedAndSorted).getContent());
+
             float nrOfPages = (float) gameDesignerRepository.count() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
