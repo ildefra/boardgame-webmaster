@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="org.m4.bgw.web.BoardgameController" project="bgw" 
+    file="/bgw/src/main/java/org/m4/bgw/web/BoardgameController.java" binary="false" label="boardgameController" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="259" width="0" x="0" y="78"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="196" width="0" x="0" y="120"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="org.springframework.validation.Errors" project="bgw" 
+    file="C:/Users/lenovo648567/.m2/repository/org/springframework/spring-context/4.2.2.RELEASE/spring-context-4.2.2.RELEASE.jar" 
+    binary="true" label="bindingResult" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="0" x="0" y="151"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="org.springframework.data.repository.CrudRepository" project="bgw" 
+    file="C:/Users/lenovo648567/.m2/repository/org/springframework/data/spring-data-commons/1.11.0.RELEASE/spring-data-commons-1.11.0.RELEASE.jar" 
+    binary="true" label="boardgameRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="190"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="org.springframework.ui.Model" project="bgw" 
+    file="C:/Users/lenovo648567/.m2/repository/org/springframework/spring-context/4.2.2.RELEASE/spring-context-4.2.2.RELEASE.jar" 
+    binary="true" label="uiModel" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="231"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="274"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="create(org.m4.bgw.domain.Boardgame,org.springframework.validation.BindingResult,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest):java.lang.String" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="hasErrors():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="addAttribute(java.lang.String,java.lang.Object):org.springframework.ui.Model" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="addAttribute(java.lang.String,java.lang.Object):org.springframework.ui.Model" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>
+</sequence-diagram>
