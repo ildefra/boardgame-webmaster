@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="org.m4.bgw.web.BoardgameController" project="bgw" 
+    file="/bgw/src/main/java/org/m4/bgw/web/BoardgameController.java" binary="false" label="boardgameController" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="96" y="0"/>    
+    <execution id="2">      
+      <position height="173" width="0" x="0" y="79"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="110" width="0" x="0" y="121"/>    
+    </execution>  
+  </object>  
+  <object id="9" language="java" name="org.springframework.ui.Model" project="bgw" 
+    file="C:/Users/lenovo648567/.m2/repository/org/springframework/spring-context/4.2.2.RELEASE/spring-context-4.2.2.RELEASE.jar" 
+    binary="true" label="uiModel" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="189"/>    
+    </execution>  
+  </object>  
+  <object id="10" language="java" name="org.springframework.data.repository.PagingAndSortingRepository" project="bgw" 
+    file="C:/Users/lenovo648567/.m2/repository/org/springframework/data/spring-data-commons/1.11.0.RELEASE/spring-data-commons-1.11.0.RELEASE.jar" 
+    binary="true" label="boardgameRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="0" x="0" y="155"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="list(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,org.springframework.ui.Model):java.lang.String" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="findAll():java.util.List&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="addAttribute(java.lang.String,java.lang.Object):org.springframework.ui.Model" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>
+</sequence-diagram>
